@@ -1,0 +1,233 @@
+
+> my-project@0.1.0 build
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/cbc/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/cbc/Documents/anago-group-main/pnpm-lock.yaml
+
+▲ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 8 errors:
+./Documents/anago-group-main/components/pages/AboutPage.tsx:10:1
+Export useApp doesn't exist in target module
+[0m [90m  8 |[39m [36mimport[39m { [33mRevealSection[39m[33m,[39m [33mRevealSectionLeft[39m[33m,[39m [33mRevealSectionRight[39m } [36mfrom[39m [32m"@/components/shared/RevealSection"[39m
+ [90m  9 |[39m [36mimport[39m { [33mCounterValue[39m } [36mfrom[39m [32m"@/components/shared/Counter"[39m
+[31m[1m>[22m[39m[90m 10 |[39m [36mimport[39m { useApp } [36mfrom[39m [32m"@/context/AppContext"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 11 |[39m [36mimport[39m { useRouter } [36mfrom[39m [32m"next/navigation"[39m
+ [90m 12 |[39m
+ [90m 13 |[39m [36mexport[39m [36mfunction[39m [33mAboutPage[39m() {[0m
+
+The export useApp was not found in module [project]/Documents/anago-group-main/context/AppContext.tsx [app-client] (ecmascript).
+Did you mean to import useAppContext?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/anago-group-main/components/pages/AboutPage.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/about/page.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/about/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/anago-group-main/components/pages/AboutPage.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/about/page.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/about/page.tsx [Server Component]
+
+
+./Documents/anago-group-main/components/pages/AboutPage.tsx:10:1
+Export useApp doesn't exist in target module
+[0m [90m  8 |[39m [36mimport[39m { [33mRevealSection[39m[33m,[39m [33mRevealSectionLeft[39m[33m,[39m [33mRevealSectionRight[39m } [36mfrom[39m [32m"@/components/shared/RevealSection"[39m
+ [90m  9 |[39m [36mimport[39m { [33mCounterValue[39m } [36mfrom[39m [32m"@/components/shared/Counter"[39m
+[31m[1m>[22m[39m[90m 10 |[39m [36mimport[39m { useApp } [36mfrom[39m [32m"@/context/AppContext"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 11 |[39m [36mimport[39m { useRouter } [36mfrom[39m [32m"next/navigation"[39m
+ [90m 12 |[39m
+ [90m 13 |[39m [36mexport[39m [36mfunction[39m [33mAboutPage[39m() {[0m
+
+The export useApp was not found in module [project]/Documents/anago-group-main/context/AppContext.tsx [app-ssr] (ecmascript).
+Did you mean to import useAppContext?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/anago-group-main/components/pages/AboutPage.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/about/page.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/about/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/anago-group-main/components/pages/AboutPage.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/about/page.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/about/page.tsx [Server Component]
+
+
+./Documents/anago-group-main/components/pages/ContactPage.tsx:10:1
+Export useApp doesn't exist in target module
+[0m [90m  8 |[39m } [36mfrom[39m [32m"lucide-react"[39m
+ [90m  9 |[39m [36mimport[39m { [33mRevealSection[39m } [36mfrom[39m [32m"@/components/shared/RevealSection"[39m
+[31m[1m>[22m[39m[90m 10 |[39m [36mimport[39m { useApp } [36mfrom[39m [32m"@/context/AppContext"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 11 |[39m [36mimport[39m { useRouter } [36mfrom[39m [32m"next/navigation"[39m
+ [90m 12 |[39m
+ [90m 13 |[39m [36mexport[39m [36mfunction[39m [33mContactPage[39m() {[0m
+
+The export useApp was not found in module [project]/Documents/anago-group-main/context/AppContext.tsx [app-client] (ecmascript).
+Did you mean to import useAppContext?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/anago-group-main/components/pages/ContactPage.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/contact/page.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/contact/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/anago-group-main/components/pages/ContactPage.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/contact/page.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/contact/page.tsx [Server Component]
+
+
+./Documents/anago-group-main/components/pages/ContactPage.tsx:10:1
+Export useApp doesn't exist in target module
+[0m [90m  8 |[39m } [36mfrom[39m [32m"lucide-react"[39m
+ [90m  9 |[39m [36mimport[39m { [33mRevealSection[39m } [36mfrom[39m [32m"@/components/shared/RevealSection"[39m
+[31m[1m>[22m[39m[90m 10 |[39m [36mimport[39m { useApp } [36mfrom[39m [32m"@/context/AppContext"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 11 |[39m [36mimport[39m { useRouter } [36mfrom[39m [32m"next/navigation"[39m
+ [90m 12 |[39m
+ [90m 13 |[39m [36mexport[39m [36mfunction[39m [33mContactPage[39m() {[0m
+
+The export useApp was not found in module [project]/Documents/anago-group-main/context/AppContext.tsx [app-ssr] (ecmascript).
+Did you mean to import useAppContext?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/anago-group-main/components/pages/ContactPage.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/contact/page.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/contact/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/anago-group-main/components/pages/ContactPage.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/contact/page.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/contact/page.tsx [Server Component]
+
+
+./Documents/anago-group-main/components/pages/HomePage.tsx:13:1
+Export useApp doesn't exist in target module
+[0m [90m 11 |[39m [36mimport[39m { [33mRevealSection[39m } [36mfrom[39m [32m"@/components/shared/RevealSection"[39m
+ [90m 12 |[39m [36mimport[39m { [33mCounterValue[39m } [36mfrom[39m [32m"@/components/shared/Counter"[39m
+[31m[1m>[22m[39m[90m 13 |[39m [36mimport[39m { useApp } [36mfrom[39m [32m"@/context/AppContext"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 14 |[39m [36mimport[39m { useRouter } [36mfrom[39m [32m"next/navigation"[39m
+ [90m 15 |[39m
+ [90m 16 |[39m [36mexport[39m [36mfunction[39m [33mHomePage[39m() {[0m
+
+The export useApp was not found in module [project]/Documents/anago-group-main/context/AppContext.tsx [app-client] (ecmascript).
+Did you mean to import useAppContext?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/anago-group-main/components/pages/HomePage.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/page.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/anago-group-main/components/pages/HomePage.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/page.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/page.tsx [Server Component]
+
+
+./Documents/anago-group-main/components/pages/HomePage.tsx:13:1
+Export useApp doesn't exist in target module
+[0m [90m 11 |[39m [36mimport[39m { [33mRevealSection[39m } [36mfrom[39m [32m"@/components/shared/RevealSection"[39m
+ [90m 12 |[39m [36mimport[39m { [33mCounterValue[39m } [36mfrom[39m [32m"@/components/shared/Counter"[39m
+[31m[1m>[22m[39m[90m 13 |[39m [36mimport[39m { useApp } [36mfrom[39m [32m"@/context/AppContext"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 14 |[39m [36mimport[39m { useRouter } [36mfrom[39m [32m"next/navigation"[39m
+ [90m 15 |[39m
+ [90m 16 |[39m [36mexport[39m [36mfunction[39m [33mHomePage[39m() {[0m
+
+The export useApp was not found in module [project]/Documents/anago-group-main/context/AppContext.tsx [app-ssr] (ecmascript).
+Did you mean to import useAppContext?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/anago-group-main/components/pages/HomePage.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/page.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/anago-group-main/components/pages/HomePage.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/page.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/page.tsx [Server Component]
+
+
+./Documents/anago-group-main/components/pages/SectorPage.tsx:9:1
+Export useApp doesn't exist in target module
+[0m [90m  7 |[39m } [36mfrom[39m [32m"lucide-react"[39m
+ [90m  8 |[39m [36mimport[39m { [33mRevealSection[39m } [36mfrom[39m [32m"@/components/shared/RevealSection"[39m
+[31m[1m>[22m[39m[90m  9 |[39m [36mimport[39m { useApp } [36mfrom[39m [32m"@/context/AppContext"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 10 |[39m
+ [90m 11 |[39m [36mexport[39m [36mfunction[39m [33mSectorPage[39m() {
+ [90m 12 |[39m     [36mconst[39m { sector } [33m=[39m useParams()[0m
+
+The export useApp was not found in module [project]/Documents/anago-group-main/context/AppContext.tsx [app-client] (ecmascript).
+Did you mean to import useAppContext?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/anago-group-main/components/pages/SectorPage.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/industries/[sector]/page.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/industries/[sector]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/anago-group-main/components/pages/SectorPage.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/industries/[sector]/page.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/industries/[sector]/page.tsx [Server Component]
+
+
+./Documents/anago-group-main/components/pages/SectorPage.tsx:9:1
+Export useApp doesn't exist in target module
+[0m [90m  7 |[39m } [36mfrom[39m [32m"lucide-react"[39m
+ [90m  8 |[39m [36mimport[39m { [33mRevealSection[39m } [36mfrom[39m [32m"@/components/shared/RevealSection"[39m
+[31m[1m>[22m[39m[90m  9 |[39m [36mimport[39m { useApp } [36mfrom[39m [32m"@/context/AppContext"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 10 |[39m
+ [90m 11 |[39m [36mexport[39m [36mfunction[39m [33mSectorPage[39m() {
+ [90m 12 |[39m     [36mconst[39m { sector } [33m=[39m useParams()[0m
+
+The export useApp was not found in module [project]/Documents/anago-group-main/context/AppContext.tsx [app-ssr] (ecmascript).
+Did you mean to import useAppContext?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./Documents/anago-group-main/components/pages/SectorPage.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/industries/[sector]/page.tsx [Client Component Browser]
+    ./Documents/anago-group-main/app/industries/[sector]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/anago-group-main/components/pages/SectorPage.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/industries/[sector]/page.tsx [Client Component SSR]
+    ./Documents/anago-group-main/app/industries/[sector]/page.tsx [Server Component]
+
+
+    at <unknown> (./Documents/anago-group-main/components/pages/AboutPage.tsx:10:1)
+    at <unknown> (./Documents/anago-group-main/components/pages/AboutPage.tsx:10:1)
+    at <unknown> (./Documents/anago-group-main/components/pages/ContactPage.tsx:10:1)
+    at <unknown> (./Documents/anago-group-main/components/pages/ContactPage.tsx:10:1)
+    at <unknown> (./Documents/anago-group-main/components/pages/HomePage.tsx:13:1)
+    at <unknown> (./Documents/anago-group-main/components/pages/HomePage.tsx:13:1)
+    at <unknown> (./Documents/anago-group-main/components/pages/SectorPage.tsx:9:1)
+    at <unknown> (./Documents/anago-group-main/components/pages/SectorPage.tsx:9:1)
