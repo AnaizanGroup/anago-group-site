@@ -24,3 +24,11 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/ # On n'envoie QUE le résultat du build
           server-dir: ./
+          server-dir: ./ 
+          # On désactive la suppression pour ce déploiement "propre"
+          delete-removed: false 
+          # On garde les exclusions par sécurité pour la suite
+          exclude: |
+            **/.well-known/**
+            **/.htaccess
+            **/cgi-bin/**
