@@ -22,5 +22,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/ # On n'envoie QUE le résultat du build
-          server-dir: ./
+          local-dir: ./out/
+          server-dir: ./ # <--- Utilisez "./" ou laissez vide
+        delete-removed: true
