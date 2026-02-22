@@ -29,7 +29,7 @@ export function AboutPage() {
                     <div className="grid lg:grid-cols-12 gap-12 items-center">
                         <div className="lg:col-span-12 max-w-4xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
                             <RevealSection className="flex items-center justify-center lg:justify-start gap-2 mb-8 stagger-1">
-                                <button onClick={() => router.push("/")} className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">{T("nav_home", "Home")}</button>
+                                <button onClick={() => router.push("/")} className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">{T("nav_home", "Homes")}</button>
                                 <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
                                 <span className="text-xs font-medium text-[#e7b13f]">{T("nav_about", "The Group")}</span>
                             </RevealSection>
