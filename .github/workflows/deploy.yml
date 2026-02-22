@@ -25,7 +25,7 @@ jobs:
           local-dir: ./out/ # On n'envoie QUE le résultat du build
           server-dir: ./
           # On désactive la suppression pour ce déploiement "propre"
-          delete-removed: false
+          delete-removed: true
           # On garde les exclusions par sécurité pour la suite
           exclude: |
             **/.well-known/**
