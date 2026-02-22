@@ -1,24 +1,27 @@
-name: Deploiement Automatique cPanel
+name: Deploy to cPanel (Vercel Style)
 
 on:
   push:
     branches:
-      - main # Vérifiez si votre branche s'appelle main ou master
+      - main
 
 jobs:
   deploy:
-    name: Transfert des fichiers
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Recuperation du code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v4
 
-      - name: 🚀 Synchro FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Install & Build (Si besoin)
+        run: |
+          npm install
+          npm run build # Génère le dossier 'dist' ou 'build'
+
+      - name: Sync vers cPanel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ./public_html/ # Destination dans le Gestionnaire de fichiers
+          local-dir: ./dist/ # On n'envoie QUE le résultat du build
+          server-dir: ./public_html/
+          # delete-removed: true # Supprime les anciens fichiers (comme Vercel)
