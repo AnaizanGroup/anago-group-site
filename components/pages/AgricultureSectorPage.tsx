@@ -164,33 +164,33 @@ export function AgricultureSectorPage() {
                         <div className="lg:col-span-7">
                             <RevealSection>
                                 <div className="flex items-center gap-2 mb-8">
-                                    <span className="text-xs font-medium text-white/40">Home</span>
+                                    <span className="text-xs font-medium text-white/40">{T("nav_home")}</span>
                                     <ChevronRight className="w-3 h-3 text-white/20" />
-                                    <span className="text-xs font-medium text-white/40">Industries</span>
+                                    <span className="text-xs font-medium text-white/40">{T("nav_industries")}</span>
                                     <ChevronRight className="w-3 h-3 text-white/20" />
-                                    <span className="text-xs font-medium text-gold-400">Agriculture & Livestock</span>
+                                    <span className="text-xs font-medium text-gold-400">{T("s_agri_title")}</span>
                                 </div>
 
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/30 bg-green-500/5 mb-8">
                                     <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse-gold" style={{ boxShadow: "0 0 0 0 rgba(34,197,94,0.4)" }}></div>
-                                    <span className="text-xs font-medium text-green-400 tracking-wider uppercase">Strategic Sector 04 · Feeding the Future</span>
+                                    <span className="text-xs font-medium text-green-400 tracking-wider uppercase">{T("agri_hero_badge")}</span>
                                 </div>
 
                                 <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-semibold tracking-tight text-white leading-[1.08] mb-6">
-                                    Agriculture & Livestock — <span className="gold-gradient">Building Modern Agro-Industrial Value Chains</span>
+                                    {T("agri_hero_title")}<span className="gold-gradient">{T("agri_hero_gold")}</span>
                                 </h1>
 
                                 <p className="text-base lg:text-lg text-white/55 leading-relaxed max-w-xl mb-10">
-                                    From modern farming operations to integrated livestock management and agro-processing, Anago Group builds sustainable agricultural value chains that strengthen food security, create rural employment, and boost local competitiveness across Africa.
+                                    {T("agri_hero_desc")}
                                 </p>
 
                                 <div className="flex flex-wrap gap-4">
                                     <button onClick={() => document.getElementById("activities")?.scrollIntoView({ behavior: "smooth" })} className="btn-gold px-7 py-3.5 text-sm rounded-lg inline-flex items-center gap-2">
-                                        <span>Explore Our Operations</span>
+                                        <span>{T("agri_hero_cta1")}</span>
                                         <ArrowDownRight className="w-4 h-4" />
                                     </button>
                                     <button onClick={() => router.push("/contact")} className="btn-outline-light px-7 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium">
-                                        <span>Partner With Us</span>
+                                        <span>{T("agri_hero_cta2")}</span>
                                         <ArrowRight className="w-4 h-4" />
                                     </button>
                                 </div>
@@ -205,17 +205,17 @@ export function AgricultureSectorPage() {
                                             <Sprout className="w-5 h-5 text-white" />
                                         </div>
                                         <div>
-                                            <span className="text-sm font-semibold text-white">Agriculture Division</span>
-                                            <span className="text-xs text-white/40 block">Feeding the Future</span>
+                                            <span className="text-sm font-semibold text-white">{T("agri_div_title")}</span>
+                                            <span className="text-xs text-white/40 block">{T("agri_div_subtitle")}</span>
                                         </div>
                                     </div>
                                     <div className="space-y-4 mb-6">
                                         {[
-                                            { label: "Focus Areas", value: ["Crops", "Livestock", "Agro-Ind."], isTags: true },
-                                            { label: "Active Markets", value: "10+ Countries" },
-                                            { label: "Farmland Under Mgmt", value: "50,000+ Hectares" },
-                                            { label: "Livestock Capacity", value: "200,000+ Head" },
-                                            { label: "Certifications", value: "Organic & Fair Trade", isGreen: true }
+                                            { label: T("agri_stat_crops"), value: [T("agri_stat_crops"), T("agri_stat_livestock"), T("agri_stat_agroind")], isTags: true },
+                                            { label: T("agri_stat_markets"), value: T("agri_stat_markets_val") },
+                                            { label: T("agri_stat_land"), value: T("agri_stat_land_val") },
+                                            { label: T("agri_stat_live_cap"), value: T("agri_stat_live_cap_val") },
+                                            { label: T("agri_stat_certs"), value: T("agri_stat_org"), isGreen: true }
                                         ].map((item, i) => (
                                             <div key={i} className="flex items-center justify-between py-3 border-b border-white/5 last:border-0">
                                                 <span className="text-xs text-white/45 font-medium">{item.label}</span>
@@ -236,8 +236,8 @@ export function AgricultureSectorPage() {
                                             <ShieldCheck className="w-4 h-4 text-green-400" />
                                         </div>
                                         <div>
-                                            <span className="text-xs text-white/35 block">Food Safety Compliant</span>
-                                            <span className="text-xs font-medium text-white/60">International quality standards</span>
+                                            <span className="text-xs text-white/35 block">{T("agri_stat_food_safety")}</span>
+                                            <span className="text-xs font-medium text-white/60">{T("agri_stat_standards")}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -260,7 +260,7 @@ export function AgricultureSectorPage() {
                                             <div className="w-24 h-24 mx-auto rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
                                                 <Wheat className="w-12 h-12 text-green-400/40" strokeWidth={1} />
                                             </div>
-                                            <div className="text-xs text-white/25 font-medium tracking-wider uppercase">Sustainable Agriculture Projects</div>
+                                            <div className="text-xs text-white/25 font-medium tracking-wider uppercase">{T("agri_about_tag")}</div>
                                         </div>
                                     </div>
                                     <div className="absolute top-8 left-8 w-20 h-20 border-l-2 border-t-2 border-white/5"></div>
@@ -271,9 +271,9 @@ export function AgricultureSectorPage() {
                                         <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "var(--gold-bg)" }}>
                                             <Handshake className="w-4 h-4" style={{ color: "var(--gold-primary)" }} />
                                         </div>
-                                        <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Food Security</span>
+                                        <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{T("agri_about_card_title")}</span>
                                     </div>
-                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>Strengthening local food systems and reducing import dependency across African nations</p>
+                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{T("agri_about_card_desc")}</p>
                                 </div>
                             </div>
                         </RevealSectionLeft>
@@ -281,16 +281,16 @@ export function AgricultureSectorPage() {
                         <RevealSectionRight>
                             <div className="gold-line mb-6"></div>
                             <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-6" style={{ color: "var(--text-primary)" }}>
-                                Developing Modern & Sustainable Agriculture Across Africa
+                                {T("agri_about_title")}
                             </h2>
                             <p className="text-base leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
-                                Anago Group's Agriculture & Livestock division is at the heart of Africa's food revolution. We develop and operate modern agricultural value chains — from large-scale crop cultivation and livestock farming to agro-industrial processing and distribution — creating integrated systems that feed communities and fuel economies.
+                                {T("agri_about_p1")}
                             </p>
                             <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>
-                                Our approach combines traditional African farming wisdom with cutting-edge agricultural technology, precision irrigation, and sustainable land management practices. Every project is designed to strengthen food sovereignty, generate lasting rural employment, and build competitive local industries.
+                                {T("agri_about_p2")}
                             </p>
                             <div className="grid grid-cols-2 gap-4 mb-8">
-                                {["Modern Crop Farming", "Livestock Management", "Agro-Processing", "Food Distribution"].map((item, i) => (
+                                {[T("agri_about_feat1"), T("agri_about_feat2"), T("agri_about_feat3"), T("agri_about_feat4")].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
                                         <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: "var(--gold-bg)" }}>
                                             <CheckCircle className="w-4 h-4" style={{ color: "var(--gold-primary)" }} />
@@ -300,7 +300,7 @@ export function AgricultureSectorPage() {
                                 ))}
                             </div>
                             <button onClick={() => document.getElementById("activities")?.scrollIntoView({ behavior: "smooth" })} className="inline-flex items-center gap-2 text-sm font-semibold transition-colors group" style={{ color: "var(--gold-primary)" }}>
-                                <span>Discover Our Activities</span>
+                                <span>{T("agri_about_cta")}</span>
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </RevealSectionRight>
@@ -314,19 +314,19 @@ export function AgricultureSectorPage() {
                     <div className="text-center mb-16">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>Our Agricultural Activities</h2>
-                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>Integrated agro-industrial operations spanning the full farm-to-market value chain.</p>
+                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("agri_act_title")}</h2>
+                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("agri_act_subtitle")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                         {[
-                            { num: "01", icon: Wheat, title: "Modern Crop Cultivation", color: "bg-green-700", desc: "Large-scale production of staple and cash crops using precision agriculture and smart irrigation systems.", tags: ["Grains", "Cash Crops", "Horticulture"] },
-                            { num: "02", icon: Beef, title: "Livestock Management", color: "bg-(--gold-primary)", desc: "Integrated cattle ranching and poultry production with modern veterinary care and feed optimization.", tags: ["Cattle", "Poultry", "Ruminants"] },
-                            { num: "03", icon: Factory, title: "Agro-Industrial Processing", color: "bg-navy-600", desc: "Transformation of raw agricultural produce into value-added products through modern processing facilities.", tags: ["Milling", "Extraction", "Meat"] },
-                            { num: "04", icon: Fish, title: "Aquaculture & Fisheries", color: "bg-sky-600", desc: "Sustainable fish farming operations providing high-protein nutrition across the continent.", tags: ["Ponds", "Cage Farming", "Packaging"] },
-                            { num: "05", icon: Cpu, title: "AgriTech & Innovation", color: "bg-steel-700", desc: "Integration of precision agriculture technologies — drones, IoT sensors, and data analytics.", tags: ["Precision Ag", "IoT", "Analytics"] },
-                            { num: "06", icon: Warehouse, title: "Storage & Distribution", color: "bg-gold-600", desc: "Cold chain logistics and distribution systems connecting producers to major markets.", tags: ["Cold Chain", "Silos", "Logistics"] }
+                            { num: "01", icon: Wheat, title: T("agri_act1_title"), color: "bg-green-700", desc: T("agri_act1_desc"), tags: [T("agri_act1_tag1"), T("agri_act1_tag2"), T("agri_act1_tag3")] },
+                            { num: "02", icon: Beef, title: T("agri_act2_title"), color: "bg-(--gold-primary)", desc: T("agri_act2_desc"), tags: [T("agri_act2_tag1"), T("agri_act2_tag2"), T("agri_act2_tag3")] },
+                            { num: "03", icon: Factory, title: T("agri_act3_title"), color: "bg-navy-600", desc: T("agri_act3_desc"), tags: [T("agri_act3_tag1"), T("agri_act3_tag2"), T("agri_act3_tag3")] },
+                            { num: "04", icon: Fish, title: T("agri_act4_title"), color: "bg-sky-600", desc: T("agri_act4_desc"), tags: [T("agri_act4_tag1"), T("agri_act4_tag2"), T("agri_act4_tag3")] },
+                            { num: "05", icon: Cpu, title: T("agri_act5_title"), color: "bg-steel-700", desc: T("agri_act5_desc"), tags: [T("agri_act5_tag1"), T("agri_act5_tag2"), T("agri_act5_tag3")] },
+                            { num: "06", icon: Warehouse, title: T("agri_act6_title"), color: "bg-gold-600", desc: T("agri_act6_desc"), tags: [T("agri_act6_tag1"), T("agri_act6_tag2"), T("agri_act6_tag3")] }
                         ].map((item, i) => (
                             <RevealSection key={i} delay={i * 100}>
                                 <div className="card-premium group cursor-pointer rounded-2xl overflow-hidden border relative h-full" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
@@ -343,7 +343,7 @@ export function AgricultureSectorPage() {
                                             ))}
                                         </div>
                                         <span className="inline-flex items-center gap-1.5 text-xs font-semibold group-hover:gap-2.5 transition-all" style={{ color: "var(--gold-primary)" }}>
-                                            <span>Learn more</span>
+                                            <span>{T("nav_learn_more")}</span>
                                             <ArrowRight className="w-3.5 h-3.5" />
                                         </span>
                                     </div>
@@ -361,19 +361,19 @@ export function AgricultureSectorPage() {
                     <div className="text-center mb-16">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4">Our Value Proposition</h2>
-                            <p className="text-base text-white/50 max-w-2xl mx-auto">Why communities, governments, and investors trust Anago Group to build Africa's agricultural future.</p>
+                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4">{T("agri_vp_title")}</h2>
+                            <p className="text-base text-white/50 max-w-2xl mx-auto">{T("agri_vp_desc")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { icon: Users, title: "Rural Employment Creation", color: "bg-green-700", desc: "Our operations create thousands of direct and indirect jobs in rural communities, transforming local economies." },
-                            { icon: Leaf, title: "Sustainable Production", color: "bg-(--gold-primary)", desc: "Climate-smart agriculture and soil conservation techniques ensure long-term productivity without depleting resources." },
-                            { icon: Trophy, title: "Local Competitiveness", color: "bg-white/10", iconColor: "text-gold-400", desc: "By building complete value chains, we reduce import dependency and create competitive African agricultural brands." },
-                            { icon: ShieldCheck, title: "Food Security & Sovereignty", color: "bg-white/5", desc: "Every operation strengthens food sovereignty through drought-resistant crops and stable food supply chains." },
-                            { icon: Handshake, title: "Smallholder Empowerment", color: "bg-white/5", desc: "We partner with smallholders through outgrower schemes and training, amplifying productivity and shared value." },
-                            { icon: Layers, title: "Group Synergies", color: "bg-white/5", desc: "Leveraging our construction and equipment divisions to build farming infrastructure and deploy modern machinery." }
+                            { icon: Users, title: T("agri_vp1_title"), color: "bg-green-700", desc: T("agri_vp1_desc") },
+                            { icon: Leaf, title: T("agri_vp2_title"), color: "bg-(--gold-primary)", desc: T("agri_vp2_desc") },
+                            { icon: Trophy, title: T("agri_vp3_title"), color: "bg-white/10", iconColor: "text-gold-400", desc: T("agri_vp3_desc") },
+                            { icon: ShieldCheck, title: T("agri_vp4_title"), color: "bg-white/5", desc: T("agri_vp4_desc") },
+                            { icon: Handshake, title: T("agri_vp5_title"), color: "bg-white/5", desc: T("agri_vp5_desc") },
+                            { icon: Layers, title: T("agri_vp6_title"), color: "bg-white/5", desc: T("agri_vp6_desc") }
                         ].map((item, i) => (
                             <RevealSection key={i} delay={i * 100}>
                                 <div className="value-card-glow group p-8 rounded-2xl bg-white/3 border border-white/10 hover:border-green-500/30 transition-all cursor-default h-full">
@@ -395,17 +395,17 @@ export function AgricultureSectorPage() {
                     <div className="text-center mb-16">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>Agriculture Division in Numbers</h2>
-                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>Key metrics demonstrating our agricultural scale and impact across the continent.</p>
+                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("agri_stat_title")}</h2>
+                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("agri_stat_subtitle")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         {[
-                            { icon: MapPin, count: "10", suffix: "+", label: "Active Countries", gold: true },
-                            { icon: Wheat, count: "50", suffix: "K+ ha", label: "Farmland Managed" },
-                            { icon: Beef, count: "200", suffix: "K+ Head", label: "Livestock Capacity", gold: true },
-                            { icon: Users, count: "15,000", suffix: "+", label: "Rural Jobs Created" }
+                            { icon: MapPin, count: "10", suffix: "+", label: T("agri_stat1_label"), gold: true },
+                            { icon: Wheat, count: "50", suffix: "K+ ha", label: T("agri_stat2_label") },
+                            { icon: Beef, count: "200", suffix: "K+ Head", label: T("agri_stat3_label"), gold: true },
+                            { icon: Users, count: "15,000", suffix: "+", label: T("agri_stat4_label") }
                         ].map((stat, i) => (
                             <RevealSection key={i} delay={i * 100}>
                                 <div className="text-center p-8 rounded-2xl border bg-(--card-bg) border-(--border-color) shadow-sm hover:shadow-md transition-shadow">
@@ -429,17 +429,17 @@ export function AgricultureSectorPage() {
                     <div className="text-center mb-16">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>Our Farm-to-Market Value Chain</h2>
-                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>An integrated approach ensuring quality and value at every stage.</p>
+                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("agri_vc_title")}</h2>
+                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("agri_vc_subtitle")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { num: "1", title: "Cultivation", color: "bg-green-700", desc: "Precision farming, livestock breeding, and sustainable land stewardship." },
-                            { num: "2", title: "Harvest", color: "bg-gold-500", desc: "Mechanized harvesting, quality grading, and post-harvest handling." },
-                            { num: "3", title: "Processing", color: "bg-gold-600", desc: "Agro-industrial transformation and food safety compliance." },
-                            { num: "4", title: "Distribution", color: "bg-sky-600", desc: "Cold chain logistics and retail partnerships connecting farm to fork." }
+                            { num: "1", title: T("agri_vc1_title"), color: "bg-green-700", desc: T("agri_vc1_desc") },
+                            { num: "2", title: T("agri_vc2_title"), color: "bg-gold-500", desc: T("agri_vc2_desc") },
+                            { num: "3", title: T("agri_vc3_title"), color: "bg-gold-600", desc: T("agri_vc3_desc") },
+                            { num: "4", title: T("agri_vc4_title"), color: "bg-sky-600", desc: T("agri_vc4_desc") }
                         ].map((step, i) => (
                             <RevealSection key={i} delay={i * 150}>
                                 <div className="process-connector text-center p-6 rounded-2xl border relative overflow-hidden h-full" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
@@ -463,13 +463,13 @@ export function AgricultureSectorPage() {
                             <div className="relative z-10 text-center">
                                 <div className="gold-line mx-auto mb-8"></div>
                                 <blockquote className="font-display text-xl lg:text-2xl leading-relaxed mb-8 italic" style={{ color: "var(--text-secondary)" }}>
-                                    "Africa holds 60% of the world's uncultivated arable land. Our mission is to unlock this extraordinary potential through modern, sustainable agriculture that feeds the continent and creates prosperity for rural communities."
+                                    "{T("agri_quote")}"
                                 </blockquote>
                                 <div className="flex items-center justify-center gap-4">
                                     <div className="w-12 h-12 rounded-full flex items-center justify-center bg-green-700 text-white font-bold text-sm">AG</div>
                                     <div className="text-left">
-                                        <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Agriculture Division Leadership</p>
-                                        <p className="text-xs" style={{ color: "var(--text-tertiary)" }}>Anago Group · Agro-Industrial</p>
+                                        <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{T("agri_quote_role")}</p>
+                                        <p className="text-xs" style={{ color: "var(--text-tertiary)" }}>{T("agri_quote_org")}</p>
                                     </div>
                                 </div>
                             </div>
@@ -484,19 +484,19 @@ export function AgricultureSectorPage() {
                     <div className="text-center mb-12">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-display text-2xl lg:text-3xl font-semibold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>Our Production Portfolio</h2>
-                            <p className="text-sm max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>A diversified range serving domestic and export markets.</p>
+                            <h2 className="font-display text-2xl lg:text-3xl font-semibold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>{T("agri_port_title")}</h2>
+                            <p className="text-sm max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("agri_port_subtitle")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                         {[
-                            { icon: Wheat, label: "Cereals" },
-                            { icon: Coffee, label: "Cash Crops" },
-                            { icon: Beef, label: "Cattle" },
-                            { icon: Egg, label: "Poultry" },
-                            { icon: Fish, label: "Aquaculture" },
-                            { icon: Apple, label: "Fruits & Veg" }
+                            { icon: Wheat, label: T("agri_port_item1") },
+                            { icon: Coffee, label: T("agri_port_item2") },
+                            { icon: Beef, label: T("agri_port_item3") },
+                            { icon: Egg, label: T("agri_port_item4") },
+                            { icon: Fish, label: T("agri_port_item5") },
+                            { icon: Apple, label: T("agri_port_item6") }
                         ].map((item, i) => (
                             <RevealSection key={i} delay={i * 50}>
                                 <div className="text-center p-5 rounded-2xl border group hover:border-green-500/30 transition-all" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
@@ -516,8 +516,8 @@ export function AgricultureSectorPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <RevealSection>
-                            <h2 className="font-display text-2xl lg:text-3xl font-semibold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>Explore Other Sectors</h2>
-                            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>Discover our integrated industrial strategy.</p>
+                            <h2 className="font-display text-2xl lg:text-3xl font-semibold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>{T("rel_title")}</h2>
+                            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>{T("rel_subtitle")}</p>
                         </RevealSection>
                     </div>
 
@@ -534,7 +534,7 @@ export function AgricultureSectorPage() {
                                     <h3 className="text-sm font-semibold mb-1" style={{ color: "var(--text-primary)" }}>{sector.title}</h3>
                                     <p className="text-xs mb-3" style={{ color: "var(--text-tertiary)" }}>{sector.desc}</p>
                                     <span className="inline-flex items-center gap-1 text-xs font-semibold group-hover:gap-2 transition-all" style={{ color: "var(--gold-primary)" }}>
-                                        <span>Explore</span>
+                                        <span>{T("nav_explore")}</span>
                                         <ArrowRight className="w-3" />
                                     </span>
                                 </button>
@@ -551,18 +551,18 @@ export function AgricultureSectorPage() {
                     <RevealSection>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/30 bg-green-500/5 mb-8">
                             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse-gold"></div>
-                            <span className="text-xs font-medium text-green-400 tracking-wider uppercase">Grow With Anago Group</span>
+                            <span className="text-xs font-medium text-green-400 tracking-wider uppercase">{T("agri_final_badge")}</span>
                         </div>
-                        <h2 className="font-display text-3xl lg:text-5xl font-semibold tracking-tight text-white mb-6">Ready to Cultivate Africa's Agricultural Future?</h2>
-                        <p className="text-base lg:text-lg text-white/55 max-w-2xl mx-auto mb-10">Sustainable, scalable agricultural results across the African continent.</p>
+                        <h2 className="font-display text-3xl lg:text-5xl font-semibold tracking-tight text-white mb-6">{T("agri_final_title")}</h2>
+                        <p className="text-base lg:text-lg text-white/55 max-w-2xl mx-auto mb-10">{T("agri_final_desc")}</p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <button onClick={() => router.push("/contact")} className="btn-gold px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 shadow-lg font-bold">
-                                <span>Discuss Your Project</span>
+                                <span>{T("agri_final_cta1")}</span>
                                 <ArrowRight className="w-4 h-4" />
                             </button>
                             <button className="btn-outline-light px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium">
                                 <Download className="w-4 h-4" />
-                                <span>Download Agri Portfolio</span>
+                                <span>{T("agri_final_cta2")}</span>
                             </button>
                         </div>
                     </RevealSection>

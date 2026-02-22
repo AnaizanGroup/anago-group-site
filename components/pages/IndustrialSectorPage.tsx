@@ -157,37 +157,37 @@ export function IndustrialSectorPage() {
                     <div className="flex flex-col items-center text-center">
                         <div className="max-w-4xl mx-auto">
                             <RevealSection delay={100} className="flex items-center justify-center gap-2 mb-12">
-                                <button onClick={() => router.push("/")} className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">Home</button>
+                                <button onClick={() => router.push("/")} className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">{T("nav_home", "Home")}</button>
                                 <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
-                                <span className="text-xs font-medium text-white/40">Industries</span>
+                                <span className="text-xs font-medium text-white/40">{T("nav_industries", "Industries")}</span>
                                 <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
-                                <span className="text-xs font-medium text-gold-400">Industrial Services</span>
+                                <span className="text-xs font-medium text-gold-400">{T("about_s_industrial_title", "Industrial Services")}</span>
                             </RevealSection>
 
                             <RevealSection delay={200} className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-10">
                                 <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold"></div>
-                                <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">Strategic Sector 02 · Operational Backbone</span>
+                                <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">{T("ind_hero_badge")}</span>
                             </RevealSection>
 
                             <RevealSection delay={300}>
                                 <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-white leading-[1.08] mb-8">
-                                    Industrial Consulting & Services — <br className="hidden lg:block" /><span className="gold-gradient">Driving Operational Excellence</span>
+                                    {T("ind_hero_title")}<br className="hidden lg:block" /><span className="gold-gradient">{T("ind_hero_title_gold")}</span>
                                 </h1>
                             </RevealSection>
 
                             <RevealSection delay={400}>
                                 <p className="text-base lg:text-xl text-white/55 leading-relaxed max-w-2xl mx-auto mb-14">
-                                    From strategic advisory to hands-on project execution, Anago Group delivers comprehensive industrial consulting, equipment supply, maintenance, and project management services that power Africa's industrial transformation.
+                                    {T("ind_hero_desc")}
                                 </p>
                             </RevealSection>
 
                             <RevealSection delay={500} className="flex flex-wrap justify-center gap-4">
                                 <button onClick={() => document.getElementById("activities")?.scrollIntoView({ behavior: "smooth" })} className="btn-gold px-7 py-3.5 text-sm rounded-lg inline-flex items-center gap-2">
-                                    <span>Explore Our Services</span>
+                                    <span>{T("ind_hero_cta1", "Explore Our Services")}</span>
                                     <ArrowDownRight className="w-4 h-4" strokeWidth={1.5} />
                                 </button>
                                 <button onClick={() => document.getElementById("contact-cta")?.scrollIntoView({ behavior: "smooth" })} className="btn-outline-light px-7 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium">
-                                    <span>Request Consultation</span>
+                                    <span>{T("ind_hero_cta2", "Request Consultation")}</span>
                                     <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                                 </button>
                             </RevealSection>
@@ -208,7 +208,7 @@ export function IndustrialSectorPage() {
                                         <div className="w-24 h-24 mx-auto rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
                                             <HardHat className="w-12 h-12 text-gold-400/40" strokeWidth={1} />
                                         </div>
-                                        <div className="text-xs text-white/25 font-medium tracking-wider uppercase">Industrial Engineers at Work</div>
+                                        <div className="text-xs text-white/25 font-medium tracking-wider uppercase">{T("ind_about_label")}</div>
                                     </div>
                                 </div>
                                 <div className="absolute top-8 left-8 w-20 h-20 border-l-2 border-t-2 border-white/4 rounded-tl-xl"></div>
@@ -219,25 +219,30 @@ export function IndustrialSectorPage() {
                                     <div className="w-9 h-9 rounded-lg flex items-center justify-center bg-navy-600">
                                         <Award className="w-4 h-4 text-white" strokeWidth={1.5} />
                                     </div>
-                                    <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>ISO Certified</span>
+                                    <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{T("ind_about_iso")}</span>
                                 </div>
-                                <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>Quality management and environmental standards across all service operations</p>
+                                <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{T("ind_about_iso_desc")}</p>
                             </div>
                         </RevealSection>
 
                         <RevealSection>
                             <div className="gold-line mb-6"></div>
                             <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-6" style={{ color: "var(--text-primary)" }}>
-                                Strategic Industrial Consulting & End-to-End Project Delivery
+                                {T("ind_about_title")}
                             </h2>
                             <p className="text-base leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
-                                Anago Group's Industrial Consulting & Services division is the operational backbone of our integrated business model. We provide strategic and technical advisory, equipment supply, comprehensive maintenance programs, and full-cycle project management to industries across Africa.
+                                {T("ind_about_p1")}
                             </p>
                             <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>
-                                Our teams of seasoned engineers and consultants bring world-class methodologies to local contexts, helping clients optimize operations, reduce downtime, and achieve measurable performance improvements.
+                                {T("ind_about_p2")}
                             </p>
                             <div className="grid grid-cols-2 gap-4 mb-8">
-                                {["Technical Advisory", "Equipment Supply", "Maintenance Programs", "Project Management"].map((text, i) => (
+                                {[
+                                    T("ind_about_feat1"),
+                                    T("ind_about_feat2"),
+                                    T("ind_about_feat3"),
+                                    T("ind_about_feat4")
+                                ].map((text, i) => (
                                     <div key={i} className="flex items-center gap-3">
                                         <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: "var(--gold-bg)" }}>
                                             <CheckCircle className="w-4 h-4" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />
@@ -257,19 +262,19 @@ export function IndustrialSectorPage() {
                     <div className="text-center mb-16">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>Our Service Activities</h2>
-                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>Comprehensive industrial services covering every dimension of operational excellence.</p>
+                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("ind_act_title")}</h2>
+                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("ind_act_desc")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                         {[
-                            { num: "01", icon: <Brain className="w-7 h-7 text-white" />, title: "Technical & Strategic Consulting", desc: "Expert advisory services spanning feasibility studies, operational audits, process optimization, and strategic planning.", tags: ["Feasibility", "Audits", "Strategy"], bg: "bg-navy-800" },
-                            { num: "02", icon: <GanttChart className="w-7 h-7 text-navy-800" />, title: "Industrial Project Support", desc: "End-to-end project management and execution support for complex industrial projects from planning to handover.", tags: ["PM", "Procurement", "Commissioning"], bg: "bg-linear-to-br from-gold-500 to-gold-400" },
-                            { num: "03", icon: <Container className="w-7 h-7 text-white" />, title: "Equipment Supply & Rental", desc: "Comprehensive equipment sourcing, supply, and flexible rental solutions with a diverse continent-wide fleet.", tags: ["Machinery", "Generators", "Rental"], bg: "bg-[#343a40]" },
-                            { num: "04", icon: <Wrench className="w-7 h-7 text-white" />, title: "Maintenance & Reliability", desc: "Predictive, preventive, and corrective maintenance programs designed to maximize equipment uptime.", tags: ["Predictive", "Preventive", "24/7"], bg: "bg-navy-600" },
-                            { num: "05", icon: <GraduationCap className="w-7 h-7 text-white" />, title: "Training & Capacity Building", desc: "Specialized technical training programs that develop local talent and build institutional capacity.", tags: ["Certifications", "Safety", "Skills"], bg: "bg-green-700" },
-                            { num: "06", icon: <ShieldCheck className="w-7 h-7 text-white" />, title: "Health, Safety & Environment", desc: "Comprehensive HSE management systems and risk assessments that protect people and environment.", tags: ["Risk", "Compliance", "HSE"], bg: "bg-linear-to-br from-green-600 to-emerald-500" },
+                            { num: "01", icon: <Brain className="w-7 h-7 text-white" />, title: T("ind_act1_title"), desc: T("ind_act1_desc"), tags: [T("ind_act1_tag1", "Feasibility"), T("ind_act1_tag2", "Audits"), T("ind_act1_tag3", "Strategy")], bg: "bg-navy-800" },
+                            { num: "02", icon: <GanttChart className="w-7 h-7 text-navy-800" />, title: T("ind_act2_title"), desc: T("ind_act2_desc"), tags: [T("ind_act2_tag1", "PM"), T("ind_act2_tag2", "Procurement"), T("ind_act2_tag3", "Commissioning")], bg: "bg-linear-to-br from-gold-500 to-gold-400" },
+                            { num: "03", icon: <Container className="w-7 h-7 text-white" />, title: T("ind_act3_title"), desc: T("ind_act3_desc"), tags: [T("ind_act3_tag1", "Machinery"), T("ind_act3_tag2", "Generators"), T("ind_act3_tag3", "Rental")], bg: "bg-[#343a40]" },
+                            { num: "04", icon: <Wrench className="w-7 h-7 text-white" />, title: T("ind_act4_title"), desc: T("ind_act4_desc"), tags: [T("ind_act4_tag1", "Predictive"), T("ind_act4_tag2", "Preventive"), T("ind_act4_tag3", "24/7")], bg: "bg-navy-600" },
+                            { num: "05", icon: <GraduationCap className="w-7 h-7 text-white" />, title: T("ind_act5_title"), desc: T("ind_act5_desc"), tags: [T("ind_act5_tag1", "Certifications"), T("ind_act5_tag2", "Safety"), T("ind_act5_tag3", "Skills")], bg: "bg-green-700" },
+                            { num: "06", icon: <ShieldCheck className="w-7 h-7 text-white" />, title: T("ind_act6_title"), desc: T("ind_act6_desc"), tags: [T("ind_act6_tag1", "Risk"), T("ind_act6_tag2", "Compliance"), T("ind_act6_tag3", "HSE")], bg: "bg-linear-to-br from-green-600 to-emerald-500" },
                         ].map((act, i) => (
                             <RevealSection key={i} delay={i * 100}>
                                 <article className="card-premium group cursor-pointer rounded-2xl overflow-hidden border relative p-8 h-full" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
@@ -285,7 +290,7 @@ export function IndustrialSectorPage() {
                                         ))}
                                     </div>
                                     <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-gold-500 group-hover:gap-2.5 transition-all">
-                                        <span>Learn more</span>
+                                        <span>{T("learn_more", "Learn more")}</span>
                                         <ArrowRight className="w-3.5 h-3.5" strokeWidth={1.5} />
                                     </span>
                                 </article>
@@ -303,18 +308,18 @@ export function IndustrialSectorPage() {
                     <div className="text-center mb-16">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4">Our Value Proposition</h2>
-                            <p className="text-base text-white/50 max-w-2xl mx-auto">Why Africa's leading industrial operators choose Anago Group.</p>
+                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4">{T("ind_vp_title")}</h2>
+                            <p className="text-base text-white/50 max-w-2xl mx-auto">{T("ind_vp_desc")}</p>
                         </RevealSection>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { icon: <Target className="w-7 h-7 text-navy-800" />, title: "Operational Optimization", desc: "Proven solutions that drive measurable improvements in productivity, cost reduction, and output quality." },
-                            { icon: <Lightbulb className="w-7 h-7 text-gold-400" />, title: "Innovation & Technology", desc: "Integrating IoT, predictive analytics, and digital twins to modernize operations across the continent." },
-                            { icon: <Globe className="w-7 h-7 text-gold-400" />, title: "Pan-African Expertise", desc: "Two decades of experience across 15+ African countries with deep local regulatory understanding." },
-                            { icon: <Clock className="w-7 h-7 text-white/70" />, title: "Rapid Mobilization", desc: "Strategic equipment pre-positioning and local teams enable rapid deployment in remote environments." },
-                            { icon: <Handshake className="w-7 h-7 text-white/70" />, title: "Long-Term Partnerships", desc: "Built enduring relationships as strategic partners rather than transactional service providers." },
-                            { icon: <Shield className="w-7 h-7 text-green-300" />, title: "Safety-First Culture", desc: "Zero-harm commitment embedded in every project with rigorous international safety protocols." },
+                            { icon: <Target className="w-7 h-7 text-navy-800" />, title: T("ind_vp1_title"), desc: T("ind_vp1_desc") },
+                            { icon: <Lightbulb className="w-7 h-7 text-gold-400" />, title: T("ind_vp2_title"), desc: T("ind_vp2_desc") },
+                            { icon: <Globe className="w-7 h-7 text-gold-400" />, title: T("ind_vp3_title"), desc: T("ind_vp3_desc") },
+                            { icon: <Clock className="w-7 h-7 text-white/70" />, title: T("ind_vp4_title"), desc: T("ind_vp4_desc") },
+                            { icon: <Handshake className="w-7 h-7 text-white/70" />, title: T("ind_vp5_title"), desc: T("ind_vp5_desc") },
+                            { icon: <Shield className="w-7 h-7 text-green-300" />, title: T("ind_vp6_title"), desc: T("ind_vp6_desc") },
                         ].map((val, i) => (
                             <RevealSection key={i} delay={i * 50}>
                                 <div className="value-card-glow group p-8 rounded-2xl bg-white/3 border border-white/10 hover:border-gold-500/30 transition-all duration-400">
@@ -335,10 +340,10 @@ export function IndustrialSectorPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         {[
-                            { icon: <MapPin className="w-6 h-6 text-gold-500" />, val: "15+", label: "Countries Served" },
-                            { icon: <FolderCheck className="w-6 h-6 text-gold-500" />, val: "150+", label: "Projects Delivered" },
-                            { icon: <Container className="w-6 h-6 text-gold-500" />, val: "500+", label: "Equipment Units" },
-                            { icon: <Users className="w-6 h-6 text-gold-500" />, val: "350+", label: "Engineers & Specialists" },
+                            { icon: <MapPin className="w-6 h-6 text-gold-500" />, val: "15+", label: T("ind_stat1") },
+                            { icon: <FolderCheck className="w-6 h-6 text-gold-500" />, val: "150+", label: T("ind_stat2") },
+                            { icon: <Container className="w-6 h-6 text-gold-500" />, val: "500+", label: T("ind_stat3") },
+                            { icon: <Users className="w-6 h-6 text-gold-500" />, val: "350+", label: T("ind_stat4") },
                         ].map((stat, i) => (
                             <RevealSection key={i} delay={i * 100}>
                                 <div className="text-center p-8 rounded-2xl border" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
@@ -359,18 +364,18 @@ export function IndustrialSectorPage() {
                     <RevealSection>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-8">
                             <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold"></div>
-                            <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">Partner With Our Industrial Division</span>
+                            <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">{T("ind_final_badge")}</span>
                         </div>
-                        <h2 className="font-serif text-3xl lg:text-5xl font-semibold tracking-tight text-white mb-6">Ready to Optimize Your Industrial Operations?</h2>
-                        <p className="text-base lg:text-lg text-white/55 max-w-2xl mx-auto mb-10">Whether you need strategic consulting, equipment solutions, or comprehensive maintenance programs — Anago Group delivers operational excellence.</p>
+                        <h2 className="font-serif text-3xl lg:text-5xl font-semibold tracking-tight text-white mb-6">{T("ind_final_title")}</h2>
+                        <p className="text-base lg:text-lg text-white/55 max-w-2xl mx-auto mb-10">{T("ind_final_desc")}</p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <button onClick={() => router.push("/contact")} className="btn-gold px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2">
-                                <span>Request a Consultation</span>
+                                <span>{T("ind_final_cta1", "Request a Consultation")}</span>
                                 <ArrowRight className="w-4 h-4" />
                             </button>
                             <button className="btn-outline-light px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium">
                                 <Download className="w-4 h-4" />
-                                <span>Download Services Brochure</span>
+                                <span>{T("ind_final_cta2", "Download Services Brochure")}</span>
                             </button>
                         </div>
                     </RevealSection>

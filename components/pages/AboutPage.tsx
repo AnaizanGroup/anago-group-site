@@ -29,31 +29,31 @@ export function AboutPage() {
                     <div className="grid lg:grid-cols-12 gap-12 items-center">
                         <div className="lg:col-span-12 max-w-4xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
                             <RevealSection className="flex items-center justify-center lg:justify-start gap-2 mb-8 stagger-1">
-                                <button onClick={() => router.push("/")} className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">Home</button>
+                                <button onClick={() => router.push("/")} className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">{T("nav_home", "Home")}</button>
                                 <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
-                                <span className="text-xs font-medium text-[#e7b13f]">The Group</span>
+                                <span className="text-xs font-medium text-[#e7b13f]">{T("nav_about", "The Group")}</span>
                             </RevealSection>
                             <RevealSection className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C8962E]/30 bg-[#C8962E]/5 mb-8 stagger-1">
                                 <div className="w-2 h-2 rounded-full bg-[#e7b13f] animate-pulse-gold" />
-                                <span className="text-xs font-medium text-[#e7b13f] tracking-wider uppercase">{"Since 2004 \u00B7 Pan-African Industrial Holding"}</span>
+                                <span className="text-xs font-medium text-[#e7b13f] tracking-wider uppercase">{T("about_hero_badge")}</span>
                             </RevealSection>
                             <RevealSection className="stagger-2">
                                 <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-white leading-[1.08] mb-6">
-                                    {"Building Africa's "}<span className="gold-gradient">{"Industrial Future"}</span>{" Together"}
+                                    <>{T("about_hero_title1")}<span className="gold-gradient">{T("about_hero_title2")}</span>{T("about_hero_title3")}</>
                                 </h1>
                             </RevealSection>
                             <RevealSection className="stagger-3">
                                 <p className="text-base lg:text-lg text-white/55 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-10">
-                                    {"Anago Group is a diversified pan-African holding company transforming natural resources into sustainable economic growth through integrated value chains, strategic partnerships, and operational excellence."}
+                                    {T("about_hero_desc")}
                                 </p>
                             </RevealSection>
                             <RevealSection className="flex flex-wrap justify-center lg:justify-start gap-4 stagger-4">
                                 <button onClick={() => document.getElementById('group-sectors')?.scrollIntoView({ behavior: 'smooth' })} className="btn-gold px-7 py-3.5 text-sm rounded-lg inline-flex items-center gap-2">
-                                    <span>Explore Our Activities</span>
+                                    <span>{T("about_hero_cta", "Explore Our Activities")}</span>
                                     <ArrowDownRight className="w-4 h-4" strokeWidth={1.5} />
                                 </button>
                                 <button onClick={() => router.push("/contact")} className="btn-outline-light px-7 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium stagger-5">
-                                    <span>Contact Us</span>
+                                    <span>{T("final_cta1", "Contact Us")}</span>
                                     <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                                 </button>
                             </RevealSection>
@@ -61,7 +61,7 @@ export function AboutPage() {
                     </div>
                 </div>
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group fade-in stagger-7">
-                    <span className="text-xs text-white/25 font-medium tracking-wider uppercase group-hover:text-white/40 transition-colors">Discover</span>
+                    <span className="text-xs text-white/25 font-medium tracking-wider uppercase group-hover:text-white/40 transition-colors">{T("about_hero_discover", "Discover")}</span>
                     <div className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1 group-hover:border-[#C8962E]/40 transition-colors">
                         <div className="w-1 h-2 rounded-full bg-[#e7b13f] animate-float" />
                     </div>
@@ -80,7 +80,7 @@ export function AboutPage() {
                                             <div className="w-24 h-24 mx-auto rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
                                                 <Factory className="w-12 h-12 text-[#e7b13f]/40" strokeWidth={1} />
                                             </div>
-                                            <div className="text-xs text-white/25 font-medium tracking-wider uppercase">Industrial Operations</div>
+                                            <div className="text-xs text-white/25 font-medium tracking-wider uppercase">{T("about_intro_label")}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -89,9 +89,9 @@ export function AboutPage() {
                                         <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #C8962E, #e7b13f)" }}>
                                             <Award className="w-4 h-4 text-[#0A1628]" strokeWidth={1.5} />
                                         </div>
-                                        <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Est. 2004</span>
+                                        <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{T("about_intro_est")}</span>
                                     </div>
-                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{"Two decades shaping Africa's industrial landscape"}</p>
+                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{T("about_intro_tagline")}</p>
                                 </div>
                                 <div className="absolute -top-3 -left-3 w-12 h-12 rounded-xl bg-[#C8962E]/10 border border-[#C8962E]/20 flex items-center justify-center animate-float" style={{ animationDelay: "1s" }}>
                                     <Globe className="w-5 h-5 text-[#e7b13f]/60" strokeWidth={1.5} />
@@ -101,16 +101,21 @@ export function AboutPage() {
                         <RevealSectionRight>
                             <div className="gold-line mb-6" />
                             <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-6" style={{ color: "var(--text-primary)" }}>
-                                A Pan-African Industrial Holding Company Driving Sustainable Growth
+                                {T("about_intro_title")}
                             </h2>
                             <p className="text-base leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
-                                {"Founded in 2004, Anago Group has grown from a focused mining operation into one of Africa's most diversified industrial holding companies. With strategic investments across six key sectors, we are uniquely positioned to drive continental transformation."}
+                                {T("about_intro_p1")}
                             </p>
                             <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>
-                                {"Our integrated approach connects mining and metals extraction with industrial processing, infrastructure development, agricultural value chains, and equipment supply \u2014 creating a self-reinforcing ecosystem that maximizes local value creation."}
+                                {T("about_intro_p2")}
                             </p>
                             <div className="grid grid-cols-2 gap-4 mb-8">
-                                {["Vertically Integrated", "Pan-African Reach", "ESG Committed", "Proven Track Record"].map((item, i) => (
+                                {[
+                                    T("about_feature_integrated"),
+                                    T("about_feature_reach"),
+                                    T("about_feature_esg"),
+                                    T("about_feature_trackrecord")
+                                ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
                                         <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: "var(--gold-bg)" }}>
                                             <CheckCircle className="w-4 h-4" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />
@@ -120,7 +125,7 @@ export function AboutPage() {
                                 ))}
                             </div>
                             <button onClick={() => document.getElementById('group-vision')?.scrollIntoView({ behavior: 'smooth' })} className="inline-flex items-center gap-2 text-sm font-semibold transition-colors group" style={{ color: "var(--gold-primary)" }}>
-                                <span>Discover Our Vision</span>
+                                <span>{T("about_vision_cta")}</span>
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
                             </button>
                         </RevealSectionRight>
@@ -133,15 +138,15 @@ export function AboutPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <RevealSection className="max-w-3xl mx-auto text-center mb-20">
                         <div className="gold-line mx-auto mb-6" />
-                        <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-6" style={{ color: "var(--text-primary)" }}>Our Vision</h2>
+                        <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-6" style={{ color: "var(--text-primary)" }}>{T("about_vision_title")}</h2>
                         <p className="text-lg lg:text-xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                            {"To become "}<strong style={{ color: "var(--text-primary)" }}>{"Africa's reference industrial holding group"}</strong>{", recognized for operational excellence, unwavering commitment to sustainable development, and the ability to create shared value across every market we serve \u2014 from mining sites to agricultural fields, from urban centers to industrial zones."}
+                            {T("about_vision_p1")}
                         </p>
                         <div className="flex items-center justify-center gap-6 mt-10">
                             {[
-                                { label: "Excellence", color: "var(--gold-primary)" },
-                                { label: "Sustainability", color: "var(--text-primary)", opacity: 0.6 },
-                                { label: "Impact", color: "#15803d" },
+                                { label: T("about_vision_stat_excellence"), color: "var(--gold-primary)" },
+                                { label: T("about_vision_stat_sustainability"), color: "var(--text-primary)", opacity: 0.6 },
+                                { label: T("about_vision_stat_impact"), color: "#15803d" },
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center gap-2">
                                     <div className="w-3 h-3 rounded-full" style={{ background: item.color, opacity: item.opacity || 1 }} />
@@ -153,15 +158,15 @@ export function AboutPage() {
 
                     <RevealSection>
                         <div className="max-w-3xl mx-auto text-center mb-12">
-                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>Our Mission</h2>
-                            <p className="text-base" style={{ color: "var(--text-secondary)" }}>Mobilizing the most advanced resources, skills and technologies to build high-performing and sustainable enterprises.</p>
+                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("about_mission_title")}</h2>
+                            <p className="text-base" style={{ color: "var(--text-secondary)" }}>{T("about_mission_subtitle")}</p>
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
                             {[
-                                { icon: <Pickaxe className="w-6 h-6 text-[#0A1628]" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #C8962E, #e7b13f)", title: "Transform Locally", desc: "Process Africa's natural resources within the continent to maximize local economic value and reduce raw material exports." },
-                                { icon: <Users className="w-6 h-6 text-white" strokeWidth={1.5} />, bg: "#0D1B2A", title: "Empower Communities", desc: "Create quality jobs, invest in skills development, and foster economic empowerment in every community we operate in." },
-                                { icon: <Leaf className="w-6 h-6 text-white" strokeWidth={1.5} />, bg: "#15803d", title: "Protect the Environment", desc: "Implement sustainable practices that minimize environmental impact while maintaining world-class operational standards." },
-                                { icon: <Handshake className="w-6 h-6 text-white" strokeWidth={1.5} />, bg: "#343a40", title: "Build Partnerships", desc: "Forge strategic alliances with governments, investors, and global industry leaders to amplify collective impact." },
+                                { icon: <Pickaxe className="w-6 h-6 text-[#0A1628]" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #C8962E, #e7b13f)", title: T("about_mission_1_title"), desc: T("about_mission_1_desc") },
+                                { icon: <Users className="w-6 h-6 text-white" strokeWidth={1.5} />, bg: "#0D1B2A", title: T("about_mission_2_title"), desc: T("about_mission_2_desc") },
+                                { icon: <Leaf className="w-6 h-6 text-white" strokeWidth={1.5} />, bg: "#15803d", title: T("about_mission_3_title"), desc: T("about_mission_3_desc") },
+                                { icon: <Handshake className="w-6 h-6 text-white" strokeWidth={1.5} />, bg: "#343a40", title: T("about_mission_4_title"), desc: T("about_mission_4_desc") },
                             ].map((item, i) => (
                                 <RevealSection key={i} className={`p-6 rounded-2xl border shadow-sm stagger-child-${i + 1}`} style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
                                     <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: item.bg }}>{item.icon}</div>
@@ -181,14 +186,14 @@ export function AboutPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <RevealSection className="text-center mb-16">
                         <div className="gold-line mx-auto mb-6" />
-                        <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4">Core Values That Guide Us</h2>
-                        <p className="text-base text-white/50 max-w-2xl mx-auto">The foundational principles that drive every decision, partnership, and investment across our portfolio.</p>
+                        <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4">{T("about_values_title")}</h2>
+                        <p className="text-base text-white/50 max-w-2xl mx-auto">{T("about_values_desc")}</p>
                     </RevealSection>
                     <div className="grid md:grid-cols-3 gap-6">
                         {[
-                            { icon: <Shield className="w-7 h-7 text-[#0A1628]" strokeWidth={1.5} />, iconBg: "linear-gradient(135deg, #C8962E, #e7b13f)", title: "Integrity", desc: "Conducting all business with the highest ethical standards, transparency, and accountability to all stakeholders.", tags: ["Transparency", "Ethics", "Accountability"] },
-                            { icon: <Target className="w-7 h-7 text-[#e7b13f]" strokeWidth={1.5} />, iconBg: "rgba(255,255,255,0.1)", title: "Excellence", desc: "Pursuing the highest standards of operational performance, innovation, and service delivery across every sector.", tags: ["Innovation", "Quality", "Performance"] },
-                            { icon: <Sprout className="w-7 h-7 text-green-300" strokeWidth={1.5} />, iconBg: "rgba(22,101,52,0.6)", title: "Sustainable Growth", desc: "Balancing financial performance with environmental stewardship and social responsibility for long-term prosperity.", tags: ["ESG", "Long-term", "Responsible"] },
+                            { icon: <Shield className="w-7 h-7 text-[#0A1628]" strokeWidth={1.5} />, iconBg: "linear-gradient(135deg, #C8962E, #e7b13f)", title: T("about_value_1_title"), desc: T("about_value_1_desc"), tags: [T("about_value_1_tag1"), T("about_value_1_tag2"), T("about_value_1_tag3")] },
+                            { icon: <Target className="w-7 h-7 text-[#e7b13f]" strokeWidth={1.5} />, iconBg: "rgba(255,255,255,0.1)", title: T("about_value_2_title"), desc: T("about_value_2_desc"), tags: [T("about_value_2_tag1"), T("about_value_2_tag2"), T("about_value_2_tag3")] },
+                            { icon: <Sprout className="w-7 h-7 text-green-300" strokeWidth={1.5} />, iconBg: "rgba(22,101,52,0.6)", title: T("about_value_3_title"), desc: T("about_value_3_desc"), tags: [T("about_value_3_tag1"), T("about_value_3_tag2"), T("about_value_3_tag3")] },
                         ].map((value, i) => (
                             <RevealSection key={i} className={`stagger-child-${i + 1}`}>
                                 <div className="value-card-glow group p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#C8962E]/30 transition-all duration-300 cursor-default h-full">
@@ -217,11 +222,11 @@ export function AboutPage() {
                     </RevealSection>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { id: "mining", num: "01", icon: <Gem className="w-12 h-12 text-[#e7b13f]/30" strokeWidth={1} />, iconSm: <Gem className="w-5 h-5 text-[#0A1628]" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #0A1628 0%, #1a3050 100%)", iconBg: "linear-gradient(135deg, #C8962E, #e7b13f)", badgeBg: "bg-[#C8962E]/20 text-[#e7b13f]", title: "Mining & Metals", desc: "Responsible extraction and local transformation of Africa's mineral wealth into refined products." },
-                            { id: "industrial", num: "02", icon: <Brain className="w-12 h-12 text-white/15" strokeWidth={1} />, iconSm: <Brain className="w-5 h-5 text-white" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #0D1B2A 0%, #1a2744 100%)", iconBg: "#0D1B2A", badgeBg: "bg-white/10 text-white/70", title: "Industrial Services", desc: "Strategic consulting, audit, process optimization and industrial project management." },
-                            { id: "real-estate", num: "03", icon: <Building2 className="w-12 h-12 text-white/15" strokeWidth={1} />, iconSm: <Building2 className="w-5 h-5 text-white" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #1a2744 0%, #2a3a5c 100%)", iconBg: "#1a2744", badgeBg: "bg-white/10 text-white/70", title: "Real Estate & Construction", desc: "Developing sustainable residential, commercial and industrial infrastructure." },
-                            { id: "agriculture", num: "04", icon: <Sprout className="w-12 h-12 text-green-400/30" strokeWidth={1} />, iconSm: <Sprout className="w-5 h-5 text-white" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #1a3020 0%, #2a5030 100%)", iconBg: "#15803d", badgeBg: "bg-green-500/20 text-green-400", title: "Agriculture & Livestock", desc: "Building agro-industrial value chains, ensuring food security and rural development." },
-                            { id: "equipment", num: "05", icon: <Truck className="w-12 h-12 text-white/15" strokeWidth={1} />, iconSm: <Truck className="w-5 h-5 text-white" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #1a1a2e 0%, #2a2a4e 100%)", iconBg: "#343a40", badgeBg: "bg-white/10 text-white/70", title: "Equipment Supply", desc: "Supply, maintenance and rental of industrial and construction equipment." },
+                            { id: "mining", num: "01", icon: <Gem className="w-12 h-12 text-[#e7b13f]/30" strokeWidth={1} />, iconSm: <Gem className="w-5 h-5 text-[#0A1628]" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #0A1628 0%, #1a3050 100%)", iconBg: "linear-gradient(135deg, #C8962E, #e7b13f)", badgeBg: "bg-[#C8962E]/20 text-[#e7b13f]", title: T("s_mining_title"), desc: T("about_s_mining_desc") },
+                            { id: "industrial", num: "02", icon: <Brain className="w-12 h-12 text-white/15" strokeWidth={1} />, iconSm: <Brain className="w-5 h-5 text-white" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #0D1B2A 0%, #1a2744 100%)", iconBg: "#0D1B2A", badgeBg: "bg-white/10 text-white/70", title: T("about_s_industrial_title"), desc: T("about_s_industrial_desc") },
+                            { id: "real-estate", num: "03", icon: <Building2 className="w-12 h-12 text-white/15" strokeWidth={1} />, iconSm: <Building2 className="w-5 h-5 text-white" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #1a2744 0%, #2a3a5c 100%)", iconBg: "#1a2744", badgeBg: "bg-white/10 text-white/70", title: T("s_realestate_title"), desc: T("about_s_realestate_desc") },
+                            { id: "agriculture", num: "04", icon: <Sprout className="w-12 h-12 text-green-400/30" strokeWidth={1} />, iconSm: <Sprout className="w-5 h-5 text-white" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #1a3020 0%, #2a5030 100%)", iconBg: "#15803d", badgeBg: "bg-green-500/20 text-green-400", title: T("s_agri_title"), desc: T("about_s_agri_desc") },
+                            { id: "equipment", num: "05", icon: <Truck className="w-12 h-12 text-white/15" strokeWidth={1} />, iconSm: <Truck className="w-5 h-5 text-white" strokeWidth={1.5} />, bg: "linear-gradient(135deg, #1a1a2e 0%, #2a2a4e 100%)", iconBg: "#343a40", badgeBg: "bg-white/10 text-white/70", title: T("about_s_equip_title"), desc: T("about_s_equip_desc") },
                         ].map((sector, i) => (
                             <RevealSection key={i} className={`stagger-child-${(i % 3) + 1}`}>
                                 <article className="card-premium group cursor-pointer rounded-2xl overflow-hidden border shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }} onClick={() => router.push(`/industries/${sector.id}`)}>
@@ -234,7 +239,7 @@ export function AboutPage() {
                                         <h3 className="text-lg font-semibold tracking-tight mb-2" style={{ color: "var(--text-primary)" }}>{sector.title}</h3>
                                         <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>{sector.desc}</p>
                                         <span className="inline-flex items-center gap-1 text-xs font-semibold group-hover:gap-2 transition-all" style={{ color: "var(--gold-primary)" }}>
-                                            <span>Learn more</span><ArrowRight className="w-3.5 h-3.5" strokeWidth={1.5} />
+                                            <span>{T("learn_more")}</span><ArrowRight className="w-3.5 h-3.5" strokeWidth={1.5} />
                                         </span>
                                     </div>
                                 </article>

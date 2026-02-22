@@ -249,17 +249,17 @@ const RealEstateSectorPage = () => {
                                             <Building2 className="w-6 h-6 text-gold-400" />
                                         </div>
                                         <div>
-                                            <h3 className="text-sm font-bold text-white uppercase tracking-widest">{T("re_hero_title_gold", "Development Division")}</h3>
-                                            <p className="text-xs text-white/40 font-medium">Anago Group · Sector 03</p>
+                                            <h3 className="text-sm font-bold text-white uppercase tracking-widest">{T("re_division_title")}</h3>
+                                            <p className="text-xs text-white/40 font-medium">{T("re_org_tagline")}</p>
                                         </div>
                                     </div>
 
                                     <div className="space-y-6">
                                         {[
-                                            { label: "Built Surface Area", value: "1.2M+ sqm" },
-                                            { label: "Active Markets", value: "12+ Countries" },
-                                            { label: "Sustainability", value: "Green Certified", highlight: true },
-                                            { label: "Projects Delivered", value: "80+ Developments" }
+                                            { label: T("re_stat_surface"), value: "1.2M+ sqm" },
+                                            { label: T("re_stat_markets"), value: "12+ Countries" },
+                                            { label: T("re_act5_title"), value: "Green Certified", highlight: true },
+                                            { label: T("re_stat_projects"), value: "80+ Developments" }
                                         ].map((item, idx) => (
                                             <div key={idx} className="flex items-center justify-between py-3 border-b border-white/5 last:border-0">
                                                 <span className="text-xs text-white/40 font-medium">{item.label}</span>
@@ -272,8 +272,8 @@ const RealEstateSectorPage = () => {
                                         <div className="w-10 h-10 rounded-xl bg-gold-500/15 flex items-center justify-center">
                                             <Leaf className="w-5 h-5 text-gold-400" />
                                         </div>
-                                        <p className="text-[10px] leading-relaxed text-white/50 tracking-wide uppercase font-black">
-                                            40% Lower Emissions through<br />sustainable tech
+                                        <p className="text-[10px] leading-relaxed text-white/50 tracking-wide uppercase font-black whitespace-pre-line">
+                                            {T("re_emission_desc")}
                                         </p>
                                     </div>
                                 </div>
@@ -323,7 +323,7 @@ const RealEstateSectorPage = () => {
                                         <div className="w-24 h-24 mx-auto rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500">
                                             <Building className="w-12 h-12 text-gold-400/30" strokeWidth={1} />
                                         </div>
-                                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/20">{T("re_hero_title_gold", "Sustainable Design Division")}</p>
+                                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/20">{T("re_sustainable_div_title")}</p>
                                     </div>
                                 </div>
 
@@ -499,8 +499,8 @@ const RealEstateSectorPage = () => {
                                 <span className="text-xs font-black text-gold-400">AG</span>
                             </div>
                             <div className="text-left">
-                                <p className="text-sm font-bold text-white tracking-wide uppercase">{T("re_quote_author", "Real Estate Leadership")}</p>
-                                <p className="text-[10px] text-white/30 font-bold uppercase tracking-widest">Anago Group · Development Div.</p>
+                                <p className="text-sm font-bold text-white tracking-wide uppercase">{T("re_quote_author")}</p>
+                                <p className="text-[10px] text-white/30 font-bold uppercase tracking-widest">{T("re_quote_org")}</p>
                             </div>
                         </div>
                     </RevealSection>

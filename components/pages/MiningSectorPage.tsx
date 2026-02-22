@@ -173,37 +173,37 @@ export function MiningSectorPage() {
                         <div className="max-w-4xl mx-auto">
                             {/* Breadcrumb */}
                             <RevealSection delay={100} className="flex items-center justify-center gap-2 mb-12">
-                                <button onClick={() => router.push("/")} className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">Home</button>
+                                <button onClick={() => router.push("/")} className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">{T("nav_home", "Home")}</button>
                                 <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
-                                <span className="text-xs font-medium text-white/40">Industries</span>
+                                <span className="text-xs font-medium text-white/40">{T("nav_industries", "Industries")}</span>
                                 <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
-                                <span className="text-xs font-medium text-gold-400">Mining & Metals</span>
+                                <span className="text-xs font-medium text-gold-400">{T("s_mining_title", "Mining & Metals")}</span>
                             </RevealSection>
 
                             <RevealSection delay={200} className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-10">
                                 <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold"></div>
-                                <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">Strategic Sector 01 · Core Division</span>
+                                <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">{T("min_hero_badge")}</span>
                             </RevealSection>
 
                             <RevealSection delay={300}>
                                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-white leading-[1.08] mb-8">
-                                    Mining & Metals — <br className="hidden lg:block" /><span className="gold-gradient">Transforming Africa's Natural Resources</span>
+                                    {T("min_hero_title")}<br className="hidden lg:block" /><span className="gold-gradient">{T("min_hero_title_gold")}</span>
                                 </h1>
                             </RevealSection>
 
                             <RevealSection delay={400}>
                                 <p className="text-base lg:text-xl text-white/55 leading-relaxed max-w-2xl mx-auto mb-14">
-                                    From geological exploration to refined commodities, Anago Group drives responsible mineral extraction and local metal transformation — creating value at every stage of the mining lifecycle across Africa.
+                                    {T("min_hero_desc")}
                                 </p>
                             </RevealSection>
 
                             <RevealSection delay={500} className="flex flex-wrap justify-center gap-4">
                                 <button onClick={() => document.getElementById("activities")?.scrollIntoView({ behavior: "smooth" })} className="btn-gold px-7 py-3.5 text-sm rounded-lg inline-flex items-center gap-2">
-                                    <span>Explore Mining Projects</span>
+                                    <span>{T("min_hero_cta1")}</span>
                                     <ArrowDownRight className="w-4 h-4" strokeWidth={1.5} />
                                 </button>
                                 <button onClick={() => document.getElementById("contact-cta")?.scrollIntoView({ behavior: "smooth" })} className="btn-outline-light px-7 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium">
-                                    <span>Contact Us</span>
+                                    <span>{T("contact_us", "Contact Us")}</span>
                                     <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                                 </button>
                             </RevealSection>
@@ -213,7 +213,7 @@ export function MiningSectorPage() {
 
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
                     <button onClick={() => document.getElementById("about-mining")?.scrollIntoView({ behavior: "smooth" })} className="flex flex-col items-center gap-2 group">
-                        <span className="text-xs text-white/25 font-medium tracking-wider uppercase group-hover:text-white/40 transition-colors">Discover</span>
+                        <span className="text-xs text-white/25 font-medium tracking-wider uppercase group-hover:text-white/40 transition-colors">{T("min_hero_discover")}</span>
                         <div className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1 group-hover:border-gold-500/40 transition-colors">
                             <div className="w-1 h-2 rounded-full bg-gold-400" style={{ animation: "float-mining 2s ease-in-out infinite" }}></div>
                         </div>
@@ -237,9 +237,9 @@ export function MiningSectorPage() {
                                         <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #C8962E, #e7b13f)" }}>
                                             <ShieldCheck className="w-4 h-4 text-navy-800" strokeWidth={1.5} />
                                         </div>
-                                        <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Responsible Mining</span>
+                                        <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{T("min_about_label")}</span>
                                     </div>
-                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>ESG-compliant operations across all mining sites with community-first approach</p>
+                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{T("min_about_label_desc")}</p>
                                 </div>
                                 {/* Floating accent */}
                                 <div className="absolute -top-3 -left-3 w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center animate-float" style={{ animationDelay: "1s" }}>
@@ -250,21 +250,21 @@ export function MiningSectorPage() {
                         <RevealSectionRight>
                             <div className="gold-line mb-6"></div>
                             <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-6" style={{ color: "var(--text-primary)" }}>
-                                Africa's Mineral Wealth, Responsibly Extracted & Locally Transformed
+                                {T("min_about_title")}
                             </h2>
                             <p className="text-base leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
-                                Anago Group's Mining & Metals division is at the heart of our integrated industrial strategy. We operate across the full mining value chain — from geological exploration and resource assessment to extraction, processing, and international commodity trading.
+                                {T("min_about_p1")}
                             </p>
                             <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>
-                                Our approach prioritizes local transformation of raw materials, ensuring that Africa's natural resources generate maximum economic value within the continent. Every operation adheres to international ESG standards while creating meaningful employment and community development.
+                                {T("min_about_p2")}
                             </p>
                             {/* Key highlights */}
                             <div className="grid grid-cols-2 gap-4 mb-8">
                                 {[
-                                    { text: "Full Value Chain" },
-                                    { text: "ESG Compliant" },
-                                    { text: "Local Transformation" },
-                                    { text: "Community-First" }
+                                    { text: T("min_about_feat1") },
+                                    { text: T("min_about_feat2") },
+                                    { text: T("min_about_feat3") },
+                                    { text: T("min_about_feat4") }
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
                                         <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: "var(--gold-bg)" }}>
@@ -275,7 +275,7 @@ export function MiningSectorPage() {
                                 ))}
                             </div>
                             <button onClick={() => document.getElementById("activities")?.scrollIntoView({ behavior: "smooth" })} className="inline-flex items-center gap-2 text-sm font-semibold transition-colors group" style={{ color: "var(--gold-primary)" }}>
-                                <span>Discover Our Activities</span>
+                                <span>{T("min_about_cta")}</span>
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
                             </button>
                         </RevealSectionRight>
@@ -289,8 +289,8 @@ export function MiningSectorPage() {
                     <div className="text-center mb-16">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>Our Mining Activities</h2>
-                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>Four integrated pillars covering the complete mining lifecycle, from discovery to delivery.</p>
+                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("min_act_title")}</h2>
+                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("min_act_desc")}</p>
                         </RevealSection>
                     </div>
 
@@ -299,30 +299,30 @@ export function MiningSectorPage() {
                             {
                                 num: "01",
                                 image: "/images/geolocalityt.jpg",
-                                title: "Geological Exploration",
-                                desc: "Advanced geological surveys, geophysical analysis, and resource assessment to identify and evaluate mineral deposits across Africa. Our exploration teams use cutting-edge technology including satellite imagery, geochemical sampling, and 3D geological modeling.",
-                                tags: ["Geological Surveys", "Resource Assessment", "3D Modeling"]
+                                title: T("min_act1_title"),
+                                desc: T("min_act1_desc"),
+                                tags: [T("min_act1_tag1", "Geological Surveys"), T("min_act1_tag2", "Resource Assessment"), T("min_act1_tag3", "3D Modeling")]
                             },
                             {
                                 num: "02",
                                 image: "/images/mine-artisanal.jpg",
-                                title: "Artisanal Mining Modernization",
-                                desc: "Transforming traditional artisanal mining into safe, productive, and environmentally responsible operations. We provide modern equipment, training, and formalized processes that improve yields while protecting miners and their communities.",
-                                tags: ["Formalization", "Safety Standards", "Training"]
+                                title: T("min_act2_title"),
+                                desc: T("min_act2_desc"),
+                                tags: [T("min_act2_tag1", "Formalization"), T("min_act2_tag2", "Safety Standards"), T("min_act2_tag3", "Training")]
                             },
                             {
                                 num: "03",
                                 image: "/images/trading-mine.jpg",
-                                title: "Commodity Trading",
-                                desc: "Strategic buying, selling, and trading of precious metals and minerals on international markets. Our trading desk leverages deep market intelligence, established global networks, and competitive positioning to optimize returns on Africa's mineral wealth.",
-                                tags: ["Gold Trading", "Precious Metals", "Global Markets"]
+                                title: T("min_act3_title"),
+                                desc: T("min_act3_desc"),
+                                tags: [T("min_act3_tag1", "Gold Trading"), T("min_act3_tag2", "Precious Metals"), T("min_act3_tag3", "Global Markets")]
                             },
                             {
                                 num: "04",
                                 image: "/images/hydrolique.jpg",
-                                title: "Mining & Hydraulic Drilling",
-                                desc: "Specialized extraction operations utilizing modern drilling techniques, heavy machinery, and hydraulic systems for efficient mineral recovery. Our drilling operations support both mining exploration and water resource development across arid regions.",
-                                tags: ["Drilling Operations", "Hydraulic Systems", "Water Resources"]
+                                title: T("min_act4_title"),
+                                desc: T("min_act4_desc"),
+                                tags: [T("min_act4_tag1", "Drilling Operations"), T("min_act4_tag2", "Hydraulic Systems"), T("min_act4_tag3", "Water Resources")]
                             }
                         ].map((activity, i) => (
                             <RevealSection key={i} delay={i * 100}>
@@ -345,7 +345,7 @@ export function MiningSectorPage() {
                                             ))}
                                         </div>
                                         <span className="inline-flex items-center gap-1.5 text-xs font-semibold group-hover:gap-2.5 transition-all shrink-0 mt-auto" style={{ color: "var(--gold-primary)" }}>
-                                            <span>Learn more</span>
+                                            <span>{T("learn_more")}</span>
                                             <ArrowRight className="w-3.5 h-3.5" strokeWidth={1.5} />
                                         </span>
                                     </div>
@@ -365,19 +365,19 @@ export function MiningSectorPage() {
                     <div className="text-center mb-16">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4">Our Value Proposition</h2>
-                            <p className="text-base text-white/50 max-w-2xl mx-auto">What makes Anago Group's Mining & Metals division a trusted partner for governments, investors, and communities.</p>
+                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4">{T("min_vp_title")}</h2>
+                            <p className="text-base text-white/50 max-w-2xl mx-auto">{T("min_vp_desc")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { icon: <Search className="w-7 h-7 text-navy-800" />, title: "Deep Geological Expertise", desc: "Decades of combined geological knowledge and advanced survey techniques enable us to identify high-potential mineral deposits with precision." },
-                            { icon: <ArrowRight className="w-7 h-7 text-gold-400" />, title: "Local Value Chain Optimization", desc: "We maximize in-country transformation of raw materials, creating local jobs, building processing infrastructure, and reducing dependence on raw mineral exports.", isLink: true },
-                            { icon: <Leaf className="w-7 h-7 text-green-300" />, title: "Environmental Stewardship", desc: "Rigorous environmental management plans, mine rehabilitation programs, and sustainable practices that protect ecosystems while extracting resources.", bg: "bg-green-700/60" },
-                            { icon: <Users className="w-7 h-7 text-white/70" />, title: "Community Partnership", desc: "Every mining project includes social development programs, local hiring commitments, and infrastructure investments that benefit surrounding communities." },
-                            { icon: <Globe className="w-7 h-7 text-white/70" />, title: "International Trading Networks", desc: "Established commodity trading relationships with global markets, ensuring competitive pricing and reliable delivery of refined minerals and metals." },
-                            { icon: <Shield className="w-7 h-7 text-white/70" />, title: "Regulatory Compliance", desc: "Full compliance with national mining codes, international standards (ISO), and conflict-free mineral certification across all jurisdictions." }
+                            { icon: <Search className="w-7 h-7 text-navy-800" />, title: T("min_vp1_title"), desc: T("min_vp1_desc") },
+                            { icon: <ArrowRight className="w-7 h-7 text-gold-400" />, title: T("min_vp2_title"), desc: T("min_vp2_desc"), isLink: true },
+                            { icon: <Leaf className="w-7 h-7 text-green-300" />, title: T("min_vp3_title"), desc: T("min_vp3_desc"), bg: "bg-green-700/60" },
+                            { icon: <Users className="w-7 h-7 text-white/70" />, title: T("min_vp4_title"), desc: T("min_vp4_desc") },
+                            { icon: <Globe className="w-7 h-7 text-white/70" />, title: T("min_vp5_title"), desc: T("min_vp5_desc") },
+                            { icon: <Shield className="w-7 h-7 text-white/70" />, title: T("min_vp6_title"), desc: T("min_vp6_desc") }
                         ].map((item, i) => (
                             <RevealSection key={i} delay={i * 100}>
                                 <div className="group p-8 rounded-2xl bg-white/3 border border-white/10 hover:border-gold-500/30 transition-all duration-400 cursor-default h-full relative overflow-hidden">
@@ -400,17 +400,17 @@ export function MiningSectorPage() {
                     <div className="text-center mb-16">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>Mining Division in Numbers</h2>
-                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>Key metrics that demonstrate our operational scale and impact across the continent.</p>
+                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("min_stat_title")}</h2>
+                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("min_stat_desc")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         {[
-                            { icon: <MapPin className="w-6 h-6" />, count: "8", suffix: "+", label: "Countries of Operation", gold: true },
-                            { icon: <Mountain className="w-6 h-6" />, count: "12", suffix: "+", label: "Mining Concessions" },
-                            { icon: <Users className="w-6 h-6" />, count: "200", suffix: "+", label: "Mining Professionals", gold: true },
-                            { icon: <TrendingUp className="w-6 h-6" />, count: "20", suffix: " yrs", label: "Operational Experience" }
+                            { icon: <MapPin className="w-6 h-6" />, count: "8", suffix: "+", label: T("min_stat1"), gold: true },
+                            { icon: <Mountain className="w-6 h-6" />, count: "12", suffix: "+", label: T("min_stat2") },
+                            { icon: <Users className="w-6 h-6" />, count: "200", suffix: "+", label: T("min_stat3"), gold: true },
+                            { icon: <TrendingUp className="w-6 h-6" />, count: "20", suffix: " yrs", label: T("min_stat4") }
                         ].map((stat, i) => (
                             <RevealSection key={i} delay={i * 100}>
                                 <div className="text-center p-8 rounded-2xl border bg-(--card-bg) border-(--border-color) shadow-sm hover:shadow-md transition-shadow">
@@ -434,17 +434,17 @@ export function MiningSectorPage() {
                     <div className="text-center mb-16">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>Our Mining Value Chain</h2>
-                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>An integrated approach from discovery to delivery, maximizing value at every stage.</p>
+                            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("min_vc_title")}</h2>
+                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("min_vc_desc")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { step: "1", title: "Discover", desc: "Geological exploration, surveys, resource assessment and concession acquisition.", gradient: "linear-gradient(90deg, #C8962E, #e7b13f)" },
-                            { step: "2", title: "Extract", desc: "Responsible extraction using modern techniques, safety standards and environmental protocols.", gradient: "linear-gradient(90deg, #e7b13f, #C8962E)" },
-                            { step: "3", title: "Transform", desc: "Local processing and refining of raw minerals into market-ready commodities and metals.", gradient: "linear-gradient(90deg, #C8962E, #e7b13f)" },
-                            { step: "4", title: "Deliver", desc: "International commodity trading and strategic delivery to global markets and partners.", gradient: "linear-gradient(90deg, #e7b13f, #C8962E)" }
+                            { step: "1", title: T("min_vc1_title"), desc: T("min_vc1_desc"), gradient: "linear-gradient(90deg, #C8962E, #e7b13f)" },
+                            { step: "2", title: T("min_vc2_title"), desc: T("min_vc2_desc"), gradient: "linear-gradient(90deg, #e7b13f, #C8962E)" },
+                            { step: "3", title: T("min_vc3_title"), desc: T("min_vc3_desc"), gradient: "linear-gradient(90deg, #C8962E, #e7b13f)" },
+                            { step: "4", title: T("min_vc4_title"), desc: T("min_vc4_desc"), gradient: "linear-gradient(90deg, #e7b13f, #C8962E)" }
                         ].map((item, i) => (
                             <RevealSection key={i} delay={i * 100} className="process-connector">
                                 <div className="text-center p-6 rounded-2xl border relative overflow-hidden h-full shadow-sm hover:shadow-md transition-shadow" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
@@ -467,15 +467,15 @@ export function MiningSectorPage() {
                         <div className="relative z-10 text-center">
                             <div className="gold-line mx-auto mb-8"></div>
                             <blockquote className="font-display text-xl lg:text-2xl leading-relaxed mb-8 italic" style={{ color: "var(--text-secondary)" }}>
-                                "Africa's mineral wealth has the power to transform the continent — but only if we extract it responsibly, process it locally, and ensure that communities share in the prosperity. At Anago Group, every mining operation is an investment in Africa's industrial sovereignty."
+                                "{T("min_quote")}"
                             </blockquote>
                             <div className="flex items-center justify-center gap-4">
                                 <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg" style={{ background: "linear-gradient(135deg, #C8962E, #e7b13f)" }}>
                                     <span className="text-sm font-bold text-navy-800">AG</span>
                                 </div>
                                 <div className="text-left">
-                                    <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Mining Division Leadership</p>
-                                    <p className="text-xs" style={{ color: "var(--text-tertiary)" }}>Anago Group · Mining & Metals</p>
+                                    <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{T("min_quote_role")}</p>
+                                    <p className="text-xs" style={{ color: "var(--text-tertiary)" }}>{T("min_quote_org")}</p>
                                 </div>
                             </div>
                         </div>
@@ -488,17 +488,17 @@ export function MiningSectorPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <RevealSection>
-                            <h2 className="font-display text-2xl lg:text-3xl font-semibold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>Explore Other Sectors</h2>
-                            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>Discover how our integrated divisions work together to drive value.</p>
+                            <h2 className="font-display text-2xl lg:text-3xl font-semibold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>{T("min_related_title")}</h2>
+                            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>{T("min_related_desc")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
                         {[
-                            { id: "industrial", icon: <TrendingUp className="w-5 h-5 text-white" />, title: "Industrial Services", desc: "Consulting & project management", bg: "bg-navy-600" },
-                            { id: "real-estate", icon: <Building2 className="w-5 h-5 text-white" />, title: "Real Estate & Construction", desc: "Infrastructure & development", bg: "#1a2744" },
-                            { id: "agriculture", icon: <Globe className="w-5 h-5 text-white" />, title: "Agriculture & Livestock", desc: "Value chains & food security", bg: "bg-green-700" },
-                            { id: "equipment", icon: <ArrowRight className="w-5 h-5 text-white" />, title: "Equipment Supply", desc: "Supply, maintenance & rental", bg: "#495057" }
+                            { id: "industrial", icon: <TrendingUp className="w-5 h-5 text-white" />, title: T("nav_industrial", "Industrial Services"), desc: T("ind_hero_badge_desc", "Consulting & project management"), bg: "bg-navy-600" },
+                            { id: "real-estate", icon: <Building2 className="w-5 h-5 text-white" />, title: T("nav_realestate", "Real Estate & Construction"), desc: T("real_hero_desc", "Infrastructure & development"), bg: "#1a2744" },
+                            { id: "agriculture", icon: <Globe className="w-5 h-5 text-white" />, title: T("nav_agriculture", "Agriculture & Livestock"), desc: T("agri_hero_desc", "Value chains & food security"), bg: "bg-green-700" },
+                            { id: "equipment", icon: <ArrowRight className="w-5 h-5 text-white" />, title: T("nav_equipment", "Equipment Supply"), desc: T("equip_hero_desc", "Supply, maintenance & rental"), bg: "#495057" }
                         ].map((sector, i) => (
                             <RevealSection key={i} delay={i * 100}>
                                 <button onClick={() => router.push(`/industries/${sector.id}`)} className="card-premium group p-6 rounded-2xl border text-left w-full h-full" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
@@ -506,7 +506,7 @@ export function MiningSectorPage() {
                                     <h3 className="text-sm font-semibold mb-1" style={{ color: "var(--text-primary)" }}>{sector.title}</h3>
                                     <p className="text-xs mb-3" style={{ color: "var(--text-tertiary)" }}>{sector.desc}</p>
                                     <span className="inline-flex items-center gap-1 text-xs font-semibold group-hover:gap-2 transition-all" style={{ color: "var(--gold-primary)" }}>
-                                        <span>Explore</span>
+                                        <span>{T("explore", "Explore")}</span>
                                         <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
                                     </span>
                                 </button>
@@ -529,18 +529,18 @@ export function MiningSectorPage() {
                     <RevealSection>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-8">
                             <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold"></div>
-                            <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">Partner With Our Mining Division</span>
+                            <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">{T("min_final_badge")}</span>
                         </div>
-                        <h2 className="font-display text-3xl lg:text-5xl font-semibold tracking-tight text-white mb-6">Ready to Unlock Africa's Mineral Potential?</h2>
-                        <p className="text-base lg:text-lg text-white/55 max-w-2xl mx-auto mb-10">Whether you're a mining investor, government seeking development partners, or a company exploring African mineral markets — Anago Group's Mining & Metals division is your trusted gateway to responsible resource development.</p>
+                        <h2 className="font-display text-3xl lg:text-5xl font-semibold tracking-tight text-white mb-6">{T("min_final_title")}</h2>
+                        <p className="text-base lg:text-lg text-white/55 max-w-2xl mx-auto mb-10">{T("min_final_desc")}</p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <button onClick={() => router.push("/contact")} className="btn-gold px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 shadow-lg">
-                                <span>Get in Touch</span>
+                                <span>{T("min_final_cta1")}</span>
                                 <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                             </button>
                             <button className="btn-outline-light px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium">
                                 <Download className="w-4 h-4" strokeWidth={1.5} />
-                                <span>Download Mining Profile</span>
+                                <span>{T("min_final_cta2")}</span>
                             </button>
                         </div>
                     </RevealSection>

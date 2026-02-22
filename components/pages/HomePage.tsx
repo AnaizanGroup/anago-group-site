@@ -89,11 +89,7 @@ export function HomePage() {
 
                             <RevealSection className="stagger-2">
                                 <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-white leading-[1.05] mb-8">
-                                    {lang === "fr" ? (
-                                        <>{"Industrialiser l'Afrique Par des "}<span className="gold-gradient">{"Chaines de Valeur Integrees"}</span></>
-                                    ) : (
-                                        <>{"Industrializing Africa Through "}<span className="gold-gradient">{"Integrated Value Chains"}</span></>
-                                    )}
+                                    <>{T("hero_title_1")}<span className="gold-gradient">{T("hero_title_2")}</span></>
                                 </h1>
                             </RevealSection>
 
@@ -209,10 +205,10 @@ export function HomePage() {
                                 <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6 z-10 bg-white/20 backdrop-blur-md transition-transform duration-500 group-hover:scale-110">
                                     <LayoutGrid className="w-7 h-7 text-white" strokeWidth={1.5} />
                                 </div>
-                                <h3 className="text-xl font-bold tracking-tight mb-3 text-white z-10">{T("Voir tous les secteurs", "View All Sectors")}</h3>
-                                <p className="text-sm font-medium leading-relaxed mb-6 text-white/90 z-10">{T("Découvrez l'ensemble de notre portefeuille d'investissements stratégiques et d'opérations en Afrique.", "Discover our complete portfolio of strategic investments and operations across Africa.")}</p>
+                                <h3 className="text-xl font-bold tracking-tight mb-3 text-white z-10">{T("home_sectors_all_title")}</h3>
+                                <p className="text-sm font-medium leading-relaxed mb-6 text-white/90 z-10">{T("home_sectors_all_desc")}</p>
                                 <span className="inline-flex items-center gap-2 text-sm font-bold bg-white text-black px-5 py-2.5 rounded-full transition-all group-hover:bg-gray-100 group-hover:shadow-md z-10">
-                                    <span>{T("Explorer nos Industries", "Explore Industries")}</span><ArrowRight className="w-4 h-4" strokeWidth={2} />
+                                    <span>{T("home_sectors_all_cta")}</span><ArrowRight className="w-4 h-4" strokeWidth={2} />
                                 </span>
                             </article>
                         </RevealSection>

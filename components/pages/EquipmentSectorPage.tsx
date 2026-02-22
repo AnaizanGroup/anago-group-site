@@ -164,9 +164,9 @@ export function EquipmentSectorPage() {
                             <RevealSection delay={100} className="flex items-center gap-2 mb-8">
                                 <button onClick={() => router.push("/")} className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">Home</button>
                                 <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
-                                <span className="text-xs font-medium text-white/40">Industries</span>
+                                <span className="text-xs font-medium text-white/40">{T("nav_industries", "Industries")}</span>
                                 <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
-                                <span className="text-xs font-medium text-gold-400">Equipment & Solutions</span>
+                                <span className="text-xs font-medium text-gold-400">{T("equip_breadcrumb", "Equipment & Solutions")}</span>
                             </RevealSection>
 
                             <RevealSection delay={200} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-8">
@@ -206,8 +206,8 @@ export function EquipmentSectorPage() {
                                             <Settings2 className="w-5 h-5 text-white" strokeWidth={1.5} />
                                         </div>
                                         <div>
-                                            <span className="text-sm font-semibold text-white">Equipment Division</span>
-                                            <span className="text-xs text-white/40 block">Operational Ready</span>
+                                            <span className="text-sm font-semibold text-white">{T("equip_div_title", "Equipment Division")}</span>
+                                            <span className="text-xs text-white/40 block">{T("equip_div_subtitle", "Operational Ready")}</span>
                                         </div>
                                     </div>
                                     <div className="space-y-4 mb-6">
@@ -228,8 +228,8 @@ export function EquipmentSectorPage() {
                                             <Activity className="w-4 h-4 text-gold-400" strokeWidth={1.5} />
                                         </div>
                                         <div>
-                                            <span className="text-xs text-white/35 block">Telematics Enabled</span>
-                                            <span className="text-xs font-medium text-white/60">Real-time asset visibility continent-wide</span>
+                                            <span className="text-xs text-white/35 block">{T("equip_telematics", "Telematics Enabled")}</span>
+                                            <span className="text-xs font-medium text-white/60">{T("equip_telematics_desc", "Real-time asset visibility continent-wide")}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -254,7 +254,7 @@ export function EquipmentSectorPage() {
                                         <div className="w-24 h-24 mx-auto rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
                                             <Settings className="w-12 h-12 text-gold-400/40" strokeWidth={1} />
                                         </div>
-                                        <div className="text-xs text-white/25 font-medium tracking-wider uppercase">Heavy Equipment Assembly</div>
+                                        <div className="text-xs text-white/25 font-medium tracking-wider uppercase">{T("equip_about_tag", "Heavy Equipment Assembly")}</div>
                                     </div>
                                 </div>
                                 <div className="absolute top-8 left-8 w-20 h-20 border-l-2 border-t-2 border-white/4 rounded-tl-xl"></div>
@@ -265,9 +265,9 @@ export function EquipmentSectorPage() {
                                     <div className="w-9 h-9 rounded-lg flex items-center justify-center bg-navy-600">
                                         <Award className="w-4 h-4 text-white" strokeWidth={1.5} />
                                     </div>
-                                    <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>OEM Partner</span>
+                                    <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{T("equip_about_card_title", "OEM Partner")}</span>
                                 </div>
-                                <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>Authorized dealer and service provider for global brands</p>
+                                <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{T("equip_about_card_desc", "Authorized dealer and service provider for global brands")}</p>
                             </div>
                         </RevealSection>
 
@@ -309,7 +309,7 @@ export function EquipmentSectorPage() {
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
                             <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("equip_activity_title", "Equipment Services")}</h2>
-                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>World-class support at every stage of the equipment lifecycle.</p>
+                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("equip_activity_subtitle", "World-class support at every stage of the equipment lifecycle.")}</p>
                         </RevealSection>
                     </div>
 
@@ -331,7 +331,7 @@ export function EquipmentSectorPage() {
                                     <h3 className="text-xl font-semibold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>{act.title}</h3>
                                     <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>{act.desc}</p>
                                     <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-gold-500 group-hover:gap-2.5 transition-all">
-                                        <span>Learn more</span>
+                                        <span>{T("learn_more", "Learn more")}</span>
                                         <ArrowRight className="w-3.5 h-3.5" strokeWidth={1.5} />
                                     </span>
                                 </article>
@@ -349,17 +349,17 @@ export function EquipmentSectorPage() {
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
                             <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4">{T("equip_value_title", "The Anago Advantage")}</h2>
-                            <p className="text-base text-white/50 max-w-2xl mx-auto">The competitive advantages that make us Africa's preferred equipment partner.</p>
+                            <p className="text-base text-white/50 max-w-2xl mx-auto">{T("equip_value_subtitle", "The competitive advantages that make us Africa's preferred equipment partner.")}</p>
                         </RevealSection>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
                             { icon: <ShieldCheck className="w-7 h-7 text-white" />, title: T("equip_val1_title"), desc: T("equip_val1_desc") },
                             { icon: <Users className="w-7 h-7 text-navy-800" />, title: T("equip_val2_title"), desc: T("equip_val2_desc"), bg: "bg-linear-to-br from-gold-500 to-gold-400" },
-                            { icon: <Headphones className="w-7 h-7 text-gold-400" />, title: "Full-Lifecycle Support", desc: "From selection and financing to maintenance and final decommissioning." },
+                            { icon: <Headphones className="w-7 h-7 text-gold-400" />, title: T("equip_val4_title", "Full-Lifecycle Support"), desc: T("equip_val4_desc", "From selection and financing to maintenance and final decommissioning.") },
                             { icon: <Globe className="w-7 h-7 text-white/70" />, title: T("equip_val3_title"), desc: T("equip_val3_desc") },
-                            { icon: <BarChart3 className="w-7 h-7 text-white/70" />, title: "Cost Optimization", desc: "Reducing total cost of ownership by up to 30% through predictive maintenance and telematics." },
-                            { icon: <Layers className="w-7 h-7 text-white/70" />, title: "Group Synergies", desc: "Leveraging expertise from our mining, construction, and agriculture divisions." },
+                            { icon: <BarChart3 className="w-7 h-7 text-white/70" />, title: T("equip_val5_title", "Cost Optimization"), desc: T("equip_val5_desc", "Reducing total cost of ownership by up to 30% through predictive maintenance and telematics.") },
+                            { icon: <Layers className="w-7 h-7 text-white/70" />, title: T("equip_val6_title", "Global Standards"), desc: T("equip_val6_desc", "Operating to ISO and international safety standards across all service operations.") },
                         ].map((val, i) => (
                             <RevealSection key={i} delay={i * 50}>
                                 <div className="value-card-glow group p-8 rounded-2xl bg-white/3 border border-white/10 hover:border-gold-500/30 transition-all duration-400">
@@ -381,19 +381,19 @@ export function EquipmentSectorPage() {
                     <div className="text-center mb-12">
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-serif text-2xl lg:text-3xl font-semibold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>Equipment Categories</h2>
-                            <p className="text-sm max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>A comprehensive range of industrial and transport equipment for every sector.</p>
+                            <h2 className="font-serif text-2xl lg:text-3xl font-semibold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>{T("equip_cat_title", "Equipment Categories")}</h2>
+                            <p className="text-sm max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("equip_cat_subtitle", "A comprehensive range of industrial and transport equipment for every sector.")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                         {[
-                            { icon: <HardHat className="w-5 h-5" />, label: "Excavators" },
-                            { icon: <Truck className="w-5 h-5" />, label: "Dump Trucks" },
-                            { icon: <ArrowUpFromLine className="w-5 h-5" />, label: "Cranes" },
-                            { icon: <Zap className="w-5 h-5" />, label: "Generators" },
-                            { icon: <Forklift className="w-5 h-5" />, label: "Loaders" },
-                            { icon: <Car className="w-5 h-5" />, label: "Vehicles" },
+                            { icon: <HardHat className="w-5 h-5" />, label: T("equip_cat1", "Excavators") },
+                            { icon: <Truck className="w-5 h-5" />, label: T("equip_cat2", "Dump Trucks") },
+                            { icon: <ArrowUpFromLine className="w-5 h-5" />, label: T("equip_cat3", "Cranes") },
+                            { icon: <Zap className="w-5 h-5" />, label: T("equip_cat4", "Generators") },
+                            { icon: <Forklift className="w-5 h-5" />, label: T("equip_cat5", "Loaders") },
+                            { icon: <Car className="w-5 h-5" />, label: T("equip_cat6", "Vehicles") },
                         ].map((cat, i) => (
                             <RevealSection key={i} delay={i * 50}>
                                 <div className="text-center p-5 rounded-2xl border group hover:border-gold-500/30 transition-all bg-card-bg border-border-color" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
@@ -415,16 +415,16 @@ export function EquipmentSectorPage() {
                         <RevealSection>
                             <div className="gold-line mx-auto mb-6"></div>
                             <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("equip_process_title", "Our Service Lifecycle")}</h2>
-                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>A systematic approach from needs assessment to ongoing performance optimization.</p>
+                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("equip_process_subtitle", "A systematic approach from needs assessment to ongoing performance optimization.")}</p>
                         </RevealSection>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { num: "1", title: T("equip_proc1"), desc: "Site survey, operational analysis, and equipment specification." },
-                            { num: "2", title: T("equip_proc2"), desc: "Coordinated logistics, customs clearance, and site delivery." },
-                            { num: "3", title: T("equip_proc3"), desc: "Operator training, safety certification, and handover." },
-                            { num: "4", title: T("equip_proc4"), desc: "Ongoing maintenance, telematics monitoring, and parts supply." },
+                            { num: "1", title: T("equip_proc1", "Needs Analysis"), desc: T("equip_proc1_desc", "Site survey, operational analysis, and equipment specification.") },
+                            { num: "2", title: T("equip_proc2", "Procurement & Delivery"), desc: T("equip_proc2_desc", "Coordinated logistics, customs clearance, and site delivery.") },
+                            { num: "3", title: T("equip_proc3", "Commissioning"), desc: T("equip_proc3_desc", "Operator training, safety certification, and handover.") },
+                            { num: "4", title: T("equip_proc4", "Ongoing Support"), desc: T("equip_proc4_desc", "Ongoing maintenance, telematics monitoring, and parts supply.") },
                         ].map((proc, i) => (
                             <RevealSection key={i} delay={i * 100}>
                                 <div className="process-connector text-center p-6 rounded-2xl border relative overflow-hidden bg-card-bg border-border-color h-full" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
@@ -448,7 +448,7 @@ export function EquipmentSectorPage() {
                     <RevealSection>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-8">
                             <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold"></div>
-                            <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">Equip Your Operations</span>
+                            <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">{T("equip_cta_badge", "Equip Your Operations")}</span>
                         </div>
                         <h2 className="font-serif text-3xl lg:text-5xl font-semibold tracking-tight text-white mb-6">
                             {T("equip_cta_title", "Ready to Power Your Next Project?")}
@@ -463,7 +463,7 @@ export function EquipmentSectorPage() {
                             </button>
                             <button className="btn-outline-light px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium">
                                 <Download className="w-4 h-4" strokeWidth={1.5} />
-                                <span>Download Catalog</span>
+                                <span>{T("equip_cta_btn2", "Download Catalog")}</span>
                             </button>
                         </div>
                     </RevealSection>
