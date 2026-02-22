@@ -24,8 +24,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/ # On n'envoie QUE le résultat du build
           #server-dir: /public_html/
-          delete-removed: true # Supprime les anciens fichiers
-          exclude: |
-            **/.well-known/**
-            **/.htaccess
-            **/cgi-bin/**
