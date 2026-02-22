@@ -23,5 +23,9 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/ # On n'envoie QUE le résultat du build
-          #server-dir: ./
-          # delete-removed: true # Supprime les anciens fichiers (comme Vercel)
+          server-dir: ./
+          delete-removed: true # Supprime les anciens fichiers (comme Vercel)
+          exclude: |
+            **/.well-known/**
+            **/.htaccess
+            **/cgi-bin/**
