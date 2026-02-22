@@ -82,10 +82,10 @@ export function HomePage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
                     <div className="flex flex-col items-center text-center pt-10">
                         <div className="max-w-4xl mx-auto">
-                            <RevealSection className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-10">
+                            {/* <RevealSection className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-10">
                                 <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold" />
                                 <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">{T("hero_badge", "Pan-African Industrial Holding")}</span>
-                            </RevealSection>
+                            </RevealSection> */}
 
                             <RevealSection className="stagger-2">
                                 <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-white leading-[1.05] mb-8">
