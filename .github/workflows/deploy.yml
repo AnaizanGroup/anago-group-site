@@ -1,1 +1,24 @@
+name: Deploiement Automatique cPanel
 
+on:
+  push:
+    branches:
+      - main # Vérifiez si votre branche s'appelle main ou master
+
+jobs:
+  deploy:
+    name: Transfert des fichiers
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Recuperation du code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: 🚀 Synchro FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ./public_html/ # Destination dans le Gestionnaire de fichiers
