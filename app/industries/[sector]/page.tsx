@@ -23,7 +23,7 @@ export default async function IndustrySector({ params }: { params: any }) {
     const resolvedParams = await Promise.resolve(params);
     const sector = resolvedParams.sector;
 
-    if (sector === "industrial" || sector === "industrial-services") {
+    if (sector === "industrial " || sector === "industrial-services") {
         return <IndustrialSectorPage />
     }
 
