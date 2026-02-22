@@ -17,7 +17,6 @@ jobs:
 
       - name: 🚀 Synchro FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        runs: ls -l
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
