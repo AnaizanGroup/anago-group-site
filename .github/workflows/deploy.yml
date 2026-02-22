@@ -1,4 +1,4 @@
-name: Deploy to cPanel (Vercel Style)
+name: Deploy to cPanel (Vercel Styles)
 
 on:
   push:
