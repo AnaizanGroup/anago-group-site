@@ -124,7 +124,7 @@ export function HomePage() {
             </section>
 
             {/* Who We Are */}
-            <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--bg-primary)" }}>
+            {/* <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--bg-primary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <RevealSection>
@@ -161,7 +161,7 @@ export function HomePage() {
                         </RevealSection>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Sectors */}
             <section id="sectors" className="py-20 lg:py-28" style={{ backgroundColor: "var(--bg-secondary)" }}>
