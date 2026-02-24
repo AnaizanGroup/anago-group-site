@@ -75,6 +75,48 @@ export const translations: Translations = {
         final_cta1: "Contact Us",
         final_cta2: "Download Profile",
 
+        // Home - extras
+        home_scroll: "Scroll",
+        home_who_image_alt: "Anago Group operations",
+        home_who_years_badge: "Est. 2004",
+        home_who_years_tagline: "20+ years building Africa's industrial future",
+
+        invest_feature1_title: "Trusted Track Record",
+        invest_feature1_desc: "20+ years of successful operations",
+        invest_feature2_title: "Pan-African Reach",
+        invest_feature2_desc: "Operations across 15+ countries",
+        invest_feature3_title: "Strong Returns",
+        invest_feature3_desc: "Consistent value creation for stakeholders",
+        invest_feature4_title: "Local Expertise",
+        invest_feature4_desc: "Deep knowledge of African markets",
+
+        esg_title: "Sustainable Industrial Development",
+        esg_desc: "At Anago Group, sustainability isn't just a commitment — it's integral to our business strategy. We believe that responsible practices create stronger companies and more resilient communities.",
+        esg_card1_title: "Environmental Responsibility",
+        esg_card1_desc: "Minimizing environmental footprint through sustainable mining practices, reforestation initiatives, and clean energy integration.",
+        esg_card2_title: "Local Workforce Empowerment",
+        esg_card2_desc: "Creating quality jobs, investing in training and skills development, and supporting local communities.",
+        esg_card3_title: "Low-Carbon Infrastructure",
+        esg_card3_desc: "Investing in renewable energy, energy-efficient buildings, and sustainable transport solutions.",
+        esg_stat1_label: "Environmental Compliance",
+        esg_stat2_label: "Local Workforce",
+        esg_stat3_label: "Community Projects",
+
+        home_news1_cat: "Industry",
+        home_news1_date: "Dec 2024",
+        home_news1_title: "Mining Investment Trends in Africa: 2025 Outlook",
+        home_news1_desc: "Key trends shaping mining investment decisions across the African continent in the coming year.",
+        home_news2_cat: "Sustainability",
+        home_news2_date: "Nov 2024",
+        home_news2_title: "Sustainable Industrial Development in West Africa",
+        home_news2_desc: "How responsible industrial practices are driving growth and community development in the region.",
+        home_news3_cat: "Infrastructure",
+        home_news3_date: "Oct 2024",
+        home_news3_title: "Infrastructure Growth Across West Africa: Opportunities Ahead",
+        home_news3_desc: "Exploring the infrastructure boom and investment opportunities in West Africa's fastest-growing economies.",
+
+        home_final_image_alt: "Partnership and industrial future",
+
         // Insights Page
         insights_h1: "Insights",
         insights_subtitle: "Explore Our Knowledge & Expertise",
@@ -534,6 +576,21 @@ export const translations: Translations = {
         agri_final_cta1: "Discuss Your Project",
         agri_final_cta2: "Download Agri Portfolio",
 
+        // Footer
+        footer_desc: "Pan-African industrial holding company driving sustainable development through integrated value chains.",
+        footer_industries: "Industries",
+        footer_company: "Company",
+        footer_careers: "Careers",
+        footer_contact: "Contact",
+        footer_privacy: "Privacy Policy",
+        footer_terms: "Terms of Use",
+        footer_legal: "Legal Notice",
+        footer_location: "Abidjan, Côte d'Ivoire",
+        footer_copyright: "© 2024 Anago Group. All rights reserved.",
+        footer_linkedin: "LinkedIn",
+        footer_twitter: "Twitter",
+        footer_facebook: "Facebook",
+
     },
     fr: {
         nav_home: "Accueil",
@@ -607,6 +664,48 @@ export const translations: Translations = {
         final_cta_desc: "Que vous soyez investisseur, partenaire gouvernemental ou leader industriel, Anago Group est votre partenaire de confiance.",
         final_cta1: "Nous Contacter",
         final_cta2: "Télécharger le Profil",
+
+        // Home - extras
+        home_scroll: "Faire défiler",
+        home_who_image_alt: "Opérations d'Anago Group",
+        home_who_years_badge: "Depuis 2004",
+        home_who_years_tagline: "20+ ans à construire l'avenir industriel de l'Afrique",
+
+        invest_feature1_title: "Expérience éprouvée",
+        invest_feature1_desc: "Plus de 20 ans d'opérations réussies",
+        invest_feature2_title: "Présence panafricaine",
+        invest_feature2_desc: "Opérations dans plus de 15 pays",
+        invest_feature3_title: "Rendements solides",
+        invest_feature3_desc: "Création de valeur constante pour les parties prenantes",
+        invest_feature4_title: "Expertise locale",
+        invest_feature4_desc: "Connaissance approfondie des marchés africains",
+
+        esg_title: "Développement industriel durable",
+        esg_desc: "Chez Anago Group, la durabilité n'est pas seulement un engagement — elle est au cœur de notre stratégie. Nous croyons que des pratiques responsables créent des entreprises plus fortes et des communautés plus résilientes.",
+        esg_card1_title: "Responsabilité environnementale",
+        esg_card1_desc: "Réduction de l'empreinte environnementale grâce à des pratiques minières durables, des initiatives de reboisement et l'intégration d'énergies propres.",
+        esg_card2_title: "Autonomisation de la main-d'œuvre locale",
+        esg_card2_desc: "Création d'emplois de qualité, investissement dans la formation et le développement des compétences, et soutien aux communautés locales.",
+        esg_card3_title: "Infrastructures bas carbone",
+        esg_card3_desc: "Investissement dans les énergies renouvelables, les bâtiments économes en énergie et des solutions de transport durables.",
+        esg_stat1_label: "Conformité environnementale",
+        esg_stat2_label: "Main-d'œuvre locale",
+        esg_stat3_label: "Projets communautaires",
+
+        home_news1_cat: "Industrie",
+        home_news1_date: "Déc. 2024",
+        home_news1_title: "Tendances de l'investissement minier en Afrique : perspectives 2025",
+        home_news1_desc: "Les principales tendances qui orientent les décisions d'investissement minier sur le continent africain pour les prochaines années.",
+        home_news2_cat: "Durabilité",
+        home_news2_date: "Nov. 2024",
+        home_news2_title: "Développement industriel durable en Afrique de l'Ouest",
+        home_news2_desc: "Comment des pratiques industrielles responsables stimulent la croissance et le développement communautaire dans la région.",
+        home_news3_cat: "Infrastructures",
+        home_news3_date: "Oct. 2024",
+        home_news3_title: "Croissance des infrastructures en Afrique de l'Ouest : les opportunités à venir",
+        home_news3_desc: "Analyse du boom des infrastructures et des opportunités d'investissement dans les économies ouest-africaines à forte croissance.",
+
+        home_final_image_alt: "Partenariat et avenir industriel",
 
         // Insights Page
         insights_h1: "Actualités",
@@ -1145,6 +1244,21 @@ export const translations: Translations = {
         agri_final_desc: "Des r\u00E9sultats agricoles durables et \u00E9volutifs sur tout le continent africain.",
         agri_final_cta1: "Discuter de votre Projet",
         agri_final_cta2: "T\u00E9l\u00E9charger le Portfolio Agri",
+
+        // Footer
+        footer_desc: "Holding industriel panafricain qui porte un d\u00E9veloppement durable gr\u00E2ce \u00E0 des cha\u00EEnes de valeur int\u00E9gr\u00E9es.",
+        footer_industries: "Industries",
+        footer_company: "Entreprise",
+        footer_careers: "Carri\u00E8res",
+        footer_contact: "Contact",
+        footer_privacy: "Politique de confidentialit\u00E9",
+        footer_terms: "Conditions d'utilisation",
+        footer_legal: "Mentions l\u00E9gales",
+        footer_location: "Abidjan, C\u00F4te d'Ivoire",
+        footer_copyright: "\u00A9 2024 Anago Group. Tous droits r\u00E9serv\u00E9s.",
+        footer_linkedin: "LinkedIn",
+        footer_twitter: "Twitter",
+        footer_facebook: "Facebook",
 
     },
 };

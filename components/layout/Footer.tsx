@@ -22,9 +22,30 @@ export function Footer() {
                             {T("footer_desc", "Pan-African industrial holding company driving sustainable development through integrated value chains.")}
                         </p>
                         <div className="flex items-center gap-3">
-                            <a href="#" className="w-8 h-8 rounded-lg flex items-center justify-center border transition-all hover:border-gold-500/50" style={{ borderColor: "var(--border-color)", color: "var(--text-tertiary)" }} aria-label="LinkedIn"><Linkedin className="w-4 h-4" /></a>
-                            <a href="#" className="w-8 h-8 rounded-lg flex items-center justify-center border transition-all hover:border-gold-500/50" style={{ borderColor: "var(--border-color)", color: "var(--text-tertiary)" }} aria-label="Twitter"><Twitter className="w-4 h-4" /></a>
-                            <a href="#" className="w-8 h-8 rounded-lg flex items-center justify-center border transition-all hover:border-gold-500/50" style={{ borderColor: "var(--border-color)", color: "var(--text-tertiary)" }} aria-label="Facebook"><Facebook className="w-4 h-4" /></a>
+                            <a
+                                href="#"
+                                className="w-8 h-8 rounded-lg flex items-center justify-center border transition-all hover:border-gold-500/50"
+                                style={{ borderColor: "var(--border-color)", color: "var(--text-tertiary)" }}
+                                aria-label={T("footer_linkedin", "LinkedIn")}
+                            >
+                                <Linkedin className="w-4 h-4" />
+                            </a>
+                            <a
+                                href="#"
+                                className="w-8 h-8 rounded-lg flex items-center justify-center border transition-all hover:border-gold-500/50"
+                                style={{ borderColor: "var(--border-color)", color: "var(--text-tertiary)" }}
+                                aria-label={T("footer_twitter", "Twitter")}
+                            >
+                                <Twitter className="w-4 h-4" />
+                            </a>
+                            <a
+                                href="#"
+                                className="w-8 h-8 rounded-lg flex items-center justify-center border transition-all hover:border-gold-500/50"
+                                style={{ borderColor: "var(--border-color)", color: "var(--text-tertiary)" }}
+                                aria-label={T("footer_facebook", "Facebook")}
+                            >
+                                <Facebook className="w-4 h-4" />
+                            </a>
                         </div>
                     </div>
                     <div>
@@ -50,14 +71,14 @@ export function Footer() {
                     <div>
                         <h4 className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: "var(--text-primary)" }}>{T("footer_contact", "Contact")}</h4>
                         <ul className="space-y-2.5">
-                            <li className="text-sm" style={{ color: "var(--text-secondary)" }}>Abidjan, Côte d'Ivoire</li>
+                            <li className="text-sm" style={{ color: "var(--text-secondary)" }}>{T("footer_location", "Abidjan, Côte d'Ivoire")}</li>
                             <li><a href="mailto:contact@anagogroup.com" className="text-sm transition-colors hover:text-gold-500" style={{ color: "var(--text-secondary)" }}>contact@anagogroup.com</a></li>
                             <li><a href="tel:+2252722000000" className="text-sm transition-colors hover:text-gold-500" style={{ color: "var(--text-secondary)" }}>+225 27 22 00 00 00</a></li>
                         </ul>
                     </div>
                 </div>
                 <div className="pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: "var(--border-color)" }}>
-                    <p className="text-xs" style={{ color: "var(--text-tertiary)" }}>© 2024 Anago Group. All rights reserved.</p>
+                    <p className="text-xs" style={{ color: "var(--text-tertiary)" }}>{T("footer_copyright", "© 2024 Anago Group. All rights reserved.")}</p>
                     <div className="flex items-center gap-6">
                         <Link href="/privacy" className="text-xs transition-colors hover:text-gold-500" style={{ color: "var(--text-tertiary)" }}>{T("footer_privacy", "Privacy Policy")}</Link>
                         <Link href="/terms" className="text-xs transition-colors hover:text-gold-500" style={{ color: "var(--text-tertiary)" }}>{T("footer_terms", "Terms of Use")}</Link>

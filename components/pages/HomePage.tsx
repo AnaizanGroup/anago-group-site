@@ -116,7 +116,7 @@ export function HomePage() {
                 </div>
 
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in stagger-7">
-                    <span className="text-xs text-white/25 font-medium tracking-wider uppercase">Scroll</span>
+                    <span className="text-xs text-white/25 font-medium tracking-wider uppercase">{T("home_scroll", "Scroll")}</span>
                     <div className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1">
                         <div className="w-1 h-2 rounded-full bg-gold-400 animate-float" />
                     </div>
@@ -130,16 +130,16 @@ export function HomePage() {
                         <RevealSection>
                             <div className="relative">
                                 <div className="aspect-4/3 rounded-2xl overflow-hidden relative" style={{ background: "linear-gradient(135deg, #0A1628, #1a2744)" }}>
-                                    <Image src="/images/Mineimg.png" alt="Anago Group Operations" width={800} height={600} className="w-full h-full object-cover" />
+                                    <Image src="/images/Mineimg.png" alt={T("home_who_image_alt", "Anago Group Operations")} width={800} height={600} className="w-full h-full object-cover" />
                                 </div>
                                 <div className="absolute -bottom-6 -right-6 rounded-xl shadow-xl p-5 border max-w-50" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #C8962E, #e7b13f)" }}>
                                             <Award className="w-4 h-4 text-navy-800" strokeWidth={1.5} />
                                         </div>
-                                        <span className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>Est. 2004</span>
+                                        <span className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>{T("home_who_years_badge", "Est. 2004")}</span>
                                     </div>
-                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{"20+ years building Africa's industrial future"}</p>
+                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{T("home_who_years_tagline", "20+ years building Africa's industrial future")}</p>
                                 </div>
                             </div>
                         </RevealSection>
@@ -258,10 +258,10 @@ export function HomePage() {
                         <RevealSection>
                             <div className="grid grid-cols-2 gap-4">
                                 {[
-                                    { icon: <ShieldCheck className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: "Trusted Track Record", desc: "20+ years of successful operations" },
-                                    { icon: <Globe className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: "Pan-African Reach", desc: "Operations across 15+ countries" },
-                                    { icon: <BarChart3 className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: "Strong Returns", desc: "Consistent value creation for stakeholders" },
-                                    { icon: <Users className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: "Local Expertise", desc: "Deep knowledge of African markets" },
+                                    { icon: <ShieldCheck className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: T("invest_feature1_title", "Trusted Track Record"), desc: T("invest_feature1_desc", "20+ years of successful operations") },
+                                    { icon: <Globe className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: T("invest_feature2_title", "Pan-African Reach"), desc: T("invest_feature2_desc", "Operations across 15+ countries") },
+                                    { icon: <BarChart3 className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: T("invest_feature3_title", "Strong Returns"), desc: T("invest_feature3_desc", "Consistent value creation for stakeholders") },
+                                    { icon: <Users className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: T("invest_feature4_title", "Local Expertise"), desc: T("invest_feature4_desc", "Deep knowledge of African markets") },
                                 ].map((f, i) => (
                                     <div key={i} className="p-6 rounded-2xl border" style={{ background: "var(--bg-secondary)", borderColor: "var(--border-color)" }}>
                                         <div className="mb-3">{f.icon}</div>
@@ -282,9 +282,9 @@ export function HomePage() {
                         <RevealSection className="order-2 lg:order-1">
                             <div className="grid grid-cols-1 gap-5">
                                 {[
-                                    { icon: <Trees className="w-5 h-5 text-green-700" strokeWidth={1.5} />, iconBg: "bg-green-100", title: "Environmental Responsibility", desc: "Minimizing environmental footprint through sustainable mining practices, reforestation initiatives, and clean energy integration." },
-                                    { icon: <HeartHandshake className="w-5 h-5 text-blue-700" strokeWidth={1.5} />, iconBg: "bg-blue-100", title: "Local Workforce Empowerment", desc: "Creating quality jobs, investing in training and skills development, and supporting local communities." },
-                                    { icon: <Sun className="w-5 h-5 text-amber-700" strokeWidth={1.5} />, iconBg: "bg-amber-100", title: "Low-Carbon Infrastructure", desc: "Investing in renewable energy, energy-efficient buildings, and sustainable transport solutions." },
+                                    { icon: <Trees className="w-5 h-5 text-green-700" strokeWidth={1.5} />, iconBg: "bg-green-100", title: T("esg_card1_title", "Environmental Responsibility"), desc: T("esg_card1_desc", "Minimizing environmental footprint through sustainable mining practices, reforestation initiatives, and clean energy integration.") },
+                                    { icon: <HeartHandshake className="w-5 h-5 text-blue-700" strokeWidth={1.5} />, iconBg: "bg-blue-100", title: T("esg_card2_title", "Local Workforce Empowerment"), desc: T("esg_card2_desc", "Creating quality jobs, investing in training and skills development, and supporting local communities.") },
+                                    { icon: <Sun className="w-5 h-5 text-amber-700" strokeWidth={1.5} />, iconBg: "bg-amber-100", title: T("esg_card3_title", "Low-Carbon Infrastructure"), desc: T("esg_card3_desc", "Investing in renewable energy, energy-efficient buildings, and sustainable transport solutions.") },
                                 ].map((esg, i) => (
                                     <div key={i} className="flex items-start gap-4 p-5 rounded-xl border shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
                                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${esg.iconBg}`}>{esg.icon}</div>
@@ -298,13 +298,13 @@ export function HomePage() {
                         </RevealSection>
                         <RevealSection className="order-1 lg:order-2">
                             <div className="gold-line mb-6" />
-                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-6" style={{ color: "var(--text-primary)" }}>{T("Sustainable Industrial Development")}</h2>
-                            <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>{T("At Anago Group, sustainability isn't just a commitment \u2014 it's integral to our business strategy. We believe that responsible practices create stronger companies and more resilient communities.")}</p>
+                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-6" style={{ color: "var(--text-primary)" }}>{T("esg_title", "Sustainable Industrial Development")}</h2>
+                            <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>{T("esg_desc", "At Anago Group, sustainability isn't just a commitment \u2014 it's integral to our business strategy. We believe that responsible practices create stronger companies and more resilient communities.")}</p>
                             <div className="grid grid-cols-3 gap-4">
                                 {[
-                                    { value: "100%", label: "Environmental Compliance", color: "var(--gold-primary)" },
-                                    { value: "90%", label: "Local Workforce", color: "var(--text-primary)" },
-                                    { value: "50+", label: "Community Projects", color: "#15803d" },
+                                    { value: "100%", label: T("esg_stat1_label", "Environmental Compliance"), color: "var(--gold-primary)" },
+                                    { value: "90%", label: T("esg_stat2_label", "Local Workforce"), color: "var(--text-primary)" },
+                                    { value: "50+", label: T("esg_stat3_label", "Community Projects"), color: "#15803d" },
                                 ].map((stat, i) => (
                                     <div key={i} className="text-center p-4 rounded-xl border" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
                                         <div className="text-2xl font-bold mb-1" style={{ color: stat.color }}>{stat.value}</div>
@@ -331,9 +331,30 @@ export function HomePage() {
                     </RevealSection>
                     <div className="grid md:grid-cols-3 gap-6">
                         {[
-                            { image: "https://images.unsplash.com/photo-1542382156909-9ae37b3f56fd?auto=format&fit=crop&q=80", cat: "Industry", catStyle: { color: "var(--gold-primary)", background: "var(--gold-bg)" }, date: "Dec 2024", title: "Mining Investment Trends in Africa: 2025 Outlook", desc: "Key trends shaping mining investment decisions across the African continent in the coming year." },
-                            { image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80", cat: "Sustainability", catStyle: { color: "#15803d", background: "rgba(22,163,74,0.1)" }, date: "Nov 2024", title: "Sustainable Industrial Development in West Africa", desc: "How responsible industrial practices are driving growth and community development in the region." },
-                            { image: "https://images.unsplash.com/photo-1541888081696-03700b0efd7a?auto=format&fit=crop&q=80", cat: "Infrastructure", catStyle: { color: "var(--text-primary)", background: "var(--bg-secondary)" }, date: "Oct 2024", title: "Infrastructure Growth Across West Africa: Opportunities Ahead", desc: "Exploring the infrastructure boom and investment opportunities in West Africa's fastest-growing economies." },
+                            {
+                                image: "https://images.unsplash.com/photo-1542382156909-9ae37b3f56fd?auto=format&fit=crop&q=80",
+                                cat: T("home_news1_cat", "Industry"),
+                                catStyle: { color: "var(--gold-primary)", background: "var(--gold-bg)" },
+                                date: T("home_news1_date", "Dec 2024"),
+                                title: T("home_news1_title", "Mining Investment Trends in Africa: 2025 Outlook"),
+                                desc: T("home_news1_desc", "Key trends shaping mining investment decisions across the African continent in the coming year."),
+                            },
+                            {
+                                image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80",
+                                cat: T("home_news2_cat", "Sustainability"),
+                                catStyle: { color: "#15803d", background: "rgba(22,163,74,0.1)" },
+                                date: T("home_news2_date", "Nov 2024"),
+                                title: T("home_news2_title", "Sustainable Industrial Development in West Africa"),
+                                desc: T("home_news2_desc", "How responsible industrial practices are driving growth and community development in the region."),
+                            },
+                            {
+                                image: "https://images.unsplash.com/photo-1541888081696-03700b0efd7a?auto=format&fit=crop&q=80",
+                                cat: T("home_news3_cat", "Infrastructure"),
+                                catStyle: { color: "var(--text-primary)", background: "var(--bg-secondary)" },
+                                date: T("home_news3_date", "Oct 2024"),
+                                title: T("home_news3_title", "Infrastructure Growth Across West Africa: Opportunities Ahead"),
+                                desc: T("home_news3_desc", "Exploring the infrastructure boom and investment opportunities in West Africa's fastest-growing economies."),
+                            },
                         ].map((news, i) => (
                             <RevealSection key={i}>
                                 <article className="card-premium group cursor-pointer rounded-2xl overflow-hidden border shadow-sm flex flex-col h-full" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }} onClick={() => router.push("/news")}>
@@ -358,7 +379,11 @@ export function HomePage() {
             {/* Final CTA */}
             <section className="py-20 lg:py-28 relative overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&q=80" alt="Partnership and industrial future" className="w-full h-full object-cover" />
+                    <img
+                        src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&q=80"
+                        alt={T("home_final_image_alt", "Partnership and industrial future")}
+                        className="w-full h-full object-cover"
+                    />
                     <div className="absolute inset-0 bg-black/50" />
                 </div>
                 <div className="absolute inset-0 opacity-10 z-0" style={{ backgroundImage: "radial-gradient(circle at 30% 50%, #C8962E 0%, transparent 50%)" }} />
