@@ -71,9 +71,9 @@ export function Footer() {
                     <div>
                         <h4 className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: "var(--text-primary)" }}>{T("footer_contact", "Contact")}</h4>
                         <ul className="space-y-2.5">
-                            <li className="text-sm" style={{ color: "var(--text-secondary)" }}>{T("footer_location", "Abidjan, Côte d'Ivoire")}</li>
+                            <li className="text-sm" style={{ color: "var(--text-secondary)" }}>{T("footer_location", "Bamako, Mali")}</li>
                             <li><a href="mailto:contact@anagogroup.com" className="text-sm transition-colors hover:text-gold-500" style={{ color: "var(--text-secondary)" }}>contact@anagogroup.com</a></li>
-                            <li><a href="tel:+2252722000000" className="text-sm transition-colors hover:text-gold-500" style={{ color: "var(--text-secondary)" }}>+225 27 22 00 00 00</a></li>
+                            <li><a href="tel:+22378035387" className="text-sm transition-colors hover:text-gold-500" style={{ color: "var(--text-secondary)" }}>+223 78 03 53 87</a></li>
                         </ul>
                     </div>
                 </div>
