@@ -2,18 +2,20 @@
 
 import React, { useEffect, useState, useRef } from "react"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 import {
     ArrowRight, Settings, Zap, Wrench, HardHat, Award, CheckCircle,
     Truck, Activity, GraduationCap, ShieldCheck, Target,
     Lightbulb, Globe, Clock, Handshake, Shield, MapPin,
     Users, Download, ChevronRight, ArrowDownRight, Settings2,
-    BarChart3, Puzzle, Layers, Headphones, Car, Forklift, ZapOff
+    BarChart3, Puzzle, Layers, Headphones, Car, Forklift, ZapOff, Mail
 } from "lucide-react"
 import { RevealSection } from "@/components/shared/RevealSection"
 import { useAppContext } from "@/context/AppContext"
 
 export function EquipmentSectorPage() {
-    const { T } = useAppContext()
+    const { T, theme } = useAppContext()
+    const isLight = theme === "light"
     const router = useRouter()
     const [scrolled, setScrolled] = useState(false)
     const heroParticlesRef = useRef<HTMLDivElement>(null)
@@ -26,16 +28,16 @@ export function EquipmentSectorPage() {
         if (heroParticlesRef.current) {
             const container = heroParticlesRef.current
             container.innerHTML = ''
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 20; i++) {
                 const particle = document.createElement('div')
                 particle.className = 'hero-particle'
                 particle.style.left = Math.random() * 100 + '%'
                 particle.style.top = Math.random() * 100 + '%'
-                particle.style.setProperty('--drift-x', (Math.random() * 80 - 40) + 'px')
-                particle.style.setProperty('--drift-y', (Math.random() * -100 - 20) + 'px')
-                particle.style.setProperty('--duration', (6 + Math.random() * 8) + 's')
-                particle.style.setProperty('--delay', (Math.random() * 6) + 's')
-                const size = (2 + Math.random() * 3) + 'px'
+                particle.style.setProperty('--drift-x', (Math.random() * 100 - 50) + 'px')
+                particle.style.setProperty('--drift-y', (Math.random() * -120 - 40) + 'px')
+                particle.style.setProperty('--duration', (8 + Math.random() * 10) + 's')
+                particle.style.setProperty('--delay', (Math.random() * 8) + 's')
+                const size = (2 + Math.random() * 4) + 'px'
                 particle.style.width = size
                 particle.style.height = size
                 container.appendChild(particle)
@@ -46,24 +48,19 @@ export function EquipmentSectorPage() {
     }, [])
 
     return (
-        <div className="block">
+        <div className="block selection:bg-gold-500/30 theme-transition">
             <style jsx global>{`
                 .hero-equipment-bg {
-                    background: linear-gradient(135deg, #0A1628 0%, #131d2e 40%, #0D1B2A 100%);
                     position: relative;
-                }
-                .hero-equipment-bg::before {
-                    content: '';
-                    position: absolute;
-                    inset: 0;
-                    background:
-                        radial-gradient(ellipse 80% 50% at 70% 60%, rgba(200,150,46,0.06), transparent),
-                        radial-gradient(ellipse 60% 40% at 20% 40%, rgba(10,22,40,0.6), transparent);
+                    min-height: 85vh;
+                    display: flex;
+                    align-items: center;
+                    overflow: hidden;
                 }
                 .blueprint-grid {
                     background-image:
-                        linear-gradient(rgba(200,150,46,0.04) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(200,150,46,0.04) 1px, transparent 1px);
+                        linear-gradient(${isLight ? "rgba(10,22,40,0.04)" : "rgba(200,150,46,0.04)"} 1px, transparent 1px),
+                        linear-gradient(90deg, ${isLight ? "rgba(10,22,40,0.04)" : "rgba(200,150,46,0.04)"} 1px, transparent 1px);
                     background-size: 40px 40px;
                 }
                 @keyframes gearSpin {
@@ -71,16 +68,14 @@ export function EquipmentSectorPage() {
                     to { transform: rotate(360deg); }
                 }
                 .animate-gear-spin { 
-                    animation: gearSpin 15s linear infinite; 
+                    animation: gearSpin 25s linear infinite; 
                 }
                 .animate-gear-spin-reverse { 
-                    animation: gearSpin 20s linear infinite reverse; 
+                    animation: gearSpin 30s linear infinite reverse; 
                 }
                 
                 .hero-particle {
                     position: absolute;
-                    width: 3px;
-                    height: 3px;
                     border-radius: 50%;
                     background: rgba(200, 150, 46, 0.4);
                     animation: particleDrift var(--duration, 8s) ease-in-out infinite;
@@ -96,30 +91,19 @@ export function EquipmentSectorPage() {
                 }
                 .activity-card-number {
                     font-family: 'Playfair Display', Georgia, serif;
-                    font-size: 4rem;
+                    font-size: 5rem;
                     font-weight: 700;
                     line-height: 1;
                     position: absolute;
-                    top: -8px;
-                    right: 16px;
+                    top: -10px;
+                    right: 20px;
                     opacity: 0.06;
                     pointer-events: none;
-                    transition: opacity 0.4s ease;
+                    transition: all 0.4s ease;
                 }
-                .card-premium:hover .activity-card-number { opacity: 0.12; }
-                .process-connector::after {
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    right: -12px;
-                    width: 24px;
-                    height: 2px;
-                    background: linear-gradient(90deg, #C8962E, transparent);
-                    display: none;
-                }
-                @media (min-width: 768px) {
-                    .process-connector::after { display: block; }
-                    .process-connector:last-child::after { display: none; }
+                .card-premium:hover .activity-card-number { 
+                    opacity: 0.12;
+                    transform: translateY(10px);
                 }
                 .value-card-glow { position: relative; overflow: hidden; }
                 .value-card-glow::before {
@@ -137,104 +121,140 @@ export function EquipmentSectorPage() {
                 
                 @keyframes pulse-gold {
                     0%, 100% { transform: scale(1); opacity: 1; }
-                    50% { transform: scale(1.2); opacity: 0.7; }
+                    50% { transform: scale(1.1); opacity: 0.8; }
                 }
                 .animate-pulse-gold {
-                    animation: pulse-gold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+                    animation: pulse-gold 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+                }
+                .gold-gradient-text {
+                    background: linear-gradient(135deg, #C8962E 0%, #F5D17E 50%, #C8962E 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
                 }
             `}</style>
 
             {/* ========== HERO SECTION ========== */}
-            <section className="hero-equipment-bg relative min-h-[85vh] lg:min-h-[92vh] flex items-center overflow-hidden">
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-1/4 right-1/4 w-225 h-225 rounded-full opacity-[0.03]" style={{ background: "radial-gradient(circle, #C8962E 0%, transparent 70%)" }}></div>
-                    <div className="absolute inset-0 blueprint-grid opacity-30"></div>
-
-                    {/* Gear Silhouettes */}
-                    <div className="absolute -top-10 -left-10 w-96 h-96 border border-white/5 rounded-full animate-gear-spin opacity-20"></div>
-                    <div className="absolute top-1/3 -right-20 w-80 h-80 border border-gold-500/5 rounded-full animate-gear-spin-reverse opacity-20"></div>
-                    <div className="absolute -bottom-20 right-1/4 w-64 h-64 border border-white/5 rounded-full animate-gear-spin opacity-10"></div>
+            <section className="hero-equipment-bg">
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/equipment/hero-precision.png"
+                        alt="Anago Group Equipment Precision"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-black/60 z-10" />
                 </div>
 
-                <div ref={heroParticlesRef} className="absolute inset-0 pointer-events-none overflow-hidden"></div>
+                <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+                    <div className="absolute inset-0 blueprint-grid opacity-20"></div>
+                    <div ref={heroParticlesRef} className="absolute inset-0"></div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 relative z-10 w-full">
-                    <div className="grid lg:grid-cols-12 gap-12 items-center">
-                        <div className="lg:col-span-7">
-                            <RevealSection delay={100} className="flex items-center gap-2 mb-8">
-                                <button onClick={() => router.push("/")} className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">Home</button>
-                                <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
-                                <span className="text-xs font-medium text-white/40">{T("nav_industries", "Industries")}</span>
-                                <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
-                                <span className="text-xs font-medium text-gold-400">{T("equip_breadcrumb", "Equipment & Solutions")}</span>
-                            </RevealSection>
+                    {/* Abstract Gear Shapes */}
+                    <div className="absolute -top-20 -left-20 w-120 h-120 border border-white/5 rounded-full animate-gear-spin opacity-20"></div>
+                    <div className="absolute top-1/4 -right-40 w-100 h-100 border border-white/5 rounded-full animate-gear-spin-reverse opacity-20"></div>
+                </div>
 
-                            <RevealSection delay={200} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-8">
-                                <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold"></div>
-                                <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">{T("equip_hero_badge", "Strategic Sector 05 · Industrial Solutions")}</span>
-                            </RevealSection>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-20 w-full text-center">
+                    <div className="max-w-4xl mx-auto">
+                        <RevealSection className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12 shadow-2xl">
+                            <div className="w-2.5 h-2.5 rounded-full bg-gold-400 animate-pulse-gold" />
+                            <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">{T("equip_hero_badge")}</span>
+                        </RevealSection>
 
-                            <RevealSection delay={300}>
-                                <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-semibold tracking-tight text-white leading-[1.08] mb-6">
-                                    {T("equip_hero_title", "Equipment & Solutions — ")}<span className="gold-gradient">{T("equip_hero_title_gold", "Powering African Industry")}</span>
-                                </h1>
-                            </RevealSection>
+                        <RevealSection delay={200}>
+                            <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
+                                {T("equip_hero_title")}<span className="gold-gradient italic">{T("equip_hero_title_gold")}</span>
+                            </h1>
+                        </RevealSection>
 
-                            <RevealSection delay={400}>
-                                <p className="text-base lg:text-lg text-white/55 leading-relaxed max-w-xl mb-10">
-                                    {T("equip_hero_desc", "From procurement to predictive maintenance, Anago Group provides the reliable machinery and technical expertise that keeps Africa's mining, construction, and agriculture sectors moving.")}
-                                </p>
-                            </RevealSection>
+                        <RevealSection delay={400}>
+                            <p className="text-lg lg:text-xl text-white/70 max-w-2xl mx-auto mb-16 font-light leading-relaxed">
+                                {T("equip_hero_desc")}
+                            </p>
+                        </RevealSection>
 
-                            <RevealSection delay={500} className="flex flex-wrap gap-4">
-                                <button onClick={() => document.getElementById("activities")?.scrollIntoView({ behavior: "smooth" })} className="btn-gold px-7 py-3.5 text-sm rounded-lg inline-flex items-center gap-2">
-                                    <span>{T("equip_hero_cta1", "View Equipment Fleet")}</span>
-                                    <ArrowDownRight className="w-4 h-4" strokeWidth={1.5} />
-                                </button>
-                                <button className="btn-outline-light px-7 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium">
-                                    <Download className="w-4 h-4" strokeWidth={1.5} />
-                                    <span>{T("equip_hero_cta2", "Download Catalog")}</span>
-                                </button>
+                        <RevealSection delay={600} className="flex flex-wrap justify-center gap-6">
+                            <button
+                                onClick={() => document.getElementById("activities")?.scrollIntoView({ behavior: "smooth" })}
+                                className="group relative px-10 py-5 bg-gold-500 rounded-2xl overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-gold-500/20"
+                            >
+                                <div className="absolute inset-0 bg-linear-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                                <span className="relative z-10 text-xs font-bold uppercase tracking-widest text-navy-950 flex items-center gap-3">
+                                    {T("equip_hero_cta1")}
+                                    <ArrowDownRight className="w-4 h-4" />
+                                </span>
+                            </button>
+
+                            <button className="px-10 py-5 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md text-white text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all flex items-center gap-3 group">
+                                <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                                {T("equip_hero_cta2")}
+                            </button>
+                        </RevealSection>
+                    </div>
+                </div>
+            </section>
+
+            {/* ========== ABOUT SECTION (7/5 Editorial) ========== */}
+            <section className="py-24 lg:py-40 relative overflow-hidden theme-transition" style={{ backgroundColor: "var(--bg-primary)" }}>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+                        <div className="lg:col-span-5 order-2 lg:order-1">
+                            <RevealSection>
+                                <div className="relative aspect-4/3 lg:aspect-square rounded-4xl overflow-hidden shadow-2xl group">
+                                    <Image
+                                        src="/images/equipment/workshop-about.png"
+                                        alt="Anago Group Industrial Workshop"
+                                        fill
+                                        className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                                    {/* Float Badge */}
+                                    <div className="absolute top-8 left-8 w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-2xl">
+                                        <Award className="w-8 h-8 text-gold-400" strokeWidth={1} />
+                                    </div>
+
+                                    <div className="absolute bottom-8 left-8 right-8 p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 opacity-0 group-hover:opacity-100 translate-y-10 group-hover:translate-y-0 transition-all duration-500">
+                                        <p className="text-white font-bold tracking-widest text-[10px] uppercase mb-2">{T("equip_about_card_title")}</p>
+                                        <p className="text-white/70 text-xs leading-relaxed">{T("equip_about_card_desc")}</p>
+                                    </div>
+                                </div>
                             </RevealSection>
                         </div>
 
-                        <div className="lg:col-span-5 hidden lg:block">
-                            <RevealSection delay={600} className="relative">
-                                <div className="bg-white/3 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                    <div className="flex items-center gap-3 mb-6">
-                                        <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-navy-600">
-                                            <Settings2 className="w-5 h-5 text-white" strokeWidth={1.5} />
-                                        </div>
-                                        <div>
-                                            <span className="text-sm font-semibold text-white">{T("equip_div_title", "Equipment Division")}</span>
-                                            <span className="text-xs text-white/40 block">{T("equip_div_subtitle", "Operational Ready")}</span>
-                                        </div>
-                                    </div>
-                                    <div className="space-y-4 mb-6">
-                                        {[
-                                            { label: T("equip_stat_fleet", "Fleet Units"), value: "2,500+" },
-                                            { label: T("equip_stat_centers", "Service Centers"), value: "30+" },
-                                            { label: T("equip_stat_uptime", "Uptime Guarantee"), value: <span className="text-green-400">97.5%</span> },
-                                            { label: T("equip_stat_techs", "Certified Technicians"), value: "500+" },
-                                        ].map((item, idx) => (
-                                            <div key={idx} className="flex items-center justify-between py-3 border-b border-white/5 last:border-0 last:pb-0">
-                                                <span className="text-xs text-white/45 font-medium">{item.label}</span>
-                                                <span className="text-xs font-medium text-white/60">{item.value}</span>
+                        <div className="lg:col-span-7 order-1 lg:order-2">
+                            <RevealSection>
+                                <div className="inline-flex items-center gap-3 mb-8">
+                                    <div className="w-12 h-[1px] bg-gold-500" />
+                                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold-500">{T("equip_about_tag")}</span>
+                                </div>
+
+                                <h2 className="font-serif text-4xl lg:text-6xl font-semibold tracking-tight leading-[1.1] mb-10" style={{ color: "var(--text-primary)" }}>
+                                    {T("equip_about_title")}
+                                </h2>
+
+                                <div className="space-y-8 mb-12">
+                                    <p className="text-lg lg:text-xl leading-relaxed font-light opacity-80" style={{ color: "var(--text-secondary)" }}>
+                                        {T("equip_about_p1")}
+                                    </p>
+                                    <p className="text-base leading-relaxed opacity-70" style={{ color: "var(--text-tertiary)" }}>
+                                        {T("equip_about_p2")}
+                                    </p>
+                                </div>
+
+                                <div className="grid sm:grid-cols-2 gap-6">
+                                    {[
+                                        T("equip_act1_title"), T("equip_act2_title"),
+                                        T("equip_act3_title"), T("equip_act4_title")
+                                    ].map((feature, idx) => (
+                                        <div key={idx} className="flex items-center gap-4 group">
+                                            <div className="w-10 h-10 rounded-xl flex items-center justify-center transition-all border group-hover:border-gold-500/50" style={{ backgroundColor: "var(--bg-secondary)", borderColor: "var(--border-color)" }}>
+                                                <CheckCircle className="w-5 h-5 text-gold-500" strokeWidth={1.5} />
                                             </div>
-                                        ))}
-                                    </div>
-                                    <div className="pt-4 border-t border-white/10 flex items-center gap-3">
-                                        <div className="w-9 h-9 rounded-lg bg-gold-500/20 flex items-center justify-center shrink-0">
-                                            <Activity className="w-4 h-4 text-gold-400" strokeWidth={1.5} />
+                                            <span className="text-sm font-bold tracking-wide uppercase" style={{ color: "var(--text-primary)" }}>{feature}</span>
                                         </div>
-                                        <div>
-                                            <span className="text-xs text-white/35 block">{T("equip_telematics", "Telematics Enabled")}</span>
-                                            <span className="text-xs font-medium text-white/60">{T("equip_telematics_desc", "Real-time asset visibility continent-wide")}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="absolute -top-4 -right-4 w-16 h-16 rounded-xl bg-navy-600/80 border border-white/10 flex items-center justify-center animate-float">
-                                    <Truck className="w-7 h-7 text-gold-400" strokeWidth={1.5} />
+                                    ))}
                                 </div>
                             </RevealSection>
                         </div>
@@ -242,99 +262,46 @@ export function EquipmentSectorPage() {
                 </div>
             </section>
 
-            {/* ========== ABOUT SECTION ========== */}
-            <section id="about" className="py-20 lg:py-32 theme-transition" style={{ backgroundColor: "var(--bg-primary)" }}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-                        <RevealSection className="relative">
-                            <div className="aspect-4/3 rounded-2xl overflow-hidden relative bg-navy-800">
-                                <div className="absolute inset-0 blueprint-grid opacity-60"></div>
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="text-center relative z-10">
-                                        <div className="w-24 h-24 mx-auto rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
-                                            <Settings className="w-12 h-12 text-gold-400/40" strokeWidth={1} />
-                                        </div>
-                                        <div className="text-xs text-white/25 font-medium tracking-wider uppercase">{T("equip_about_tag", "Heavy Equipment Assembly")}</div>
-                                    </div>
-                                </div>
-                                <div className="absolute top-8 left-8 w-20 h-20 border-l-2 border-t-2 border-white/4 rounded-tl-xl"></div>
-                                <div className="absolute bottom-8 right-8 w-20 h-20 border-r-2 border-b-2 border-gold-500/6 rounded-br-xl"></div>
-                            </div>
-                            <div className="absolute -bottom-6 -right-6 rounded-xl shadow-xl p-5 border max-w-60 bg-card-bg border-border-color" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
-                                <div className="flex items-center gap-3 mb-2">
-                                    <div className="w-9 h-9 rounded-lg flex items-center justify-center bg-navy-600">
-                                        <Award className="w-4 h-4 text-white" strokeWidth={1.5} />
-                                    </div>
-                                    <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{T("equip_about_card_title", "OEM Partner")}</span>
-                                </div>
-                                <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{T("equip_about_card_desc", "Authorized dealer and service provider for global brands")}</p>
-                            </div>
-                        </RevealSection>
-
+            {/* ========== ACTIVITIES GRID ========== */}
+            <section id="activities" className="py-24 lg:py-40 relative overflow-hidden theme-transition" style={{ backgroundColor: "var(--bg-secondary)" }}>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="text-center mb-24">
                         <RevealSection>
-                            <div className="gold-line mb-6"></div>
-                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-6" style={{ color: "var(--text-primary)" }}>
-                                {T("equip_about_title", "Reliable Equipment & Full-Lifecycle Industrial Solutions")}
+                            <div className="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mx-auto mb-10">
+                                <Settings className="w-8 h-8 text-gold-500 animate-gear-spin" />
+                            </div>
+                            <h2 className="font-serif text-4xl lg:text-6xl font-semibold tracking-tight mb-8" style={{ color: "var(--text-primary)" }}>
+                                {T("equip_activity_title")}
                             </h2>
-                            <p className="text-base leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
-                                {T("equip_about_p1", "Anago Group's Equipment Supply & Industrial Solutions division provides high-performance machinery backed by OEM-certified maintenance and regional support networks.")}
+                            <p className="text-lg max-w-2xl mx-auto font-light opacity-60" style={{ color: "var(--text-secondary)" }}>
+                                {T("equip_activity_subtitle")}
                             </p>
-                            <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>
-                                {T("equip_about_p2", "We understand that in industrial operations, uptime is everything. That's why we don't just sell equipment; we deliver integrated solutions that include financing, training, spare parts, and telematics.")}
-                            </p>
-                            <div className="grid grid-cols-2 gap-4 mb-8">
-                                {[
-                                    T("equip_act1_title", "Procurement & Sales"),
-                                    T("equip_act2_title", "Rental & Leasing"),
-                                    T("equip_act3_title", "Maintenance & Repair"),
-                                    T("equip_act4_title", "Spare Parts")
-                                ].map((text, i) => (
-                                    <div key={i} className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: "var(--gold-bg)" }}>
-                                            <CheckCircle className="w-4 h-4" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />
-                                        </div>
-                                        <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{text}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </RevealSection>
-                    </div>
-                </div>
-            </section>
-
-            {/* ========== SERVICES GRID ========== */}
-            <section id="activities" className="py-20 lg:py-32 theme-transition" style={{ backgroundColor: "var(--bg-secondary)" }}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <RevealSection>
-                            <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("equip_activity_title", "Equipment Services")}</h2>
-                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("equip_activity_subtitle", "World-class support at every stage of the equipment lifecycle.")}</p>
                         </RevealSection>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { num: "01", icon: <ShoppingCart className="w-7 h-7 text-white" />, title: T("equip_act1_title"), desc: T("equip_act1_desc"), bg: "bg-navy-800" },
-                            { num: "02", icon: <Clock className="w-7 h-7 text-navy-800" />, title: T("equip_act2_title"), desc: T("equip_act2_desc"), bg: "bg-linear-to-br from-gold-500 to-gold-400" },
-                            { num: "03", icon: <Wrench className="w-7 h-7 text-white" />, title: T("equip_act3_title"), desc: T("equip_act3_desc"), bg: "bg-stone-600" },
-                            { num: "04", icon: <Puzzle className="w-7 h-7 text-white" />, title: T("equip_act4_title"), desc: T("equip_act4_desc"), bg: "bg-linear-to-br from-slate-600 to-slate-500" },
-                            { num: "05", icon: <Activity className="w-7 h-7 text-white" />, title: T("equip_act5_title"), desc: T("equip_act5_desc"), bg: "bg-sky-600" },
-                            { num: "06", icon: <GraduationCap className="w-7 h-7 text-white" />, title: T("equip_act6_title"), desc: T("equip_act6_desc"), bg: "bg-gold-600" },
-                        ].map((act, i) => (
-                            <RevealSection key={i} delay={i * 100}>
-                                <article className="card-premium group cursor-pointer rounded-2xl overflow-hidden border relative p-8 h-full bg-card-bg border-border-color" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
-                                    <div className="activity-card-number" style={{ color: "var(--text-primary)" }}>{act.num}</div>
-                                    <div className={`card-icon w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${act.bg}`}>
-                                        {act.icon}
+                            { num: "01", icon: <ShoppingCart className="w-6 h-6" />, title: T("equip_act1_title"), desc: T("equip_act1_desc"), color: "gold" },
+                            { num: "02", icon: <Clock className="w-6 h-6" />, title: T("equip_act2_title"), desc: T("equip_act2_desc"), color: "navy" },
+                            { num: "03", icon: <Wrench className="w-6 h-6" />, title: T("equip_act3_title"), desc: T("equip_act3_desc"), color: "gold" },
+                            { num: "04", icon: <Puzzle className="w-6 h-6" />, title: T("equip_act4_title"), desc: T("equip_act4_desc"), color: "navy" },
+                            { num: "05", icon: <Activity className="w-6 h-6" />, title: T("equip_act5_title"), desc: T("equip_act5_desc"), color: "gold" },
+                            { num: "06", icon: <GraduationCap className="w-6 h-6" />, title: T("equip_act6_title"), desc: T("equip_act6_desc"), color: "navy" },
+                        ].map((activity, idx) => (
+                            <RevealSection key={idx} delay={idx * 100}>
+                                <div className="card-premium group relative p-10 rounded-3xl border h-full transition-all duration-500 hover:translate-y-[-10px] overflow-hidden" style={{ background: "var(--bg-primary)", borderColor: "var(--border-color)" }}>
+                                    <div className="activity-card-number" style={{ color: "var(--text-primary)" }}>{activity.num}</div>
+                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110 text-black duration-500 ${activity.color === 'gold' ? 'bg-gold-500' : 'bg-navy-900 text-black dark:text-white shadow-xl'}`}>
+                                        {activity.icon}
                                     </div>
-                                    <h3 className="text-xl font-semibold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>{act.title}</h3>
-                                    <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>{act.desc}</p>
-                                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-gold-500 group-hover:gap-2.5 transition-all">
-                                        <span>{T("learn_more", "Learn more")}</span>
-                                        <ArrowRight className="w-3.5 h-3.5" strokeWidth={1.5} />
-                                    </span>
-                                </article>
+                                    <h3 className="text-xl font-bold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{activity.title}</h3>
+                                    <p className="text-sm leading-relaxed mb-8 opacity-60" style={{ color: "var(--text-secondary)" }}>{activity.desc}</p>
+
+                                    <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-gold-500 group-hover:gap-5 transition-all">
+                                        <span>{T("learn_more")}</span>
+                                        <ArrowRight className="w-4 h-4" />
+                                    </div>
+                                </div>
                             </RevealSection>
                         ))}
                     </div>
@@ -342,32 +309,37 @@ export function EquipmentSectorPage() {
             </section>
 
             {/* ========== VALUE PROPOSITION ========== */}
-            <section className="py-20 lg:py-32 relative overflow-hidden bg-navy-800">
-                <div className="absolute inset-0 blueprint-grid opacity-30"></div>
+            <section className="py-24 lg:py-40 relative overflow-hidden theme-transition" style={{ backgroundColor: "var(--bg-primary)" }}>
+                <div className="absolute inset-0 blueprint-grid opacity-20"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-24">
                         <RevealSection>
-                            <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4">{T("equip_value_title", "The Anago Advantage")}</h2>
-                            <p className="text-base text-white/50 max-w-2xl mx-auto">{T("equip_value_subtitle", "The competitive advantages that make us Africa's preferred equipment partner.")}</p>
+                            <div className="gold-line mx-auto mb-8"></div>
+                            <h2 className="font-serif text-4xl lg:text-6xl font-semibold tracking-tight mb-8" style={{ color: "var(--text-primary)" }}>
+                                {T("equip_value_title")}
+                            </h2>
+                            <p className="text-lg max-w-2xl mx-auto font-light opacity-60" style={{ color: "var(--text-secondary)" }}>
+                                {T("equip_value_subtitle")}
+                            </p>
                         </RevealSection>
                     </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { icon: <ShieldCheck className="w-7 h-7 text-white" />, title: T("equip_val1_title"), desc: T("equip_val1_desc") },
-                            { icon: <Users className="w-7 h-7 text-navy-800" />, title: T("equip_val2_title"), desc: T("equip_val2_desc"), bg: "bg-linear-to-br from-gold-500 to-gold-400" },
-                            { icon: <Headphones className="w-7 h-7 text-gold-400" />, title: T("equip_val4_title", "Full-Lifecycle Support"), desc: T("equip_val4_desc", "From selection and financing to maintenance and final decommissioning.") },
-                            { icon: <Globe className="w-7 h-7 text-white/70" />, title: T("equip_val3_title"), desc: T("equip_val3_desc") },
-                            { icon: <BarChart3 className="w-7 h-7 text-white/70" />, title: T("equip_val5_title", "Cost Optimization"), desc: T("equip_val5_desc", "Reducing total cost of ownership by up to 30% through predictive maintenance and telematics.") },
-                            { icon: <Layers className="w-7 h-7 text-white/70" />, title: T("equip_val6_title", "Global Standards"), desc: T("equip_val6_desc", "Operating to ISO and international safety standards across all service operations.") },
-                        ].map((val, i) => (
-                            <RevealSection key={i} delay={i * 50}>
-                                <div className="value-card-glow group p-8 rounded-2xl bg-white/3 border border-white/10 hover:border-gold-500/30 transition-all duration-400">
-                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${val.bg || 'bg-white/5'} group-hover:scale-105 transition-transform duration-300`}>
-                                        {val.icon}
+                            { icon: <ShieldCheck className="w-6 h-6" />, title: T("equip_val1_title"), desc: T("equip_val1_desc") },
+                            { icon: <Users className="w-6 h-6" />, title: T("equip_val2_title"), desc: T("equip_val2_desc") },
+                            { icon: <Headphones className="w-6 h-6" />, title: T("equip_val4_title"), desc: T("equip_val4_desc") },
+                            { icon: <Globe className="w-6 h-6" />, title: T("equip_val3_title"), desc: T("equip_val3_desc") },
+                            { icon: <BarChart3 className="w-6 h-6" />, title: T("equip_val5_title"), desc: T("equip_val5_desc") },
+                            { icon: <Layers className="w-6 h-6" />, title: T("equip_val6_title"), desc: T("equip_val6_desc") },
+                        ].map((item, idx) => (
+                            <RevealSection key={idx} delay={idx * 100}>
+                                <div className="value-card-glow group p-10 rounded-3xl border h-full transition-all duration-400 bg-card-bg border-border-color" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
+                                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-transform duration-500 group-hover:scale-110" style={{ background: "var(--gold-bg)", color: "var(--gold-primary)" }}>
+                                        {item.icon}
                                     </div>
-                                    <h3 className="text-lg font-semibold tracking-tight text-white mb-3">{val.title}</h3>
-                                    <p className="text-sm text-white/50 leading-relaxed">{val.desc}</p>
+                                    <h3 className="text-xl font-bold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{item.title}</h3>
+                                    <p className="text-sm leading-relaxed opacity-60" style={{ color: "var(--text-secondary)" }}>{item.desc}</p>
                                 </div>
                             </RevealSection>
                         ))}
@@ -375,65 +347,31 @@ export function EquipmentSectorPage() {
                 </div>
             </section>
 
-            {/* ========== CATEGORIES SECTION ========== */}
-            <section className="py-20 lg:py-28 theme-transition" style={{ backgroundColor: "var(--bg-secondary)" }}>
+            {/* ========== CATEGORIES (Visual Grid) ========== */}
+            <section className="py-24 lg:py-32 relative overflow-hidden theme-transition" style={{ backgroundColor: "var(--bg-secondary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
+                    <div className="text-center mb-16">
                         <RevealSection>
-                            <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-serif text-2xl lg:text-3xl font-semibold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>{T("equip_cat_title", "Equipment Categories")}</h2>
-                            <p className="text-sm max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("equip_cat_subtitle", "A comprehensive range of industrial and transport equipment for every sector.")}</p>
+                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-8" style={{ color: "var(--text-primary)" }}>
+                                {T("equip_cat_title")}
+                            </h2>
                         </RevealSection>
                     </div>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
                         {[
-                            { icon: <HardHat className="w-5 h-5" />, label: T("equip_cat1", "Excavators") },
-                            { icon: <Truck className="w-5 h-5" />, label: T("equip_cat2", "Dump Trucks") },
-                            { icon: <ArrowUpFromLine className="w-5 h-5" />, label: T("equip_cat3", "Cranes") },
-                            { icon: <Zap className="w-5 h-5" />, label: T("equip_cat4", "Generators") },
-                            { icon: <Forklift className="w-5 h-5" />, label: T("equip_cat5", "Loaders") },
-                            { icon: <Car className="w-5 h-5" />, label: T("equip_cat6", "Vehicles") },
+                            { icon: <HardHat className="w-6 h-6" />, label: T("equip_cat1") },
+                            { icon: <ArrowUpFromLine className="w-6 h-6" />, label: T("equip_cat3") },
+                            { icon: <Zap className="w-6 h-6" />, label: T("equip_cat4") },
+                            { icon: <Forklift className="w-6 h-6" />, label: T("equip_cat5") },
+                            { icon: <Car className="w-6 h-6" />, label: T("equip_cat6") },
                         ].map((cat, i) => (
                             <RevealSection key={i} delay={i * 50}>
-                                <div className="text-center p-5 rounded-2xl border group hover:border-gold-500/30 transition-all bg-card-bg border-border-color" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
-                                    <div className="w-10 h-10 mx-auto rounded-xl flex items-center justify-center mb-3 group-hover:scale-105 transition-transform" style={{ background: "var(--gold-bg)" }}>
-                                        <div style={{ color: "var(--gold-primary)" }}>{cat.icon}</div>
+                                <div className="text-center p-8 rounded-3xl border group hover:scale-105 transition-all duration-500" style={{ background: "var(--bg-primary)", borderColor: "var(--border-color)" }}>
+                                    <div className="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-6 transition-all group-hover:rotate-[360deg] duration-1000" style={{ background: "var(--gold-bg)", color: "var(--gold-primary)" }}>
+                                        {cat.icon}
                                     </div>
-                                    <span className="text-xs font-medium" style={{ color: "var(--text-primary)" }}>{cat.label}</span>
-                                </div>
-                            </RevealSection>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ========== PROCESS SECTION ========== */}
-            <section className="py-20 lg:py-32 theme-transition" style={{ backgroundColor: "var(--bg-primary)" }}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <RevealSection>
-                            <div className="gold-line mx-auto mb-6"></div>
-                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("equip_process_title", "Our Service Lifecycle")}</h2>
-                            <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("equip_process_subtitle", "A systematic approach from needs assessment to ongoing performance optimization.")}</p>
-                        </RevealSection>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {[
-                            { num: "1", title: T("equip_proc1", "Needs Analysis"), desc: T("equip_proc1_desc", "Site survey, operational analysis, and equipment specification.") },
-                            { num: "2", title: T("equip_proc2", "Procurement & Delivery"), desc: T("equip_proc2_desc", "Coordinated logistics, customs clearance, and site delivery.") },
-                            { num: "3", title: T("equip_proc3", "Commissioning"), desc: T("equip_proc3_desc", "Operator training, safety certification, and handover.") },
-                            { num: "4", title: T("equip_proc4", "Ongoing Support"), desc: T("equip_proc4_desc", "Ongoing maintenance, telematics monitoring, and parts supply.") },
-                        ].map((proc, i) => (
-                            <RevealSection key={i} delay={i * 100}>
-                                <div className="process-connector text-center p-6 rounded-2xl border relative overflow-hidden bg-card-bg border-border-color h-full" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
-                                    <div className="absolute top-0 left-0 w-full h-1 bg-navy-600"></div>
-                                    <div className={`w-10 h-10 mx-auto rounded-full flex items-center justify-center mb-4 text-sm font-bold ${i === 3 ? 'bg-sky-600 text-white' : i > 0 ? 'bg-linear-to-br from-gold-500 to-gold-400 text-navy-800' : 'bg-navy-600 text-white'}`}>
-                                        {proc.num}
-                                    </div>
-                                    <h3 className="text-sm font-semibold mb-2 tracking-tight" style={{ color: "var(--text-primary)" }}>{proc.title}</h3>
-                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>{proc.desc}</p>
+                                    <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--text-primary)" }}>{cat.label}</span>
                                 </div>
                             </RevealSection>
                         ))}
@@ -442,28 +380,38 @@ export function EquipmentSectorPage() {
             </section>
 
             {/* ========== FINAL CTA ========== */}
-            <section id="contact-cta" className="py-20 lg:py-28 relative overflow-hidden bg-navy-800">
-                <div className="absolute inset-0 blueprint-grid opacity-20"></div>
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <section className="py-24 lg:py-48 relative overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/equipment/parts-grid.png"
+                        alt="Precision Parts Detail"
+                        fill
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-navy-950/90 z-10" />
+                </div>
+
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20">
                     <RevealSection>
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-8">
-                            <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold"></div>
-                            <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">{T("equip_cta_badge", "Equip Your Operations")}</span>
+                        <div className="w-16 h-16 rounded-2xl bg-gold-500/20 border border-gold-500/30 flex items-center justify-center mx-auto mb-10">
+                            <Mail className="w-8 h-8 text-gold-500" />
                         </div>
-                        <h2 className="font-serif text-3xl lg:text-5xl font-semibold tracking-tight text-white mb-6">
-                            {T("equip_cta_title", "Ready to Power Your Next Project?")}
+                        <h2 className="font-serif text-4xl lg:text-7xl font-semibold tracking-tight text-white mb-10">
+                            {T("equip_cta_title")}
                         </h2>
-                        <p className="text-base lg:text-lg text-white/55 max-w-2xl mx-auto mb-10">
-                            {T("equip_cta_desc", "Partner with Anago Group for reliable equipment supply and world-class industrial support across the continent.")}
+                        <p className="text-xl text-white/70 max-w-2xl mx-auto mb-16 font-light leading-relaxed">
+                            {T("equip_cta_desc")}
                         </p>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            <button onClick={() => router.push("/contact")} className="btn-gold px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2">
-                                <span>{T("equip_cta_btn", "Request a Quote")}</span>
-                                <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+
+                        <div className="flex flex-wrap justify-center gap-6">
+                            <button
+                                onClick={() => router.push("/contact")}
+                                className="px-12 py-6 bg-gold-500 rounded-2xl text-navy-950 text-xs font-bold uppercase tracking-widest shadow-2xl shadow-gold-500/20 hover:scale-105 transition-all"
+                            >
+                                {T("equip_cta_btn")}
                             </button>
-                            <button className="btn-outline-light px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium">
-                                <Download className="w-4 h-4" strokeWidth={1.5} />
-                                <span>{T("equip_cta_btn2", "Download Catalog")}</span>
+                            <button className="px-12 py-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md text-white text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
+                                {T("equip_cta_btn2")}
                             </button>
                         </div>
                     </RevealSection>

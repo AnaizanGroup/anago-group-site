@@ -42,9 +42,20 @@
   --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
   --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
   --shadow-xl: 0 25px 60px rgba(0,0,0,0.12);
-  --nav-bg: rgba(10,22,40,0.6);
-  --nav-scrolled: rgba(10,22,40,0.95);
+  --nav-bg: rgba(255,255,255,0.02);
+  --nav-scrolled: rgba(255,255,255,0.98);
+  --nav-text: #0A1628;
+  --nav-text-hero: #ffffff; /* Default white for dark hero */
+  --section-dark: #0A1628;
+  --hero-bg: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f1f3 100%);
+  --hero-text: #0A1628;
+  --hero-text-muted: #495057;
   --transition-theme: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Override nav-text-hero when a page has a light hero in light mode */
+:root:not(.dark):has(.light-hero-active) {
+  --nav-text-hero: var(--nav-text);
 }
 
 .dark {
@@ -85,8 +96,14 @@
   --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
   --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
   --shadow-xl: 0 25px 60px rgba(0,0,0,0.6);
-  --nav-bg: rgba(13,17,23,0.6);
-  --nav-scrolled: rgba(13,17,23,0.95);
+  --nav-bg: rgba(13,17,23,0.02);
+  --nav-scrolled: rgba(13,17,23,0.98);
+  --nav-text: #f0f1f3;
+  --nav-text-hero: #ffffff;
+  --section-dark: #0d1117;
+  --hero-bg: linear-gradient(135deg, #0A1628 0%, #0D1B2A 50%, #1a2744 100%);
+  --hero-text: #ffffff;
+  --hero-text-muted: rgba(255, 255, 255, 0.55);
 }
 
 @theme inline {
@@ -147,7 +164,7 @@
 
 /* Hero background */
 .hero-bg {
-  background: linear-gradient(135deg, #0A1628 0%, #0D1B2A 50%, #1a2744 100%);
+  background: var(--hero-bg);
 }
 
 /* Gold line */
@@ -194,6 +211,19 @@
   border-color: #C8962E;
   color: #e7b13f;
   background: rgba(200,150,46,0.08);
+  transform: translate3d(0, -2px, 0);
+}
+
+.btn-secondary {
+  border: 1.5px solid var(--border-color);
+  color: var(--text-primary);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-secondary:hover {
+  border-color: #C8962E;
+  color: #e7b13f;
+  background: var(--gold-bg);
   transform: translate3d(0, -2px, 0);
 }
 

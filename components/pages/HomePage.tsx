@@ -6,9 +6,9 @@ import {
     ArrowRight, ArrowDownRight, Gem, TrendingUp, Award, Factory, Handshake,
     Leaf, ShieldCheck, Globe, BarChart3, Users, Trees, HeartHandshake, Sun,
     Factory as FactoryIcon, LayoutGrid, Pickaxe, Building2, Sprout, Brain, Truck,
-    Shield, Target, CheckCircle, Download
+    Shield, Target, CheckCircle, Download, Briefcase, Zap, Globe2
 } from "lucide-react"
-import { RevealSection } from "@/components/shared/RevealSection"
+import { RevealSection, RevealSectionLeft, RevealSectionRight } from "@/components/shared/RevealSection"
 import { CounterValue } from "@/components/shared/Counter"
 import { useAppContext } from "@/context/AppContext"
 import { useRouter } from "next/navigation"
@@ -54,161 +54,222 @@ export function HomePage() {
 
     return (
         <div className="block">
-            {/* Hero */}
-            <section className="hero-bg relative min-h-screen flex items-center overflow-hidden">
-                {/* Video Background */}
+            {/* Hero Section - Elevated Overlay & Typography */}
+            <section className="relative min-h-screen flex items-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-navy-900 z-10" /> {/* Overlay for legibility */}
-                    <div className="absolute inset-0 bg-linear-to-b from-navy-950/20 via-transparent to-navy-950/40 z-10" />
+                    <div className="absolute inset-0  bg-black/40 z-10" />
                     <video
                         autoPlay
                         muted
                         loop
                         playsInline
-                        className="w-full h-full object-cover opacity-60"
+                        className="w-full h-full object-cover opacity-95"
                         poster="/images/hero-fallback.jpg"
                     >
                         <source src="/videos/mine.mp4" type="video/mp4" />
-                        {/* Fallback for when video doesn't load */}
                     </video>
                 </div>
 
                 <div ref={heroRef} className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-1/4 right-1/4 w-175 h-175 rounded-full opacity-[0.04]" style={{ background: "radial-gradient(circle, #C8962E 0%, transparent 70%)" }} />
-                    <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
+                    <div className="absolute top-1/4 right-1/4 w-150 h-150 rounded-full opacity-[0.08]" style={{ background: "radial-gradient(circle, var(--gold-primary) 0%, transparent 70%)" }} />
                 </div>
                 <div ref={particlesRef} className="absolute inset-0 pointer-events-none overflow-hidden" />
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
-                    <div className="flex flex-col items-center text-center pt-10">
-                        <div className="max-w-4xl mx-auto">
-                            <RevealSection className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-10">
-                                <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold" />
-                                <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">{T("hero_badge", "Pan-African Industrial Holding")}</span>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-20 w-full">
+                    <div className="flex flex-col items-center text-center">
+                        <div className="max-w-6xl mx-auto">
+                            <RevealSection className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12 shadow-2xl">
+                                <div className="w-2.5 h-2.5 rounded-full bg-gold-400 animate-pulse-gold shadow-[0_0_15px_rgba(200,150,46,0.5)]" />
+                                <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">{T("hero_badge")}</span>
                             </RevealSection>
 
                             <RevealSection className="stagger-2">
-                                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-white leading-[1.05] mb-8">
-                                    <>{T("hero_title_1")}<span className="gold-gradient">{T("hero_title_2")}</span></>
+                                <h1 className="font-serif text-5xl sm:text-6xl lg:text-8xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
+                                    {T("hero_title_1")}<br />
+                                    <span className="gold-gradient italic">{T("hero_title_2")}</span>
                                 </h1>
                             </RevealSection>
 
-
-
                             <RevealSection className="stagger-4">
-                                <p className="text-lg lg:text-xl text-white/70 leading-relaxed max-w-2xl mx-auto mb-12 font-medium">
-                                    {T("hero_desc", "Anago Group is a pan-African holding company driving sustainable industrial development through local transformation of natural resources, strategic infrastructure, and integrated industrial solutions.")}
+                                <p className="text-xl lg:text-2xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-16 font-light">
+                                    {T("hero_desc")}
                                 </p>
                             </RevealSection>
 
                             <RevealSection className="flex flex-wrap justify-center gap-6 stagger-5">
-                                <button onClick={() => document.getElementById('sectors')?.scrollIntoView({ behavior: 'smooth' })} className="btn-gold px-10 py-4 text-sm rounded-xl inline-flex items-center gap-3 shadow-2xl shadow-gold-500/20">
-                                    <span className="font-bold tracking-wide uppercase">{T("hero_cta1", "Explore Our Sectors")}</span>
-                                    <ArrowDownRight className="w-5 h-5" strokeWidth={2} />
+                                <button onClick={() => document.getElementById('sectors')?.scrollIntoView({ behavior: 'smooth' })} className="btn-gold px-12 py-5 text-xs rounded-2xl inline-flex items-center gap-4 shadow-2xl shadow-gold-500/30">
+                                    <span className="font-bold tracking-widest uppercase">{T("hero_cta1")}</span>
+                                    <ArrowDownRight className="w-5 h-5" strokeWidth={2.5} />
                                 </button>
-                                <button onClick={() => router.push("/contact")} className="btn-outline-light px-10 py-4 text-sm rounded-xl inline-flex items-center gap-3 font-semibold backdrop-blur-md">
-                                    <span className="tracking-wide uppercase">{T("hero_cta2", "Invest With Us")}</span>
-                                    <ArrowRight className="w-5 h-5" strokeWidth={2} />
+                                <button onClick={() => router.push("/contact")} className="btn-outline-light px-12 py-5 text-xs rounded-2xl inline-flex items-center gap-4 font-bold backdrop-blur-xl border-white/20 hover:bg-white/5 transition-all text-white">
+                                    <span className="tracking-widest uppercase">{T("hero_cta2")}</span>
+                                    <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
                                 </button>
                             </RevealSection>
                         </div>
                     </div>
                 </div>
 
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in stagger-7">
-                    <span className="text-xs text-white/25 font-medium tracking-wider uppercase">{T("home_scroll", "Scroll")}</span>
-                    <div className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1">
-                        <div className="w-1 h-2 rounded-full bg-gold-400 animate-float" />
+                <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 fade-in stagger-7">
+                    <span className="text-[10px] text-white/40 font-bold tracking-[0.3em] uppercase">{T("home_scroll")}</span>
+                    <div className="w-6 h-10 rounded-full border-2 border-white/10 flex items-start justify-center p-1.5 backdrop-blur-sm">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-float" />
                     </div>
                 </div>
             </section>
 
-            {/* Who We Are */}
-            <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--bg-primary)" }}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <RevealSection>
-                            <div className="relative">
-                                <div className="aspect-4/3 rounded-2xl overflow-hidden relative" style={{ background: "linear-gradient(135deg, #0A1628, #1a2744)" }}>
-                                    <Image src="/images/Mineimg.png" alt={T("home_who_image_alt", "Anago Group Operations")} width={800} height={600} className="w-full h-full object-cover" />
-                                </div>
-                                <div className="absolute -bottom-6 -right-6 rounded-xl shadow-xl p-5 border max-w-50" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #C8962E, #e7b13f)" }}>
-                                            <Award className="w-4 h-4 text-navy-800" strokeWidth={1.5} />
-                                        </div>
-                                        <span className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>{T("home_who_years_badge", "Est. 2004")}</span>
-                                    </div>
-                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{T("home_who_years_tagline", "20+ years building Africa's industrial future")}</p>
-                                </div>
-                            </div>
-                        </RevealSection>
-                        <RevealSection>
-                            <div className="gold-line mb-6" />
-                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-6" style={{ color: "var(--text-primary)" }}>
-                                {T("who_title", "A Pan-African Industrial Holding Company")}
+            {/* Impact Stats Section - Theme Aware */}
+            <section className="relative py-24 lg:py-32 overflow-hidden" style={{ backgroundColor: "var(--bg-secondary)" }}>
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/home/impact-bg.png"
+                        alt="Global Impact"
+                        fill
+                        className="object-cover opacity-20 grayscale-[0.5] dark:opacity-20"
+                    />
+
+                </div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="grid lg:grid-cols-12 gap-16 items-center">
+                        <RevealSectionLeft className="lg:col-span-5">
+                            <div className="gold-line mb-8" />
+                            <h2 className="font-serif text-4xl lg:text-5xl font-semibold tracking-tight mb-6" style={{ color: "var(--text-primary)" }}>
+                                {T("home_stats_title")}
                             </h2>
-                            <p className="text-base leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
-                                {T("who_p1", "Anago Group operates across strategic sectors to build resilient, value-driven African industries. Our mission is to transform raw materials locally, develop infrastructure, and empower sustainable economic growth.")}
+                            <p className="text-lg leading-relaxed mb-10" style={{ color: "var(--text-secondary)" }}>
+                                {T("home_stats_desc")}
                             </p>
-                            <p className="text-base leading-relaxed mb-8" style={{ color: "var(--text-secondary)" }}>
-                                {T("who_p2", "With operations in over 15 countries and a team of 500+ dedicated professionals, we are committed to creating lasting impact through responsible business practices and strategic partnerships.")}
-                            </p>
-                            <button onClick={() => router.push("/about")} className="inline-flex items-center gap-2 text-sm font-semibold transition-colors group" style={{ color: "var(--gold-primary)" }}>
-                                <span>{T("who_cta", "Read Chairman's Message")}</span>
-                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
-                            </button>
-                        </RevealSection>
+                        </RevealSectionLeft>
+
+                        <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-4 gap-8">
+                            {[
+                                { icon: <Globe2 className="w-6 h-6" />, value: 15, label: T("home_stats_countries"), suffix: "+" },
+                                { icon: <Award className="w-6 h-6" />, value: 20, label: T("home_stats_years"), suffix: "" },
+                                { icon: <Users className="w-6 h-6" />, value: 500, label: T("home_stats_employees"), suffix: "+" },
+                                { icon: <Briefcase className="w-6 h-6" />, value: 120, label: T("home_stats_projects"), suffix: "+" }
+                            ].map((stat, i) => (
+                                <RevealSection key={i} className={`text-center stagger-child-${i + 1}`}>
+                                    <div className="mb-4 inline-flex p-3 rounded-2xl border shadow-inner" style={{ background: "var(--gold-bg)", borderColor: "var(--border-color)", color: "var(--gold-primary)" }}>
+                                        {stat.icon}
+                                    </div>
+                                    <div className="text-4xl  font-bold mb-2 tracking-tighter" style={{ color: "var(--text-primary)" }}>
+                                        <CounterValue value={stat.value} duration={2500} />
+                                    </div>
+                                    <div className="text-[9px] font-bold uppercase tracking-[0.2em]" style={{ color: "var(--text-tertiary)" }}>{stat.label}</div>
+                                </RevealSection>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Sectors */}
-            <section id="sectors" className="py-20 lg:py-28" style={{ backgroundColor: "var(--bg-secondary)" }}>
+            {/* Who We Are - Redesigned Asymmetric Layout */}
+            <section className="py-24 lg:py-40 relative overflow-hidden" style={{ backgroundColor: "var(--bg-primary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <RevealSection className="text-center mb-16">
-                        <div className="gold-line mx-auto mb-6" />
-                        <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("sectors_title", "Our Strategic Sectors")}</h2>
-                        <p className="text-base max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>{T("sectors_desc", "Driving Africa's industrial transformation through diversified, high-impact investments across six strategic verticals.")}</p>
+                    <div className="grid lg:grid-cols-12 gap-20 items-center">
+                        <RevealSectionLeft className="lg:col-span-6 relative">
+                            <div className="relative aspect-4/5 rounded-[3rem] overflow-hidden shadow-2xl border-8 group" style={{ borderColor: "var(--bg-secondary)" }}>
+                                <Image
+                                    src="/images/home/corporate-vision.png"
+                                    alt="Anago Group Leadership"
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                />
+                                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
+                            </div>
+                            {/* Experience Badge */}
+                            <div className="absolute -bottom-10 -right-10 p-10 rounded-[2.5rem] shadow-2xl border backdrop-blur-xl animate-float hidden md:block" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
+                                <div className="flex items-center gap-5 mb-4">
+                                    <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-gold-500 to-gold-600 flex items-center justify-center shadow-lg">
+                                        <Award className="w-6 h-6 text-navy-950" strokeWidth={2} />
+                                    </div>
+                                    <div>
+                                        <div className="text-2xl font-bold leading-none mb-1" style={{ color: "var(--text-primary)" }}>2004</div>
+                                        <div className="text-[10px] font-bold uppercase tracking-widest text-gold-500">Foundation Year</div>
+                                    </div>
+                                </div>
+                                <p className="text-xs font-medium leading-relaxed max-w-50" style={{ color: "var(--text-tertiary)" }}>
+                                    {T("home_who_years_tagline")}
+                                </p>
+                            </div>
+                        </RevealSectionLeft>
+
+                        <RevealSectionRight className="lg:col-span-6">
+                            <div className="gold-line mb-10" />
+                            <h2 className="font-serif text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-10" style={{ color: "var(--text-primary)" }}>
+                                {T("who_title")}
+                            </h2>
+                            <div className="space-y-8">
+                                <p className="text-xl leading-relaxed font-light" style={{ color: "var(--text-secondary)" }}>
+                                    {T("who_p1")}
+                                </p>
+                                <p className="text-lg leading-relaxed opacity-70" style={{ color: "var(--text-secondary)" }}>
+                                    {T("who_p2")}
+                                </p>
+                            </div>
+                            <div className="mt-12 flex flex-wrap gap-8 items-center">
+                                <button onClick={() => router.push("/about")} className="group inline-flex items-center gap-4 text-sm font-bold tracking-widest uppercase transition-all" style={{ color: "var(--gold-primary)" }}>
+                                    <span>{T("who_cta")}</span>
+                                    <div className="w-12 h-12 rounded-full border flex items-center justify-center group-hover:bg-gold-500 group-hover:border-gold-500 transition-all" style={{ borderColor: "var(--gold-primary)" }}>
+                                        <ArrowRight className="w-5 h-5 group-hover:text-white transition-colors" />
+                                    </div>
+                                </button>
+                            </div>
+                        </RevealSectionRight>
+                    </div>
+                </div>
+            </section>
+
+            {/* Strategic Sectors - Keep Standard Grid for consistency with Sitemap but Premium Cards */}
+            <section id="sectors" className="py-24 lg:py-40" style={{ backgroundColor: "var(--bg-secondary)" }}>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <RevealSection className="text-center mb-24">
+                        <div className="gold-line mx-auto mb-8" />
+                        <h2 className="font-serif text-4xl lg:text-5xl font-semibold tracking-tight mb-8" style={{ color: "var(--text-primary)" }}>{T("sectors_title")}</h2>
+                        <p className="text-xl max-w-3xl mx-auto opacity-70 font-light leading-relaxed" style={{ color: "var(--text-secondary)" }}>{T("sectors_desc")}</p>
                     </RevealSection>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
                         {[
-                            { id: "mining", num: "01", image: "/images/sectionmine.jpg", iconSm: <Gem className="w-5 h-5 text-navy-800" strokeWidth={1.5} />, iconBg: "linear-gradient(135deg, #C8962E, #e7b13f)", badgeBg: "bg-[#C8962E]/20 text-[#e7b13f]", title: T("s_mining_title", "Mining & Metals"), desc: T("s_mining_desc", "Responsible extraction and local metal transformation across Africa.") },
-                            { id: "real-estate", num: "02", image: "/images/immobilier.jpg", iconSm: <Building2 className="w-5 h-5 text-white" strokeWidth={1.5} />, iconBg: "#0D1B2A", badgeBg: "bg-white/10 text-white/70", title: T("s_realestate_title", "Real Estate & Construction"), desc: T("s_realestate_desc", "Developing sustainable industrial and urban infrastructure.") },
-                            { id: "agriculture", num: "03", image: "/images/agriculture.jpg", iconSm: <Sprout className="w-5 h-5 text-white" strokeWidth={1.5} />, iconBg: "#15803d", badgeBg: "bg-green-500/20 text-green-400", title: T("s_agri_title", "Agriculture & Livestock"), desc: T("s_agri_desc", "Building agro-industrial value chains and food security.") },
-                            { id: "industrial", num: "04", image: "/images/consulting.jpg", iconSm: <Brain className="w-5 h-5 text-white" strokeWidth={1.5} />, iconBg: "#935D46", badgeBg: "bg-[#C8962E]/20 text-[#e7b13f]", title: T("s_consult_title", "Industrial Consulting"), desc: T("s_consult_desc", "Strategic advisory and industrial project management.") },
-                            { id: "equipment", num: "05", image: "/images/equipement.jpg", iconSm: <Truck className="w-5 h-5 text-white" strokeWidth={1.5} />, iconBg: "#343a40", badgeBg: "bg-white/10 text-white/70", title: T("s_equip_title", "Equipment & Industrial Solutions"), desc: T("s_equip_desc", "Supply, maintenance and rental of industrial equipment.") },
+                            { id: "mining", num: "01", image: "/images/sectionmine.jpg", iconSm: <Gem className="w-5 h-5" />, iconBg: "linear-gradient(135deg, #C8962E, #e7b13f)", badgeBg: "bg-gold-500/20 text-gold-600", title: T("s_mining_title"), desc: T("s_mining_desc") },
+                            { id: "real-estate", num: "02", image: "/images/immobilier.jpg", iconSm: <Building2 className="w-5 h-5 text-white" />, iconBg: "#0D1B2A", badgeBg: "bg-white/10 text-white/70", title: T("s_realestate_title"), desc: T("s_realestate_desc") },
+                            { id: "agriculture", num: "03", image: "/images/agriculture.jpg", iconSm: <Sprout className="w-5 h-5 text-white" />, iconBg: "#15803d", badgeBg: "bg-green-500/20 text-green-400", title: T("s_agri_title"), desc: T("s_agri_desc") },
+                            { id: "industrial", num: "04", image: "/images/consulting.jpg", iconSm: <Brain className="w-5 h-5 text-white" />, iconBg: "#935D46", badgeBg: "bg-gold-500/20 text-gold-600", title: T("s_consult_title"), desc: T("s_consult_desc") },
+                            { id: "equipment", num: "05", image: "/images/equipement.jpg", iconSm: <Truck className="w-5 h-5 text-white" />, iconBg: "#343a40", badgeBg: "bg-white/10 text-white/70", title: T("s_equip_title"), desc: T("s_equip_desc") },
                         ].map((sector, i) => (
-                            <RevealSection key={i}>
-                                <article className="card-premium group cursor-pointer rounded-2xl overflow-hidden border shadow-sm flex flex-col h-full" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }} onClick={() => router.push(`/industries/${sector.id}`)}>
-                                    <div className="aspect-16/10 relative overflow-hidden bg-gray-100 dark:bg-gray-800">
-                                        <Image src={sector.image} alt={sector.title as string} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                                        <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent pointer-events-none" />
-                                        <div className="absolute top-4 left-4 z-10"><span className={`px-2.5 py-1 text-xs font-semibold rounded-md backdrop-blur-md ${sector.badgeBg}`}>{sector.num}</span></div>
+                            <RevealSection key={i} className={`stagger-child-${(i % 3) + 1}`}>
+                                <article className="group cursor-pointer rounded-[2.5rem] overflow-hidden border shadow-2xl flex flex-col h-full transition-all duration-700 hover:-translate-y-4" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }} onClick={() => router.push(`/industries/${sector.id}`)}>
+                                    <div className="aspect-4/3 relative overflow-hidden">
+                                        <Image src={sector.image} alt={sector.title as string} fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
+                                        <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+                                        <div className="absolute top-6 left-6 z-10"><span className={`px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded-full backdrop-blur-md ${sector.badgeBg}`}>{sector.num}</span></div>
                                     </div>
-                                    <div className="p-6 flex-1 flex flex-col">
-                                        <div className="card-icon w-10 h-10 rounded-xl flex items-center justify-center mb-4 shrink-0 shadow-sm" style={{ background: sector.iconBg, marginTop: "-2.5rem", position: "relative", zIndex: 10 }}>{sector.iconSm}</div>
-                                        <h3 className="text-lg font-semibold tracking-tight mb-2" style={{ color: "var(--text-primary)" }}>{sector.title}</h3>
-                                        <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "var(--text-secondary)" }}>{sector.desc}</p>
-                                        <span className="inline-flex items-center gap-1 text-xs font-semibold group-hover:gap-2 transition-all mt-auto" style={{ color: "var(--gold-primary)" }}>
-                                            <span>{T("learn_more", "Learn more")}</span><ArrowRight className="w-3.5 h-3.5" strokeWidth={1.5} />
-                                        </span>
+                                    <div className="px-10 py-4 flex flex-col h-full relative">
+                                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:rotate-6 transition-all" style={{ background: sector.iconBg, marginTop: "-4.5rem", position: "relative", zIndex: 10 }}>{sector.iconSm}</div>
+                                        <h3 className="text-2xl font-bold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{sector.title}</h3>
+                                        <p className="text-sm leading-relaxed grow opacity-70" style={{ color: "var(--text-secondary)" }}>{sector.desc}</p>
+                                        <div className="flex items-center justify-between">
+                                            <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest transition-all group-hover:text-gold-500" style={{ color: "var(--gold-primary)" }}>
+                                                <span>{T("learn_more")}</span>
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" strokeWidth={3} />
+                                            </span>
+                                        </div>
                                     </div>
                                 </article>
                             </RevealSection>
                         ))}
 
-                        <RevealSection>
-                            <article onClick={() => router.push("/industries")} className="card-premium group cursor-pointer rounded-2xl overflow-hidden shadow-lg flex flex-col h-full items-center justify-center text-center p-8 min-h-80 lg:min-h-full relative transition-all duration-300 hover:shadow-gold-500/20" style={{ background: "linear-gradient(135deg, #C8962E 0%, #a1761e 100%)", borderColor: "transparent" }}>
-                                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
-                                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6 z-10 bg-white/20 backdrop-blur-md transition-transform duration-500 group-hover:scale-110">
-                                    <LayoutGrid className="w-7 h-7 text-white" strokeWidth={1.5} />
+                        <RevealSection className="stagger-child-3">
+                            <article onClick={() => router.push("/industries")} className="group cursor-pointer rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col h-full items-center justify-center text-center p-12 min-h-100 relative transition-all duration-700 hover:shadow-gold-500/20" style={{ background: "linear-gradient(135deg, #0A1628 0%, #1a2744 100%)" }}>
+                                <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "30px 30px" }} />
+                                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-10 z-10 bg-white/5 border border-white/10 backdrop-blur-xl transition-all duration-700 group-hover:scale-110 group-hover:border-gold-500/50">
+                                    <LayoutGrid className="w-10 h-10 text-gold-400" strokeWidth={1} />
                                 </div>
-                                <h3 className="text-xl font-bold tracking-tight mb-3 text-white z-10">{T("home_sectors_all_title")}</h3>
-                                <p className="text-sm font-medium leading-relaxed mb-6 text-white/90 z-10">{T("home_sectors_all_desc")}</p>
-                                <span className="inline-flex items-center gap-2 text-sm font-bold bg-white text-black px-5 py-2.5 rounded-full transition-all group-hover:bg-gray-100 group-hover:shadow-md z-10">
-                                    <span>{T("home_sectors_all_cta")}</span><ArrowRight className="w-4 h-4" strokeWidth={2} />
+                                <h3 className="text-2xl font-bold tracking-tight mb-4 text-white z-10">{T("home_sectors_all_title")}</h3>
+                                <p className="text-sm font-medium leading-relaxed mb-10 text-white/60 z-10">{T("home_sectors_all_desc")}</p>
+                                <span className="inline-flex items-center gap-3 text-xs font-bold bg-gold-500 text-navy-950 px-8 py-3.5 rounded-2xl transition-all group-hover:bg-gold-400 shadow-xl z-10 uppercase tracking-widest">
+                                    <span>{T("home_sectors_all_cta")}</span><ArrowRight className="w-4 h-4" strokeWidth={2.5} />
                                 </span>
                             </article>
                         </RevealSection>
@@ -216,75 +277,89 @@ export function HomePage() {
                 </div>
             </section>
 
-            {/* Value Proposition */}
-            <section className="py-20 lg:py-28 relative overflow-hidden" style={{ background: "#0A1628" }}>
-                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "linear-gradient(rgba(200,150,46,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(200,150,46,.1) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
+            {/* Value Proposition - Glassmorphism Bento */}
+            <section className="py-24 lg:py-40 relative overflow-hidden" style={{ background: "var(--bg-tertiary)" }}>
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(200,150,46,1) 1px, transparent 1px), linear-gradient(90deg, rgba(200,150,46,1) 1px, transparent 1px)", backgroundSize: "100px 100px" }} />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <RevealSection className="text-center mb-16">
-                        <div className="gold-line mx-auto mb-6" />
-                        <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4">{T("value_title", "Why Partner With Anago Group?")}</h2>
-                        <p className="text-base text-white/50 max-w-2xl mx-auto">{T("value_desc", "Three pillars of sustainable value creation across the African continent.")}</p>
+                    <RevealSection className="text-center mb-24">
+                        <div className="gold-line mx-auto mb-10" />
+                        <h2 className="font-serif text-4xl lg:text-6xl font-semibold tracking-tight mb-8" style={{ color: "var(--text-primary)" }}>{T("value_title")}</h2>
+                        <p className="text-xl max-w-2xl mx-auto font-light" style={{ color: "var(--text-secondary)" }}>{T("value_desc")}</p>
                     </RevealSection>
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-3 gap-10">
                         {[
-                            { icon: <FactoryIcon className="w-7 h-7 text-navy-800" strokeWidth={1.5} />, title: T("vp1_title", "Local Transformation"), desc: T("vp1_desc", "Maximizing value within Africa through local processing and transformation of natural resources into finished products.") },
-                            { icon: <Handshake className="w-7 h-7 text-navy-800" strokeWidth={1.5} />, title: T("vp2_title", "Strategic Partnerships"), desc: T("vp2_desc", "Governments, international investors, and global manufacturers working together towards shared prosperity.") },
-                            { icon: <Leaf className="w-7 h-7 text-navy-800" strokeWidth={1.5} />, title: T("vp3_title", "Sustainable Growth"), desc: T("vp3_desc", "Responsible, transparent and long-term development creating value for communities and future generations.") },
+                            { icon: <Zap className="w-8 h-8" />, title: T("vp1_title"), desc: T("vp1_desc"), bg: "linear-gradient(135deg, #C8962E, #e7b13f)" },
+                            { icon: <Handshake className="w-8 h-8" />, title: T("vp2_title"), desc: T("vp2_desc"), bg: "#0D1B2A" },
+                            { icon: <Trees className="w-8 h-8" />, title: T("vp3_title"), desc: T("vp3_desc"), bg: "#15803d" },
                         ].map((vp, i) => (
-                            <RevealSection key={i} className="text-center p-8 rounded-2xl bg-white/3 border border-white/10 hover:border-gold-500/30 transition-all duration-300">
-                                <div className="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-6" style={{ background: "linear-gradient(135deg, #C8962E, #e7b13f)" }}>{vp.icon}</div>
-                                <h3 className="text-xl font-semibold tracking-tight text-white mb-3">{vp.title}</h3>
-                                <p className="text-sm text-white/50 leading-relaxed">{vp.desc}</p>
+                            <RevealSection key={i} className="group p-12 rounded-[2.5rem] transition-all duration-500 border flex flex-col shadow-xl hover:shadow-2xl" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
+                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-10 shadow-lg group-hover:scale-110 transition-transform text-white" style={{ background: vp.bg }}>{vp.icon}</div>
+                                <h3 className="text-2xl font-bold tracking-tight mb-6" style={{ color: "var(--text-primary)" }}>{vp.title}</h3>
+                                <p className="text-base leading-relaxed opacity-70 grow" style={{ color: "var(--text-secondary)" }}>{vp.desc}</p>
+                                <div className="mt-10 w-12 h-1 bg-gold-500/20 group-hover:w-full transition-all duration-700" />
                             </RevealSection>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Investor Section */}
-            <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--bg-primary)" }}>
+            {/* Investor Section - Trusted Gateway */}
+            <section className="py-24 lg:py-40 relative overflow-hidden" style={{ backgroundColor: "var(--bg-primary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <RevealSection>
-                            <div className="gold-line mb-6" />
-                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-6" style={{ color: "var(--text-primary)" }}>{T("invest_title", "Investing in Africa's Industrial Future")}</h2>
-                            <p className="text-base leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>{T("invest_p1", "Africa represents the last great frontier for industrial development. With abundant natural resources, a young and growing workforce, and increasing political stability, the continent offers unprecedented investment opportunities.")}</p>
-                            <p className="text-base leading-relaxed mb-8" style={{ color: "var(--text-secondary)" }}>{T("invest_p2", "Anago Group provides investors and partners with a trusted gateway to Africa's most promising industrial sectors, backed by 20+ years of operational experience and deep local knowledge.")}</p>
-                            <div className="flex flex-wrap gap-4">
-                                <button onClick={() => router.push("/contact")} className="btn-gold px-6 py-3 text-sm rounded-lg inline-flex items-center gap-2"><span>{T("invest_cta1", "Become a Partner")}</span><ArrowRight className="w-4 h-4" strokeWidth={1.5} /></button>
-                                <button className="btn-navy px-6 py-3 text-sm rounded-lg inline-flex items-center gap-2 font-medium"><Download className="w-4 h-4" strokeWidth={1.5} /><span>{T("invest_cta2", "Download Corporate Profile")}</span></button>
+                    <div className="grid lg:grid-cols-2 gap-24 items-center">
+                        <RevealSectionLeft>
+                            <div className="gold-line mb-10" />
+                            <h2 className="font-serif text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.05] mb-10" style={{ color: "var(--text-primary)" }}>
+                                {T("invest_title")}
+                            </h2>
+                            <div className="space-y-8 mb-16">
+                                <p className="text-xl font-light leading-relaxed" style={{ color: "var(--text-secondary)" }}>{T("invest_p1")}</p>
+                                <p className="text-lg leading-relaxed opacity-70" style={{ color: "var(--text-secondary)" }}>{T("invest_p2")}</p>
                             </div>
-                        </RevealSection>
-                        <RevealSection>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="flex flex-wrap gap-6">
+                                <button onClick={() => router.push("/contact")} className="btn-gold px-10 py-4.5 text-xs rounded-2xl inline-flex items-center gap-4 shadow-xl">
+                                    <span className="font-bold uppercase tracking-widest">{T("invest_cta1")}</span>
+                                    <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
+                                </button>
+                                <button className="btn-navy px-10 py-4.5 text-xs rounded-2xl inline-flex items-center gap-4 font-bold tracking-widest uppercase border border-navy-800 dark:border-white/10 hover:bg-navy-900 transition-all">
+                                    <Download className="w-5 h-5" strokeWidth={2.5} />
+                                    <span>{T("invest_cta2")}</span>
+                                </button>
+                            </div>
+                        </RevealSectionLeft>
+
+                        <RevealSectionRight>
+                            <div className="grid grid-cols-2 gap-6 relative">
+                                {/* Decorative elements */}
+                                <div className="absolute -inset-10 bg-gold-500/5 rounded-full blur-[100px] pointer-events-none" />
                                 {[
-                                    { icon: <ShieldCheck className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: T("invest_feature1_title", "Trusted Track Record"), desc: T("invest_feature1_desc", "20+ years of successful operations") },
-                                    { icon: <Globe className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: T("invest_feature2_title", "Pan-African Reach"), desc: T("invest_feature2_desc", "Operations across 15+ countries") },
-                                    { icon: <BarChart3 className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: T("invest_feature3_title", "Strong Returns"), desc: T("invest_feature3_desc", "Consistent value creation for stakeholders") },
-                                    { icon: <Users className="w-8 h-8" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />, title: T("invest_feature4_title", "Local Expertise"), desc: T("invest_feature4_desc", "Deep knowledge of African markets") },
+                                    { icon: <ShieldCheck className="w-10 h-10" />, title: T("invest_feature1_title"), desc: T("invest_feature1_desc") },
+                                    { icon: <Globe className="w-10 h-10" />, title: T("invest_feature2_title"), desc: T("invest_feature2_desc") },
+                                    { icon: <BarChart3 className="w-10 h-10" />, title: T("invest_feature3_title"), desc: T("invest_feature3_desc") },
+                                    { icon: <Users className="w-10 h-10" />, title: T("invest_feature4_title"), desc: T("invest_feature4_desc") },
                                 ].map((f, i) => (
-                                    <div key={i} className="p-6 rounded-2xl border" style={{ background: "var(--bg-secondary)", borderColor: "var(--border-color)" }}>
-                                        <div className="mb-3">{f.icon}</div>
-                                        <h4 className="text-sm font-semibold mb-1" style={{ color: "var(--text-primary)" }}>{f.title}</h4>
-                                        <p className="text-xs" style={{ color: "var(--text-secondary)" }}>{f.desc}</p>
+                                    <div key={i} className="group p-8 rounded-3xl border backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" style={{ background: "var(--bg-secondary)", borderColor: "var(--border-color)" }}>
+                                        <div className="mb-6 text-gold-500 group-hover:scale-110 transition-transform">{f.icon}</div>
+                                        <h4 className="text-base font-bold mb-2 tracking-tight" style={{ color: "var(--text-primary)" }}>{f.title}</h4>
+                                        <p className="text-xs font-medium opacity-60" style={{ color: "var(--text-secondary)" }}>{f.desc}</p>
                                     </div>
                                 ))}
                             </div>
-                        </RevealSection>
+                        </RevealSectionRight>
                     </div>
                 </div>
             </section>
 
-            {/* ESG */}
-            <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--bg-secondary)" }}>
+            {/* Sustainable Industrial Development (ESG) */}
+            <section className="py-24 lg:py-40" style={{ backgroundColor: "var(--bg-secondary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <RevealSection className="order-2 lg:order-1">
                             <div className="grid grid-cols-1 gap-5">
                                 {[
-                                    { icon: <Trees className="w-5 h-5 text-green-700" strokeWidth={1.5} />, iconBg: "bg-green-100", title: T("esg_card1_title", "Environmental Responsibility"), desc: T("esg_card1_desc", "Minimizing environmental footprint through sustainable mining practices, reforestation initiatives, and clean energy integration.") },
-                                    { icon: <HeartHandshake className="w-5 h-5 text-blue-700" strokeWidth={1.5} />, iconBg: "bg-blue-100", title: T("esg_card2_title", "Local Workforce Empowerment"), desc: T("esg_card2_desc", "Creating quality jobs, investing in training and skills development, and supporting local communities.") },
-                                    { icon: <Sun className="w-5 h-5 text-amber-700" strokeWidth={1.5} />, iconBg: "bg-amber-100", title: T("esg_card3_title", "Low-Carbon Infrastructure"), desc: T("esg_card3_desc", "Investing in renewable energy, energy-efficient buildings, and sustainable transport solutions.") },
+                                    { icon: <Trees className="w-5 h-5 text-green-700" />, iconBg: "bg-green-100", title: T("esg_card1_title"), desc: T("esg_card1_desc") },
+                                    { icon: <HeartHandshake className="w-5 h-5 text-blue-700" />, iconBg: "bg-blue-100", title: T("esg_card2_title"), desc: T("esg_card2_desc") },
+                                    { icon: <Sun className="w-5 h-5 text-amber-700" />, iconBg: "bg-amber-100", title: T("esg_card3_title"), desc: T("esg_card3_desc") },
                                 ].map((esg, i) => (
                                     <div key={i} className="flex items-start gap-4 p-5 rounded-xl border shadow-sm" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
                                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${esg.iconBg}`}>{esg.icon}</div>
@@ -298,13 +373,13 @@ export function HomePage() {
                         </RevealSection>
                         <RevealSection className="order-1 lg:order-2">
                             <div className="gold-line mb-6" />
-                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-6" style={{ color: "var(--text-primary)" }}>{T("esg_title", "Sustainable Industrial Development")}</h2>
-                            <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>{T("esg_desc", "At Anago Group, sustainability isn't just a commitment \u2014 it's integral to our business strategy. We believe that responsible practices create stronger companies and more resilient communities.")}</p>
+                            <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-6" style={{ color: "var(--text-primary)" }}>{T("esg_title")}</h2>
+                            <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>{T("esg_desc")}</p>
                             <div className="grid grid-cols-3 gap-4">
                                 {[
-                                    { value: "100%", label: T("esg_stat1_label", "Environmental Compliance"), color: "var(--gold-primary)" },
-                                    { value: "90%", label: T("esg_stat2_label", "Local Workforce"), color: "var(--text-primary)" },
-                                    { value: "50+", label: T("esg_stat3_label", "Community Projects"), color: "#15803d" },
+                                    { value: "100%", label: T("esg_stat1_label"), color: "var(--gold-primary)" },
+                                    { value: "90%", label: T("esg_stat2_label"), color: "var(--text-primary)" },
+                                    { value: "50+", label: T("esg_stat3_label"), color: "#15803d" },
                                 ].map((stat, i) => (
                                     <div key={i} className="text-center p-4 rounded-xl border" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
                                         <div className="text-2xl font-bold mb-1" style={{ color: stat.color }}>{stat.value}</div>
@@ -318,7 +393,7 @@ export function HomePage() {
             </section>
 
             {/* News */}
-            <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--bg-primary)" }}>
+            {/* <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--bg-primary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <RevealSection className="flex items-end justify-between mb-12">
                         <div>
@@ -374,27 +449,41 @@ export function HomePage() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            {/* Final CTA */}
-            <section className="py-20 lg:py-28 relative overflow-hidden">
+            {/* Final CTA - Immersive Cinematic Close */}
+            <section className="py-32 lg:py-48 relative overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <img
-                        src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&q=80"
-                        alt={T("home_final_image_alt", "Partnership and industrial future")}
-                        className="w-full h-full object-cover"
+                    <Image
+                        src="/images/home/final-cta-bg.png"
+                        alt="Africa Industrial Future"
+                        fill
+                        className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/50" />
+                    <div className="absolute inset-0 bg-black/40" />
                 </div>
-                <div className="absolute inset-0 opacity-10 z-0" style={{ backgroundImage: "radial-gradient(circle at 30% 50%, #C8962E 0%, transparent 50%)" }} />
-                <RevealSection className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                    <h2 className="font-serif text-3xl lg:text-5xl font-semibold tracking-tight text-white mb-6">{T("final_cta_title", "Ready to Build Africa's Industrial Future Together?")}</h2>
-                    <p className="text-base text-white/60 max-w-2xl mx-auto mb-10">{T("final_cta_desc", "Whether you are an investor, government partner, or industry leader, Anago Group is your trusted partner for sustainable industrial development in Africa.")}</p>
-                    <div className="flex flex-wrap justify-center gap-4">
-                        <button onClick={() => router.push("/contact")} className="btn-gold px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2"><span>{T("final_cta1", "Get in Touch")}</span><ArrowRight className="w-4 h-4" strokeWidth={1.5} /></button>
-                        <button className="btn-outline-light px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium"><Download className="w-4 h-4" strokeWidth={1.5} /><span>{T("final_cta2", "Download Profile")}</span></button>
-                    </div>
-                </RevealSection>
+
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                    <RevealSection>
+                        <div className="gold-line mx-auto mb-12" />
+                        <h2 className="font-serif text-5xl lg:text-7xl font-semibold tracking-tight text-white mb-10 leading-[0.95]">
+                            {T("final_cta_title")}
+                        </h2>
+                        <p className="text-xl lg:text-2xl text-white/70 max-w-3xl mx-auto mb-16 font-light">
+                            {T("final_cta_desc")}
+                        </p>
+                        <div className="flex flex-wrap justify-center gap-6">
+                            <button onClick={() => router.push("/contact")} className="btn-gold px-12 py-5 text-sm rounded-2xl inline-flex items-center gap-4 shadow-2xl shadow-gold-500/40">
+                                <span className="font-bold uppercase tracking-widest">{T("final_cta1")}</span>
+                                <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
+                            </button>
+                            <button className="btn-outline-light px-12 py-5 text-sm rounded-2xl inline-flex items-center gap-4 font-bold tracking-widest uppercase backdrop-blur-xl border-white/20">
+                                <Download className="w-5 h-5" strokeWidth={2.5} />
+                                <span>{T("final_cta2")}</span>
+                            </button>
+                        </div>
+                    </RevealSection>
+                </div>
             </section>
         </div>
     )

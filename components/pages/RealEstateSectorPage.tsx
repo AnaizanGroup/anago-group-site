@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
     Building2,
     ArrowRight,
@@ -22,13 +23,16 @@ import {
     Maximize2,
     Ruler,
     Compass,
-    Building
+    Building,
+    Download
 } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { RevealSection, RevealSectionLeft, RevealSectionRight } from "@/components/shared/RevealSection";
 
 const RealEstateSectorPage = () => {
-    const { T } = useAppContext();
+    const { T, theme } = useAppContext();
+    const isLight = theme === "light";
+    const router = useRouter();
     const [activeStat, setActiveStat] = useState<number | null>(null);
     const heroParticlesRef = useRef<HTMLDivElement>(null);
 
@@ -75,7 +79,7 @@ const RealEstateSectorPage = () => {
             desc: T("re_act1_desc", "Design and construction of industrial parks, processing plants, warehousing complexes, and specialized facilities."),
             tags: [T("re_act1_tag1", "Industrial Parks"), T("re_act1_tag2", "Processing Plants"), T("re_act1_tag3", "Warehousing")],
             icon: Factory,
-            color: "bg-navy-900"
+            color: "bg-[#1E293B]"
         },
         {
             id: "02",
@@ -84,7 +88,7 @@ const RealEstateSectorPage = () => {
             tags: [T("re_act2_tag1", "Social Housing"), T("re_act2_tag2", "Premium Estates"), T("re_act2_tag3", "Mixed-Use")],
             icon: Home,
             color: "bg-linear-to-br from-gold-500 to-gold-400",
-            iconColor: "text-navy-900"
+            iconColor: "text-[#0A1628]"
         },
         {
             id: "03",
@@ -92,7 +96,7 @@ const RealEstateSectorPage = () => {
             desc: T("re_act3_desc", "Construction of roads, bridges, utilities, and critical public infrastructure that connect communities."),
             tags: [T("re_act3_tag1", "Roads & Bridges"), T("re_act3_tag2", "Utilities"), T("re_act3_tag3", "Public Works")],
             icon: Landmark,
-            color: "bg-navy-600"
+            color: "bg-[#162240]"
         },
         {
             id: "04",
@@ -132,36 +136,36 @@ const RealEstateSectorPage = () => {
             desc: T("re_val2_desc", "Multidisciplinary teams of architects and engineers delivering world-class capabilities."),
             icon: PencilRuler,
             color: "bg-linear-to-br from-gold-500 to-gold-400",
-            iconColor: "text-navy-900"
+            iconColor: "text-[#0A1628]"
         },
         {
             title: T("re_val3_title", "Pan-African Presence"),
             desc: T("re_val3_desc", "Active across 12+ countries with deep understanding of local markets and regulation."),
             icon: Globe,
-            color: "bg-white/10"
+            color: isLight ? "var(--gold-bg)" : "rgba(255,255,255,0.05)"
         },
         {
             title: T("re_val4_title", "Integrated Value Chain"),
             desc: T("re_val4_desc", "Leveraging Group divisions for machinery and materials, creating unique cost efficiencies."),
             icon: Layers,
-            color: "bg-white/5"
+            color: isLight ? "var(--gold-bg)" : "rgba(255,255,255,0.05)"
         },
         {
             title: T("re_val5_title", "Community Impact"),
             desc: T("re_val5_desc", "Prioritizing local employment, skills transfer, and social infrastructure for lasting impact."),
             icon: Users,
-            color: "bg-white/5"
+            color: isLight ? "var(--gold-bg)" : "rgba(255,255,255,0.05)"
         },
         {
             title: T("re_val6_title", "Investment-Grade Quality"),
             desc: T("re_val6_desc", "Ensuring international construction standards and transparent governance for strong returns."),
             icon: TrendingUp,
-            color: "bg-white/5"
+            color: isLight ? "var(--gold-bg)" : "rgba(255,255,255,0.05)"
         }
     ];
 
     return (
-        <div className="bg-navy-900 text-white min-h-screen selection:bg-gold-500/30">
+        <div className="block min-h-screen selection:bg-gold-500/30 theme-transition" style={{ backgroundColor: "var(--bg-primary)" }}>
             <style jsx global>{`
         @keyframes particleDrift {
           0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0; }
@@ -170,210 +174,149 @@ const RealEstateSectorPage = () => {
           100% { transform: translate3d(var(--drift-x), var(--drift-y), 0) scale(0.5); opacity: 0; }
         }
         .architectural-grid {
-          background-image: linear-gradient(rgba(200, 150, 46, 0.03) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(200, 150, 46, 0.03) 1px, transparent 1px);
+          background-image: linear-gradient(${isLight ? 'rgba(10, 22, 40, 0.04)' : 'rgba(200, 150, 46, 0.03)'} 1px, transparent 1px),
+                            linear-gradient(90deg, ${isLight ? 'rgba(10, 22, 40, 0.04)' : 'rgba(200, 150, 46, 0.03)'} 1px, transparent 1px);
           background-size: 60px 60px;
         }
         .skyline-element {
-          background: rgba(255, 255, 255, 0.02);
-          border-top: 1px solid rgba(200, 150, 46, 0.06);
+          background: ${isLight ? 'rgba(10, 22, 40, 0.03)' : 'rgba(255, 255, 255, 0.02)'};
+          border-top: 1px solid ${isLight ? 'rgba(10, 22, 40, 0.05)' : 'rgba(200, 150, 46, 0.06)'};
+        }
+        .re-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: ${isLight
+                    ? 'linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.4) 100%)'
+                    : 'linear-gradient(to bottom, rgba(10,22,40,0.4) 0%, rgba(10,22,40,0.8) 100%)'};
+            z-index: 10;
         }
       `}</style>
 
             {/* Hero Section */}
-            <section className="relative min-h-[85vh] lg:min-h-[92vh] flex items-center overflow-hidden bg-linear-to-br from-navy-900 via-navy-800 to-navy-950">
-                <div className="absolute inset-0 architectural-grid opacity-60" />
+            <section className="relative min-h-[85vh] lg:min-h-[92vh] flex items-center overflow-hidden theme-transition" style={{ background: isLight ? "var(--hero-bg)" : "linear-gradient(135deg, #0A1628 0%, #162240 50%, #0D1B2A 100%)" }}>
+                <div className="absolute inset-0 architectural-grid opacity-60 z-1" />
+                <div className="re-hero-overlay" />
 
                 {/* Parallax elements */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden" ref={heroParticlesRef} />
+                <div className="absolute inset-0 pointer-events-none overflow-hidden z-2" ref={heroParticlesRef} />
 
                 {/* Skyline Silhouettes */}
-                <div className="absolute bottom-0 left-[5%] w-10 h-[35%] skyline-element opacity-60" />
-                <div className="absolute bottom-0 left-[8%] w-14 h-[55%] skyline-element opacity-50" />
-                <div className="absolute bottom-0 left-[14%] w-9 h-[40%] skyline-element opacity-40" />
-                <div className="absolute bottom-0 right-[10%] w-12 h-[50%] skyline-element opacity-40" />
-                <div className="absolute bottom-0 right-[15%] w-16 h-[70%] skyline-element opacity-30" />
-                <div className="absolute bottom-0 right-[5%] w-11 h-[38%] skyline-element opacity-45" />
+                <div className="absolute bottom-0 left-[5%] w-10 h-[35%] skyline-element opacity-60 z-3" />
+                <div className="absolute bottom-0 left-[8%] w-14 h-[55%] skyline-element opacity-50 z-3" />
+                <div className="absolute bottom-0 left-[14%] w-9 h-[40%] skyline-element opacity-40 z-3" />
+                <div className="absolute bottom-0 right-[10%] w-12 h-[50%] skyline-element opacity-40 z-3" />
+                <div className="absolute bottom-0 right-[15%] w-16 h-[70%] skyline-element opacity-30 z-3" />
+                <div className="absolute bottom-0 right-[5%] w-11 h-[38%] skyline-element opacity-45 z-3" />
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-48 lg:py-32 relative z-10 w-full">
-                    <div className="grid lg:grid-cols-12 gap-16 items-center">
-                        <div className="lg:col-span-7">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-48 lg:py-32 relative z-20 w-full">
+                    <div className="flex justify-center items-center">
+                        <div className="flex flex-col items-center w-full">
                             {/* Breadcrumb */}
-                            <RevealSection className="flex items-center gap-2 mb-12">
-                                <span className="text-xs font-medium text-white/40">{T("nav_home", "Home")}</span>
-                                <ChevronRight className="w-3 h-3 text-white/20" />
-                                <span className="text-xs font-medium text-white/40">{T("nav_industries", "Industries")}</span>
-                                <ChevronRight className="w-3 h-3 text-white/20" />
-                                <span className="text-xs font-medium text-gold-400">{T("s_realestate_title", "Real Estate & Construction")}</span>
-                            </RevealSection>
+
 
                             <RevealSection delay={0.1} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-10">
                                 <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
-                                <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">{T("re_hero_badge", "Strategic Sector 03 · Building Tomorrow")}</span>
+                                <span className="text-xs text-center font-medium text-gold-400 tracking-wider uppercase">{T("re_hero_badge", "Strategic Sector 03 \u00B7 Building Tomorrow")}</span>
                             </RevealSection>
 
                             <RevealSection delay={0.2}>
-                                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-tight mb-8">
-                                    {T("re_hero_title", "Real Estate & Construction — ")}
-                                    <span className="bg-linear-to-r from-gold-400 via-gold-200 to-gold-500 bg-clip-text text-transparent">
+                                <h1 className="text-4xl sm:text-5xl lg:text-6xl text-center font-bold tracking-tight leading-tight mb-8" style={{ color: "var(--nav-text-hero)" }}>
+                                    {T("re_hero_title", "Real Estate & Construction \u2014 ")}
+                                    <span className="gold-gradient text-center">
                                         {T("re_hero_title_gold", "Building Sustainable Infrastructure")}
                                     </span>
                                 </h1>
                             </RevealSection>
 
                             <RevealSection delay={0.3}>
-                                <p className="text-lg text-white/55 leading-relaxed max-w-xl mb-14">
+                                <p className="text-lg text-center leading-relaxed max-w-xl mb-14 opacity-70" style={{ color: "var(--nav-text-hero)" }}>
                                     {T("re_hero_desc", "From industrial complexes to residential communities and strategic infrastructure, Anago Group develops sustainable real estate projects that shape Africa's urban landscape.")}
                                 </p>
                             </RevealSection>
 
                             <RevealSection delay={0.4} className="flex flex-wrap gap-4">
-                                <button className="px-8 py-4 bg-linear-to-r from-gold-600 to-gold-400 text-navy-950 font-bold rounded-xl flex items-center gap-2 hover:shadow-[0_0_30px_rgba(200,150,46,0.3)] transition-all">
+                                <button onClick={() => document.getElementById("activities")?.scrollIntoView({ behavior: "smooth" })} className="btn-gold px-8 py-4 text-sm font-bold rounded-xl flex items-center gap-2">
                                     {T("re_hero_cta1", "Explore Our Projects")}
                                     <ArrowDownRight className="w-4 h-4" />
                                 </button>
-                                <button className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-bold transition-all flex items-center gap-2">
+                                <button className="btn-outline-light px-8 py-4 text-sm rounded-xl font-bold transition-all flex items-center gap-2">
                                     {T("re_hero_cta2", "Partner With Us")}
                                     <ArrowRight className="w-4 h-4" />
                                 </button>
                             </RevealSection>
                         </div>
 
-                        <div className="lg:col-span-5 hidden lg:block">
-                            <RevealSection delay={0.5} className="relative">
-                                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 relative z-10 overflow-hidden group">
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
-                                    <div className="flex items-center gap-4 mb-8">
-                                        <div className="w-12 h-12 rounded-2xl bg-navy-800 border border-white/10 flex items-center justify-center">
-                                            <Building2 className="w-6 h-6 text-gold-400" />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-sm font-bold text-white uppercase tracking-widest">{T("re_division_title")}</h3>
-                                            <p className="text-xs text-white/40 font-medium">{T("re_org_tagline")}</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-6">
-                                        {[
-                                            { label: T("re_stat_surface"), value: "1.2M+ sqm" },
-                                            { label: T("re_stat_markets"), value: "12+ Countries" },
-                                            { label: T("re_act5_title"), value: "Green Certified", highlight: true },
-                                            { label: T("re_stat_projects"), value: "80+ Developments" }
-                                        ].map((item, idx) => (
-                                            <div key={idx} className="flex items-center justify-between py-3 border-b border-white/5 last:border-0">
-                                                <span className="text-xs text-white/40 font-medium">{item.label}</span>
-                                                <span className={`text-xs font-bold ${item.highlight ? 'text-emerald-400' : 'text-white/80'}`}>{item.value}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                    <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-xl bg-gold-500/15 flex items-center justify-center">
-                                            <Leaf className="w-5 h-5 text-gold-400" />
-                                        </div>
-                                        <p className="text-[10px] leading-relaxed text-white/50 tracking-wide uppercase font-black whitespace-pre-line">
-                                            {T("re_emission_desc")}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* Decorative architectural elements */}
-                                <div className="absolute -top-6 -right-6 w-16 h-16 rounded-2xl bg-navy-800 border border-gold-500/30 flex items-center justify-center animate-bounce duration-[3000ms] shadow-2xl z-20">
-                                    <Ruler className="w-8 h-8 text-gold-400" />
-                                </div>
-                                <div className="absolute -bottom-10 -left-10 w-24 h-24 border-l border-b border-gold-500/20" />
-                            </RevealSection>
-                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Stats Quickbar */}
-            <div className="relative z-20 -mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-xl">
-                    {stats.map((stat, idx) => (
-                        <div
-                            key={idx}
-                            className="bg-navy-900/40 p-8 flex flex-col items-center justify-center group transition-colors hover:bg-white/5"
-                            onMouseEnter={() => setActiveStat(idx)}
-                            onMouseLeave={() => setActiveStat(null)}
-                        >
-                            <stat.icon className={`w-6 h-6 mb-4 transition-colors ${activeStat === idx ? 'text-gold-400' : 'text-white/30'}`} />
-                            <div className="flex items-baseline gap-1">
-                                <span className="text-3xl font-bold tracking-tighter text-white">{stat.value}</span>
-                                <span className="text-xs font-bold text-gold-500 uppercase tracking-widest">{stat.suffix}</span>
-                            </div>
-                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 mt-2">{stat.label}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
+
 
             {/* About Section */}
             <section className="py-24 lg:py-32 relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <RevealSectionLeft className="relative group">
-                            <div className="aspect-square relative rounded-3xl overflow-hidden shadow-2xl">
-                                <div className="absolute inset-0 bg-linear-to-br from-navy-800 to-navy-950" />
+                            <div className="aspect-square relative rounded-3xl overflow-hidden shadow-2xl border" style={{ borderColor: "var(--border-color)" }}>
+                                <div className="absolute inset-0" style={{ background: isLight ? "var(--bg-secondary)" : "linear-gradient(135deg, #0f1d33 0%, #0A1628 100%)" }} />
                                 <div className="absolute inset-0 architectural-grid opacity-40 group-hover:scale-110 transition-transform duration-1000" />
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="text-center">
-                                        <div className="w-24 h-24 mx-auto rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500">
-                                            <Building className="w-12 h-12 text-gold-400/30" strokeWidth={1} />
+                                        <div className="w-24 h-24 mx-auto rounded-3xl border flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500" style={{ backgroundColor: "var(--bg-primary)", borderColor: "var(--border-color)" }}>
+                                            <Building className="w-12 h-12 opacity-30" style={{ color: "var(--gold-primary)" }} strokeWidth={1} />
                                         </div>
-                                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/20">{T("re_sustainable_div_title")}</p>
+                                        <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-20" style={{ color: "var(--text-primary)" }}>{T("re_sustainable_div_title", "Anago Sustainable Living")}</p>
                                     </div>
                                 </div>
 
                                 {/* Architectural Frame */}
-                                <div className="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-gold-500/20" />
-                                <div className="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-gold-500/20" />
+                                <div className="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 opacity-20" style={{ borderColor: "var(--gold-primary)" }} />
+                                <div className="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 opacity-20" style={{ borderColor: "var(--gold-primary)" }} />
                             </div>
 
                             {/* Floating Highlight Card */}
-                            <div className="absolute -bottom-8 -right-8 bg-navy-800 border border-white/10 p-6 rounded-2xl shadow-2xl max-w-[240px] hidden sm:block">
+                            <div className="absolute -bottom-8 -right-8 border p-6 rounded-2xl shadow-2xl max-w-60 hidden sm:block" style={{ backgroundColor: "var(--bg-primary)", borderColor: "var(--border-color)" }}>
                                 <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
-                                        <Leaf className="w-6 h-6 text-emerald-400" />
+                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "rgba(16, 185, 129, 0.1)" }}>
+                                        <Leaf className="w-6 h-6 text-emerald-500" />
                                     </div>
-                                    <h4 className="text-sm font-bold text-white">{T("re_about_h3", "Green Building")}</h4>
+                                    <h4 className="text-sm font-bold" style={{ color: "var(--text-primary)" }}>{T("re_about_h1", "Green Building")}</h4>
                                 </div>
-                                <p className="text-xs text-white/50 leading-relaxed font-medium">
+                                <p className="text-xs opacity-50 leading-relaxed font-medium" style={{ color: "var(--text-secondary)" }}>
                                     {T("re_act5_desc", "Sustainable design reducing footprints by 40% while maximizing comfort.")}
                                 </p>
                             </div>
 
-                            <div className="absolute -top-4 -left-4 w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400">
+                            <div className="absolute -top-4 -left-4 w-12 h-12 rounded-xl border flex items-center justify-center" style={{ backgroundColor: "var(--gold-bg)", borderColor: "var(--gold-primary)", color: "var(--gold-primary)" }}>
                                 <Compass className="w-6 h-6" />
                             </div>
                         </RevealSectionLeft>
 
                         <RevealSectionRight>
                             <div className="w-16 h-1 bg-linear-to-r from-gold-600 to-gold-400 rounded-full mb-8" />
-                            <h2 className="text-3xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-8">
+                            <h2 className="text-2xl lg:text-3xl font-bold tracking-tight leading-tight mb-8" style={{ color: "var(--text-primary)" }}>
                                 {T("re_about_title", "Shaping Africa's Built Environment Through Sustainable Development")}
                             </h2>
-                            <p className="text-lg text-white/50 leading-relaxed mb-6">
+                            <p className="text-lg leading-relaxed mb-6 opacity-60" style={{ color: "var(--text-secondary)" }}>
                                 {T("re_about_p1", "Anago Group's Real Estate & Construction division is a cornerstone of our vision for African development. We design, develop, and deliver world-class real estate projects.")}
                             </p>
-                            <p className="text-lg text-white/50 leading-relaxed mb-10">
+                            <p className="text-lg leading-relaxed mb-10 opacity-60" style={{ color: "var(--text-secondary)" }}>
                                 {T("re_about_p2", "Our integrated approach combines architectural innovation with sustainable construction practices, ensuring every project meets international standards while respecting local contexts.")}
                             </p>
 
-                            <div className="grid grid-cols-2 gap-y-4 gap-x-8 mb-12">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-12">
                                 {[
-                                    T("re_about_h1", "Industrial Facilities"),
+                                    T("re_act1_tag1", "Industrial Facilities"),
                                     T("re_about_h2", "Housing Development"),
                                     T("re_about_h3", "Green Construction"),
                                     T("re_about_h4", "Strategic Infrastructure")
                                 ].map((item, idx) => (
                                     <div key={idx} className="flex items-center gap-3">
-                                        <div className="w-6 h-6 rounded-md bg-gold-400/10 flex items-center justify-center border border-gold-400/20">
+                                        <div className="w-6 h-6 rounded-md flex items-center justify-center border" style={{ backgroundColor: "var(--gold-bg)", borderColor: "var(--gold-primary)" }}>
                                             <div className="w-2 h-2 rounded-full bg-gold-400" />
                                         </div>
-                                        <span className="text-sm font-bold text-white/80">{item}</span>
+                                        <span className="text-sm font-bold opacity-80" style={{ color: "var(--text-primary)" }}>{item}</span>
                                     </div>
                                 ))}
                             </div>
@@ -388,30 +331,30 @@ const RealEstateSectorPage = () => {
             </section>
 
             {/* Activity Grid */}
-            <section className="py-24 lg:py-32 bg-navy-950/50">
+            <section id="activities" className="py-24 lg:py-32 theme-transition" style={{ backgroundColor: "var(--bg-secondary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <RevealSection className="text-center mb-20">
-                        <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6 uppercase tracking-tighter">{T("re_activity_title", "Development Activities")}</h2>
-                        <p className="text-white/40 max-w-2xl mx-auto font-medium">{T("re_activity_subtitle", "Integrated real estate and construction services spanning the full project lifecycle.")}</p>
+                        <h2 className="text-3xl lg:text-5xl font-bold mb-6 uppercase tracking-tighter" style={{ color: "var(--text-primary)" }}>{T("re_activity_title", "Development Activities")}</h2>
+                        <p className="opacity-40 max-w-2xl mx-auto font-medium" style={{ color: "var(--text-primary)" }}>{T("re_activity_subtitle", "Integrated real estate and construction services spanning the full project lifecycle.")}</p>
                     </RevealSection>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {activities.map((act, idx) => (
                             <RevealSection key={idx} delay={idx * 0.1} className="group relative">
-                                <div className="h-full bg-navy-900 border border-white/5 p-10 rounded-[2.5rem] transition-all duration-500 hover:border-gold-500/20 hover:translate-y-[-8px] hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
+                                <div className="h-full border p-10 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden shadow-sm" style={{ backgroundColor: "var(--card-bg)", borderColor: "var(--border-color)" }}>
                                     {/* Card ID Indicator */}
-                                    <span className="absolute top-8 right-10 text-5xl font-black text-white/[0.03] italic">{act.id}</span>
+                                    <span className="absolute top-8 right-10 text-5xl font-black opacity-5 italic" style={{ color: "var(--text-primary)" }}>{act.id}</span>
 
-                                    <div className={`w-16 h-16 rounded-2xl ${act.color} flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl`}>
+                                    <div className={`w-16 h-16 rounded-2xl ${act.color} flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl`}>
                                         <act.icon className={`w-8 h-8 ${act.iconColor || 'text-white'}`} strokeWidth={1.5} />
                                     </div>
 
-                                    <h3 className="text-xl font-bold text-white mb-4 transition-colors group-hover:text-gold-400">{act.title}</h3>
-                                    <p className="text-sm text-white/40 leading-relaxed mb-8 h-12 overflow-hidden">{act.desc}</p>
+                                    <h3 className="text-xl font-bold mb-4 transition-colors group-hover:text-gold-400" style={{ color: "var(--text-primary)" }}>{act.title}</h3>
+                                    <p className="text-sm opacity-50 leading-relaxed mb-8 h-12 overflow-hidden" style={{ color: "var(--text-secondary)" }}>{act.desc}</p>
 
                                     <div className="flex flex-wrap gap-2 mb-10">
                                         {act.tags.map((tag, i) => (
-                                            <span key={i} className="text-[10px] font-bold uppercase tracking-widest bg-white/5 text-white/50 px-3 py-1.5 rounded-lg border border-white/5">
+                                            <span key={i} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg border" style={{ backgroundColor: "var(--bg-secondary)", borderColor: "var(--border-color)", color: "var(--text-tertiary)" }}>
                                                 {tag}
                                             </span>
                                         ))}
@@ -428,28 +371,28 @@ const RealEstateSectorPage = () => {
                 </div>
             </section>
 
-            {/* Value Prop & Process Section */}
-            <section className="py-24 lg:py-32 relative overflow-hidden">
+            {/* Value Prop Section */}
+            <section className="py-24 lg:py-32 relative overflow-hidden" style={{ backgroundColor: "var(--bg-primary)" }}>
                 {/* Background Accents */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full architectural-grid opacity-20 pointer-events-none" />
-                <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-gold-500/5 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute top-1/2 right-0 w-150 h-150 bg-gold-500/5 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <RevealSection className="mb-20">
                         <div className="h-1.5 w-24 bg-gold-500 rounded-full mb-8" />
-                        <h2 className="text-3xl lg:text-6xl font-black text-white tracking-tighter uppercase mb-4">{T("re_value_title", "Value Proposition")}</h2>
-                        <p className="text-white/40 max-w-xl font-medium">{T("re_value_subtitle", "Why governments and investors trust Anago Group.")}</p>
+                        <h2 className="text-3xl lg:text-6xl font-black tracking-tighter uppercase mb-4" style={{ color: "var(--text-primary)" }}>{T("re_value_title", "Value Proposition")}</h2>
+                        <p className="opacity-40 max-w-xl font-medium" style={{ color: "var(--text-primary)" }}>{T("re_value_subtitle", "Why governments and investors trust Anago Group.")}</p>
                     </RevealSection>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">
                         {valueProps.map((prop, idx) => (
-                            <RevealSection key={idx} delay={idx * 0.1} className="group p-1 bg-white/5 rounded-3xl overflow-hidden hover:bg-gold-500 transition-colors duration-500">
-                                <div className="h-full bg-navy-900 border border-white/5 p-8 rounded-[1.4rem] transition-all">
-                                    <div className={`w-14 h-14 rounded-2xl ${prop.color} flex items-center justify-center mb-6 shadow-xl`}>
-                                        <prop.icon className={`w-7 h-7 ${prop.iconColor || 'text-white'}`} />
+                            <RevealSection key={idx} delay={idx * 0.1} className="group p-1 rounded-3xl overflow-hidden hover:bg-gold-500 transition-colors duration-500" style={{ backgroundColor: "var(--border-color)" }}>
+                                <div className="h-full border p-8 rounded-[1.4rem] transition-all" style={{ backgroundColor: "var(--card-bg)", borderColor: "var(--border-color)" }}>
+                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-xl ${prop.color.startsWith('bg-') ? prop.color : ''}`} style={{ backgroundColor: prop.color.startsWith('var') || prop.color.startsWith('rgba') ? prop.color : '' }}>
+                                        <prop.icon className={`w-7 h-7 ${prop.iconColor || 'text-white'}`} style={{ color: prop.iconColor ? '' : (isLight && (prop.color.includes('rgba') || prop.color.includes('var')) ? 'var(--text-primary)' : 'white') }} />
                                     </div>
-                                    <h3 className="text-lg font-bold text-white mb-3">{prop.title}</h3>
-                                    <p className="text-sm text-white/40 leading-relaxed font-medium">{prop.desc}</p>
+                                    <h3 className="text-lg font-bold mb-3" style={{ color: "var(--text-primary)" }}>{prop.title}</h3>
+                                    <p className="text-sm opacity-50 leading-relaxed font-medium" style={{ color: "var(--text-secondary)" }}>{prop.desc}</p>
                                 </div>
                             </RevealSection>
                         ))}
@@ -457,8 +400,8 @@ const RealEstateSectorPage = () => {
 
                     {/* Process Methodology */}
                     <RevealSection className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-4xl font-bold uppercase tracking-tight mb-4">{T("re_process_title", "Development Methodology")}</h2>
-                        <p className="text-white/30 max-w-2xl mx-auto italic">{T("re_process_subtitle", "A proven lifecycle from concept to asset management.")}</p>
+                        <h2 className="text-3xl lg:text-4xl font-bold uppercase tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{T("re_process_title", "Development Methodology")}</h2>
+                        <p className="opacity-30 max-w-2xl mx-auto italic" style={{ color: "var(--text-primary)" }}>{T("re_process_subtitle", "A proven lifecycle from concept to asset management.")}</p>
                     </RevealSection>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -470,15 +413,15 @@ const RealEstateSectorPage = () => {
                         ].map((step, idx) => (
                             <RevealSection key={idx} delay={idx * 0.1} className="relative pt-12 text-center group">
                                 {/* Step Number Badge */}
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-navy-800 border-4 border-navy-950 flex items-center justify-center z-10 font-black text-xs text-gold-400 group-hover:bg-gold-400 group-hover:text-navy-950 transition-colors duration-500">
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-4 flex items-center justify-center z-10 font-black text-xs text-gold-400 group-hover:bg-gold-400 group-hover:text-navy-800 transition-colors duration-500 shadow-md" style={{ backgroundColor: "var(--bg-secondary)", borderColor: "var(--bg-primary)" }}>
                                     {step.id}
                                 </div>
                                 {idx < 3 && (
-                                    <div className="hidden lg:block absolute top-[2.5rem] left-[calc(50%+24px)] w-[calc(100%-48px)] h-[2px] bg-white/5" />
+                                    <div className="hidden lg:block absolute top-10 left-[calc(50%+24px)] w-[calc(100%-48px)] h-0.5 opacity-10" style={{ backgroundColor: "var(--text-primary)" }} />
                                 )}
 
-                                <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-3 leading-relaxed">{step.title}</h4>
-                                <p className="text-xs text-white/30 leading-relaxed max-w-[200px] mx-auto group-hover:text-white/50 transition-colors">{step.desc}</p>
+                                <h4 className="text-sm font-bold uppercase tracking-wider mb-3 leading-relaxed" style={{ color: "var(--text-primary)" }}>{step.title}</h4>
+                                <p className="text-xs opacity-30 leading-relaxed max-w-50 mx-auto group-hover:opacity-60 transition-opacity" style={{ color: "var(--text-secondary)" }}>{step.desc}</p>
                             </RevealSection>
                         ))}
                     </div>
@@ -486,21 +429,21 @@ const RealEstateSectorPage = () => {
             </section>
 
             {/* Leadership Quote */}
-            <section className="py-24 lg:py-40 bg-navy-950 relative overflow-hidden">
+            <section className="py-24 lg:py-40 relative theme-transition" style={{ backgroundColor: isLight ? "var(--bg-secondary)" : "#0A1628" }}>
                 <div className="absolute inset-0 architectural-grid opacity-10" />
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <RevealSection>
-                        <div className="w-16 h-1 w-24 bg-gold-400 mx-auto mb-12" />
-                        <blockquote className="text-2xl lg:text-4xl font-serif italic text-white/80 leading-snug mb-12 select-none">
+                        <div className="h-1 w-24 bg-gold-400 mx-auto mb-12" />
+                        <blockquote className="text-2xl lg:text-4xl font-serif italic leading-snug mb-12 select-none opacity-80" style={{ color: isLight ? "var(--text-primary)" : "white" }}>
                             &quot;{T("re_quote", "Africa's urbanization is the greatest construction opportunity of the 21st century. We create the foundations for thriving communities.")}&quot;
                         </blockquote>
                         <div className="flex items-center justify-center gap-4">
-                            <div className="w-14 h-14 rounded-2xl bg-linear-to-br from-navy-800 to-navy-900 flex items-center justify-center border border-white/10">
+                            <div className="w-14 h-14 rounded-2xl flex items-center justify-center border shadow-lg" style={{ background: isLight ? "var(--bg-primary)" : "linear-gradient(135deg, #162240, #0A1628)", borderColor: "var(--border-color)" }}>
                                 <span className="text-xs font-black text-gold-400">AG</span>
                             </div>
                             <div className="text-left">
-                                <p className="text-sm font-bold text-white tracking-wide uppercase">{T("re_quote_author")}</p>
-                                <p className="text-[10px] text-white/30 font-bold uppercase tracking-widest">{T("re_quote_org")}</p>
+                                <p className="text-sm font-bold tracking-wide uppercase" style={{ color: "var(--text-primary)" }}>{T("re_quote_author", "Anago Group Leadership")}</p>
+                                <p className="text-[10px] opacity-40 font-bold uppercase tracking-widest" style={{ color: "var(--text-primary)" }}>{T("re_quote_org", "Strategic Vision")}</p>
                             </div>
                         </div>
                     </RevealSection>
@@ -508,31 +451,30 @@ const RealEstateSectorPage = () => {
             </section>
 
             {/* Final CTA */}
-            <section className="py-24 lg:py-32 relative overflow-hidden">
-                <div className="absolute inset-0 bg-linear-to-br from-navy-950 via-navy-900 to-navy-950" />
+            <section id="contact-cta" className="py-24 lg:py-32 relative overflow-hidden" style={{ background: isLight ? "var(--hero-bg)" : "linear-gradient(135deg, #0A1628 0%, #162240 50%, #0D1B2A 100%)" }}>
                 <div className="absolute inset-0 architectural-grid opacity-30" />
-                <div className="absolute bottom-0 left-0 w-full h-full bg-linear-to-t from-navy-950 to-transparent" />
+                <div className="absolute bottom-0 left-0 w-full h-full" style={{ background: isLight ? "linear-gradient(to top, rgba(255,255,255,0.4), transparent)" : "linear-gradient(to top, #0A1628, transparent)" }} />
 
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <RevealSection>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 mb-8">
                             <div className="w-2 h-2 rounded-full bg-gold-400 animate-ping" />
-                            <span className="text-[10px] font-black text-gold-400 tracking-[0.2em] uppercase">{T("re_hero_title_gold", "Develop With Us")}</span>
+                            <span className="text-[10px] font-black text-gold-400 tracking-[0.2em] uppercase">{T("re_develop_with_us", "Develop With Us")}</span>
                         </div>
 
-                        <h2 className="text-4xl lg:text-6xl font-black text-white tracking-tighter mb-8 italic">{T("re_cta_title", "Ready to Build Something Extraordinary?")}</h2>
+                        <h2 className="text-4xl lg:text-6xl font-black tracking-tighter mb-8 italic" style={{ color: isLight ? "var(--text-primary)" : "white" }}>{T("re_cta_title", "Ready to Build Something Extraordinary?")}</h2>
 
-                        <p className="text-lg text-white/50 max-w-2xl mx-auto mb-12 font-medium">
+                        <p className="text-lg opacity-60 max-w-2xl mx-auto mb-12 font-medium" style={{ color: isLight ? "var(--text-secondary)" : "white" }}>
                             {T("re_cta_desc", "Partner with Anago Group for sustainable, world-class results across Africa.")}
                         </p>
 
                         <div className="flex flex-wrap justify-center gap-4">
-                            <button className="px-10 py-5 bg-linear-to-r from-gold-600 to-gold-400 text-navy-950 font-black rounded-2xl flex items-center gap-3 uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl">
+                            <button onClick={() => router.push("/contact")} className="btn-gold px-10 py-5 text-navy-950 font-black rounded-2xl flex items-center gap-3 uppercase tracking-widest text-xs shadow-xl">
                                 {T("re_cta_btn1", "Discuss Your Project")}
                                 <ArrowRight className="w-5 h-5" />
                             </button>
-                            <button className="px-10 py-5 bg-white/5 border border-white/10 font-black rounded-2xl transition-all flex items-center gap-3 uppercase tracking-widest text-xs hover:bg-white/10">
-                                <KeyRound className="w-5 h-5" />
+                            <button className="btn-outline-light px-10 py-5 font-black rounded-2xl transition-all flex items-center gap-3 uppercase tracking-widest text-xs">
+                                <Download className="w-5 h-5" />
                                 {T("re_cta_btn2", "Download Portfolio")}
                             </button>
                         </div>

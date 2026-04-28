@@ -71,7 +71,7 @@ export function SectorPage() {
     return (
         <div className="block">
             <section className="pt-24 lg:pt-32 pb-20 hero-bg relative">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center flex flex-col items-center">
                     <RevealSection className="flex items-center gap-2 mb-8">
                         <button onClick={() => router.push("/")} className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">Home</button>
                         <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
@@ -79,10 +79,10 @@ export function SectorPage() {
                         <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
                         <span className="text-xs font-medium text-[#e7b13f]">{data.title}</span>
                     </RevealSection>
-                    <RevealSection className="max-w-3xl">
-                        <div className="gold-line mb-6" />
+                    <RevealSection className="max-w-4xl">
+                        <div className="gold-line mx-auto mb-6" />
                         <h1 className="font-serif text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-tight mb-6">{data.title}</h1>
-                        <p className="text-lg text-white/60 leading-relaxed">{data.intro}</p>
+                        <p className="text-lg text-white/60 leading-relaxed mx-auto max-w-2xl">{data.intro}</p>
                     </RevealSection>
                 </div>
             </section>

@@ -159,25 +159,19 @@ export default function InsightsPage() {
                             <div className="orbit-dot" style={{ animation: "orbitMedium 22s linear infinite", top: "50%", left: "50%", margin: -3 }}></div>
                         </div>
                     </div>
-                    <div className="absolute top-1/4 right-1/4 w-[800px] h-[800px] rounded-full opacity-[0.04] z-20" style={{ background: "radial-gradient(circle,#C8962E 0%,transparent 70%)" }}></div>
+                    <div className="absolute top-1/4 right-1/4 w-200 h-200 rounded-full opacity-[0.04] z-20" style={{ background: "radial-gradient(circle,#C8962E 0%,transparent 70%)" }}></div>
                     <div className="absolute bottom-0 left-0 w-full h-2/3 opacity-[0.06] z-20" style={{ background: "linear-gradient(to top,#0A1628,transparent)" }}></div>
-                    <div className="absolute top-[20%] right-[15%] w-32 h-32 border border-gold-500/[0.05] rounded-full animate-float z-20" style={{ animationDelay: "1s" }}></div>
-                    <div className="absolute bottom-[25%] left-[10%] w-20 h-20 border border-white/[0.04] rounded-full animate-float z-20" style={{ animationDelay: "2.5s" }}></div>
+                    <div className="absolute top-[20%] right-[15%] w-32 h-32 border border-gold-500/5 rounded-full animate-float z-20" style={{ animationDelay: "1s" }}></div>
+                    <div className="absolute bottom-[25%] left-[10%] w-20 h-20 border border-white/4 rounded-full animate-float z-20" style={{ animationDelay: "2.5s" }}></div>
                     <div className="absolute top-[35%] left-[25%] w-px h-48 z-20" style={{ background: "linear-gradient(180deg,transparent,rgba(200,150,46,.06),transparent)" }}></div>
                     <div className="absolute top-[60%] right-[30%] w-48 h-px z-20" style={{ background: "linear-gradient(90deg,transparent,rgba(200,150,46,.05),transparent)" }}></div>
-                    <div className="absolute top-24 left-8 w-28 h-28 border-l border-t border-white/[0.04] z-20"></div>
-                    <div className="absolute bottom-24 right-8 w-28 h-28 border-r border-b border-gold-500/[0.04] z-20"></div>
+                    <div className="absolute top-24 left-8 w-28 h-28 border-l border-t border-white/4 z-20"></div>
+                    <div className="absolute bottom-24 right-8 w-28 h-28 border-r border-b border-gold-500/4 z-20"></div>
                     <div className="absolute top-1/2 left-0 right-0 h-px shimmer-line z-20"></div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 lg:pt-40 lg:pb-32 relative z-10 w-full">
                     <div className="max-w-4xl mx-auto text-center">
-                        <div className="flex items-center justify-center gap-2 mb-6">
-                            <Link href="/" className="text-xs font-medium text-white/40 hover:text-white/60 transition-colors">Home</Link>
-                            <ChevronRight className="w-3 h-3 text-white/20" strokeWidth={1.5} />
-                            <span className="text-xs font-medium text-gold-400">Insights</span>
-                        </div>
-
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-8">
                             <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold"></div>
                             <span className="text-xs font-medium text-gold-400 tracking-wider uppercase">{T("insights_hero_badge", "Knowledge & Thought Leadership")}</span>
@@ -203,18 +197,7 @@ export default function InsightsPage() {
                             </a>
                         </div>
 
-                        <div className="flex items-center justify-center gap-3 mt-14">
-                            {[
-                                { icon: <FileText className="w-4 h-4 text-gold-400/60" />, title: "Articles" },
-                                { icon: <Briefcase className="w-4 h-4 text-white/40" />, title: "Case Studies" },
-                                { icon: <BarChart3 className="w-4 h-4 text-white/40" />, title: "Reports" },
-                                { icon: <Lightbulb className="w-4 h-4 text-white/40" />, title: "Perspectives" },
-                            ].map((item, i) => (
-                                <div key={i} className="w-10 h-10 rounded-xl flex items-center justify-center border border-white/10 bg-white/[0.03] hover:border-gold-500/30 transition-all cursor-default" title={item.title}>
-                                    {item.icon}
-                                </div>
-                            ))}
-                        </div>
+
                     </div>
                 </div>
 
@@ -281,7 +264,7 @@ export default function InsightsPage() {
                                 style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}
                             >
                                 <div className={i === 0 ? "grid md:grid-cols-2" : ""}>
-                                    <div className={`insight-card-image aspect-[16/10] relative ${i === 0 ? "md:aspect-auto" : ""}`} style={{ background: item.bg }}>
+                                    <div className={`insight-card-image aspect-16/10 relative ${i === 0 ? "md:aspect-auto" : ""}`} style={{ background: item.bg }}>
                                         <div className="img-placeholder absolute inset-0 flex items-center justify-center">
                                             <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
                                                 {item.icon}
@@ -348,7 +331,7 @@ export default function InsightsPage() {
                                 className="article-row group flex flex-col sm:flex-row gap-5 p-5 rounded-2xl border cursor-pointer"
                                 style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}
                             >
-                                <div className="article-thumb flex-shrink-0 w-full sm:w-40 aspect-[16/10] sm:aspect-square relative rounded-xl overflow-hidden" style={{ background: item.bg }}>
+                                <div className="article-thumb shrink-0 w-full sm:w-40 aspect-16/10 sm:aspect-square relative rounded-xl overflow-hidden" style={{ background: item.bg }}>
                                     <div className="img-placeholder absolute inset-0 flex items-center justify-center">
                                         {item.icon}
                                     </div>
@@ -365,7 +348,7 @@ export default function InsightsPage() {
                                     <h3 className="text-base font-semibold tracking-tight mb-1.5 group-hover:text-gold-500 transition-colors truncate" style={{ color: "var(--text-primary)" }}>{item.title}</h3>
                                     <p className="text-sm leading-relaxed line-clamp-2" style={{ color: "var(--text-secondary)" }}>{item.desc}</p>
                                 </div>
-                                <div className="flex items-center flex-shrink-0">
+                                <div className="flex items-center shrink-0">
                                     <div className="article-arrow w-10 h-10 rounded-xl flex items-center justify-center border group-hover:border-gold-500/40 transition-all" style={{ borderColor: "var(--border-color)" }}>
                                         <ArrowRight className="w-5 h-5 group-hover:text-gold-500 transition-colors" style={{ color: "var(--text-tertiary)" }} strokeWidth={1.5} />
                                     </div>
@@ -485,7 +468,7 @@ export default function InsightsPage() {
                                     type="email"
                                     required
                                     placeholder={T("newsletter_placeholder", "Enter your email address")}
-                                    className="flex-grow px-5 py-3.5 text-sm rounded-lg border border-white/10 bg-white/5 text-white outline-none focus:ring-2 focus:ring-gold-500/30 transition-all"
+                                    className="grow px-5 py-3.5 text-sm rounded-lg border border-white/10 bg-white/5 text-white outline-none focus:ring-2 focus:ring-gold-500/30 transition-all"
                                 />
                                 <button type="submit" className="btn-gold px-8 py-3.5 text-sm rounded-lg font-semibold shrink-0">
                                     {T("newsletter_btn", "Subscribe")}
