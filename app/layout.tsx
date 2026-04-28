@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     description: 'Pan-African holding company driving sustainable industrial development through local transformation of natural resources, strategic infrastructure, and integrated industrial solutions.',
     type: 'website',
   },
+  verification: {
+    google: '6632d8f5494eb93f',
+  },
 }
 
 export const viewport: Viewport = {
