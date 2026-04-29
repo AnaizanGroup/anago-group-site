@@ -48,7 +48,7 @@ export function AboutPage() {
             <section className="relative min-h-screen flex items-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/about/hero-bg.png"
+                        src="/images/about/hero-bg.jpg"
                         alt="Anago Group Industrial Vision"
                         fill
                         className="object-cover"
