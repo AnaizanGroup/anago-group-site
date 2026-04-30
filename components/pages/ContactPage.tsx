@@ -140,7 +140,7 @@ export function ContactPage() {
             <section className="relative min-h-screen flex items-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/contact/hq-hero.png"
+                        src="/images/contact/hq-hero.jpg"
                         alt="Anago Group Headquarters"
                         fill
                         className="object-cover"
@@ -313,9 +313,9 @@ export function ContactPage() {
                                 <div className="space-y-12">
                                     {[
                                         { icon: MapPin, title: T("contact_info_hq_title"), content: T("contact_info_hq_content"), link: "https://maps.google.com" },
-                                        { icon: Phone, title: T("contact_info_phone_title"), content: "+225 27 22 00 00 00\n+225 07 09 00 00 00" },
-                                        { icon: Mail, title: T("contact_info_email_title"), content: "contact@anagogroup.com\ninvest@anagogroup.com" },
-                                        { icon: Clock, title: T("contact_info_hours_title"), content: T("contact_info_hours_content"), footer: T("contact_info_hours_footer") },
+                                        { icon: Phone, title: T("contact_info_phone_title"), content: "+223 00 00 00 00\n+223 00 00 00 00 00" },
+                                        { icon: Mail, title: T("contact_info_email_title"), content: "contact@anagogroup.com\nsales@anagogroup.com" },
+                                        { icon: Clock, title: T("contact_info_hours_title"), content: T("contact_info_hours_content") },
                                     ].map((item, i) => (
                                         <div key={i} className="flex gap-8 group">
                                             <div className="w-16 h-16 rounded-[1.25rem] border flex items-center justify-center shrink-0 shadow-lg group-hover:bg-gold-500 group-hover:border-gold-500 transition-all duration-500" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
@@ -324,7 +324,7 @@ export function ContactPage() {
                                             <div>
                                                 <h3 className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "var(--gold-primary)" }}>{item.title}</h3>
                                                 <p className="text-xl leading-relaxed whitespace-pre-line" style={{ color: "var(--text-primary)" }}>{item.content}</p>
-                                                {item.footer && <p className="text-sm font-medium opacity-50 mt-2" style={{ color: "var(--text-secondary)" }}>{item.footer}</p>}
+
                                             </div>
                                         </div>
                                     ))}
@@ -339,7 +339,7 @@ export function ContactPage() {
             <section className="py-12 lg:py-24 relative overflow-hidden" style={{ backgroundColor: "var(--bg-secondary)" }}>
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/contact/network-map.png"
+                        src="/images/contact/network-map.jpg"
                         alt="Pan-African Industrial Network"
                         fill
                         className="object-cover opacity-20 grayscale-[0.8] dark:opacity-30"

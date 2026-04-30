@@ -93,7 +93,7 @@ export function MiningSectorPage() {
             <section className="relative min-h-[90vh] flex items-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/images/mining/hero-bg.png"
+                        src="/images/mining/hero-bg.jpg"
                         alt="Anago Mining Operations"
                         className="w-full h-full object-cover"
                     />
@@ -172,7 +172,7 @@ export function MiningSectorPage() {
                         <div className="lg:col-span-5 relative">
                             <RevealSectionRight>
                                 <div className="relative aspect-4/5 lg:aspect-3/4 lg:h-190 rounded-4xl overflow-hidden shadow-2xl border" style={{ borderColor: "var(--border-color)" }}>
-                                    <img src="/images/mining/operations.png" onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1578502315052-8758dff58ed5?auto=format&fit=crop&q=80" }} alt="Mining Operations" className="w-full h-full object-cover" />
+                                    <img src="/images/mining/operations.jpg" onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1578502315052-8758dff58ed5?auto=format&fit=crop&q=80" }} alt="Mining Operations" className="w-full h-full object-cover" />
                                     <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                                     <div className="absolute bottom-8 left-8 right-8">
                                         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 mb-4">

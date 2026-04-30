@@ -133,7 +133,7 @@ export function AboutPage() {
                             <RevealSectionRight className="relative">
                                 <div className="relative aspect-4/5 sm:aspect-square lg:aspect-4/5 rounded-3xl overflow-hidden shadow-2xl border border-white/5">
                                     <Image
-                                        src="/images/about/mining-facility.png"
+                                        src="/images/about/mining-facility.jpg"
                                         alt="Industrial Operations"
                                         fill
                                         className="object-cover scale-105 hover:scale-100 transition-transform duration-1000"
@@ -169,7 +169,7 @@ export function AboutPage() {
             <section id="strategic-vision" className="py-24 lg:py-40 relative min-h-screen flex items-center overflow-hidden bg-[#06101f]">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/about/strategic-vision.png"
+                        src="/images/about/strategic-vision.jpg"
                         alt="Strategic Vision"
                         fill
                         className="object-cover opacity-40 grayscale-[0.5]"
@@ -226,7 +226,7 @@ export function AboutPage() {
                             <div className="relative h-full min-h-100 lg:min-h-full rounded-3xl overflow-hidden border shadow-2xl group" style={{ borderColor: "var(--border-color)" }}>
 
                                 <Image
-                                    src="/images/about/industrial-innovation.png"
+                                    src="/images/about/industrial-innovation.jpg"
                                     alt="Industrial Innovation"
                                     fill
                                     className="object-cover grayscale-[0.1] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"

@@ -185,7 +185,7 @@ const RealEstateSectorPage = () => {
             <section className="hero-re-bg">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/realestate/hero-cinematic.png"
+                        src="/images/realestate/hero-cinematic.jpg"
                         alt="Anago Group Real Estate Vision"
                         fill
                         className="object-cover"
@@ -283,13 +283,13 @@ const RealEstateSectorPage = () => {
                             <RevealSection>
                                 <div className="relative aspect-4/3 lg:aspect-square rounded-4xl overflow-hidden shadow-2xl group">
                                     <Image
-                                        src="/images/realestate/architectural-detail.png"
+                                        src="/images/realestate/architectural-detail.jpg"
                                         alt="Modern Architectural Detail"
                                         fill
                                         className="object-cover transition-transform duration-1000 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                    
+
                                     <div className="absolute top-8 right-8 w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-2xl">
                                         <Compass className="w-8 h-8 text-gold-400" strokeWidth={1} />
                                     </div>
@@ -393,7 +393,7 @@ const RealEstateSectorPage = () => {
             <section id="contact-cta" className="py-24 lg:py-48 relative overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/realestate/hero-cinematic.png"
+                        src="/images/realestate/hero-cinematic.jpg"
                         alt="Contact Real Estate"
                         fill
                         className="object-cover opacity-20"

@@ -137,7 +137,7 @@ export function EquipmentSectorPage() {
             <section className="hero-equipment-bg">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/equipment/hero-precision.png"
+                        src="/images/equipment/hero-precision.jpg"
                         alt="Anago Group Equipment Precision"
                         fill
                         className="object-cover"
@@ -203,7 +203,7 @@ export function EquipmentSectorPage() {
                             <RevealSection>
                                 <div className="relative aspect-4/3 lg:aspect-square rounded-4xl overflow-hidden shadow-2xl group">
                                     <Image
-                                        src="/images/equipment/workshop-about.png"
+                                        src="/images/equipment/workshop-about.jpg"
                                         alt="Anago Group Industrial Workshop"
                                         fill
                                         className="object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -383,7 +383,7 @@ export function EquipmentSectorPage() {
             <section className="py-24 lg:py-48 relative overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/equipment/parts-grid.png"
+                        src="/images/equipment/parts-grid.jpg"
                         alt="Precision Parts Detail"
                         fill
                         className="object-cover"

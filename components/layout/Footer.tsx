@@ -65,7 +65,6 @@ export function Footer() {
                             <li><Link href="/industries" className="text-sm transition-colors hover:text-gold-500" style={{ color: "var(--text-secondary)" }}>{T("s_all_title", "All Activities")}</Link></li>
                             <li><Link href="/news" className="text-sm font-medium" style={{ color: "var(--gold-primary)" }}>{T("nav_news", "Insights")}</Link></li>
                             <li><Link href="/contact" className="text-sm transition-colors hover:text-gold-500" style={{ color: "var(--text-secondary)" }}>{T("nav_contact", "Contact")}</Link></li>
-                            <li><Link href="/careers" className="text-sm transition-colors hover:text-gold-500" style={{ color: "var(--text-secondary)" }}>{T("footer_careers", "Careers")}</Link></li>
                         </ul>
                     </div>
                     <div>

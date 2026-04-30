@@ -21,7 +21,7 @@ export default function IndustriesPage() {
             title: T("s_mining_title"),
             desc: T("s_mining_desc"),
             path: "/industries/mining",
-            image: "/images/industries/mining-preview.png",
+            image: "/images/industries/mining-preview.jpg",
             icon: <Gem className="w-6 h-6" />,
             color: "gold",
             features: [T("min_about_feat1"), T("min_about_feat2"), T("min_about_feat3")]
@@ -31,7 +31,7 @@ export default function IndustriesPage() {
             title: T("s_consult_title"),
             desc: T("s_consult_desc"),
             path: "/industries/industrial",
-            image: "/images/industries/industrial-preview.png",
+            image: "/images/industries/industrial-preview.jpg",
             icon: <Settings className="w-6 h-6" />,
             color: "navy",
             features: [T("ind_about_feat1"), T("ind_about_feat2"), T("ind_about_feat4")]
@@ -41,7 +41,7 @@ export default function IndustriesPage() {
             title: T("s_realestate_title"),
             desc: T("s_realestate_desc"),
             path: "/industries/realestate",
-            image: "/images/industries/realestate-preview.png",
+            image: "/images/industries/realestate-preview.jpg",
             icon: <Building2 className="w-6 h-6" />,
             color: "slate",
             features: [T("re_about_h1"), T("re_about_h2"), T("re_about_h4")]
@@ -51,7 +51,7 @@ export default function IndustriesPage() {
             title: T("s_agri_title"),
             desc: T("s_agri_desc"),
             path: "/industries/agriculture",
-            image: "/images/industries/agriculture-preview.png",
+            image: "/images/industries/agriculture-preview.jpg",
             icon: <Sprout className="w-6 h-6" />,
             color: "green",
             features: [T("agri_about_feat1"), T("agri_about_feat2"), T("agri_about_feat3")]
@@ -61,7 +61,7 @@ export default function IndustriesPage() {
             title: T("s_equip_title"),
             desc: T("s_equip_desc"),
             path: "/industries/equipment",
-            image: "/images/industries/equipment-preview.png",
+            image: "/images/industries/equipment-preview.jpg",
             icon: <Truck className="w-6 h-6" />,
             color: "steel",
             features: [T("equip_act1_title"), T("equip_act3_title"), T("equip_act4_title")]
@@ -74,7 +74,7 @@ export default function IndustriesPage() {
             <section className="relative min-h-[80vh] flex items-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/industries/hero-hub.png"
+                        src="/images/industries/hero-hub.jpg"
                         alt="Anago Group Industrial Synergy"
                         fill
                         className="object-cover"
@@ -83,7 +83,7 @@ export default function IndustriesPage() {
                     <div className="absolute inset-0 bg-black/50 z-10" />
                 </div>
 
-                <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-20 w-full text-center">
+                <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-54 relative z-20 w-full text-center">
                     <div className="max-w-6xl mx-auto">
                         <RevealSection className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12 shadow-2xl">
                             <div className="w-2.5 h-2.5 rounded-full bg-gold-400 animate-pulse" />
