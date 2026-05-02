@@ -101,7 +101,7 @@ export function AgricultureSectorPage() {
             <section className="hero-agri-bg">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/agriculture/hero-cinematic.png"
+                        src="/images/agriculture/hero-cinematic.jpg"
                         alt="Anago Group Sustainable Agriculture"
                         fill
                         className="object-cover"
@@ -199,7 +199,7 @@ export function AgricultureSectorPage() {
                             <RevealSection>
                                 <div className="relative aspect-4/3 lg:aspect-square rounded-4xl overflow-hidden shadow-2xl group">
                                     <Image
-                                        src="/images/agriculture/livestock-precision.png"
+                                        src="/images/agriculture/livestock-precision.jpg"
                                         alt="Modern Livestock Precision"
                                         fill
                                         className="object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -301,7 +301,7 @@ export function AgricultureSectorPage() {
                             <RevealSection>
                                 <div className="relative aspect-4/3 lg:aspect-square rounded-4xl overflow-hidden shadow-2xl group">
                                     <Image
-                                        src="/images/agriculture/processing-industrial.png"
+                                        src="/images/agriculture/processing-industrial.jpg"
                                         alt="Industrial Food Processing"
                                         fill
                                         className="object-cover transition-transform duration-1000 group-hover:scale-110"

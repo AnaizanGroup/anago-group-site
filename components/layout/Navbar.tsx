@@ -95,7 +95,7 @@ export function Navbar() {
                                         </Link>
                                         <Link href="/industries" className={`mega-menu-item flex items-start gap-3.5 p-3.5 rounded-xl group/item ${isActive("/industries") ? "shadow-inner" : ""}`} style={{ background: isActive("/industries") ? "rgba(200, 150, 46, 0.15)" : "var(--gold-bg)" }}>
                                             <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "linear-gradient(135deg,#0A1628,#C8962E)" }}><LayoutGrid className="w-5 h-5 text-white" /></div>
-                                            <div><p className="text-sm font-semibold transition-colors" style={{ color: isActive("/industries") ? "white" : "var(--gold-primary)" }}>{T("s_all_title", "View All Activities")}</p><p className="text-xs mt-0.5" style={{ color: isActive("/industries") ? "rgba(255,255,255,0.6)" : "var(--text-tertiary)" }}>{T("s_all_desc", "Complete portfolio overview")}</p></div>
+                                            <div><p className="text-sm font-semibold transition-colors" style={{ color: isActive("/industries") ? "black" : "var(--gold-primary)" }}>{T("s_all_title", "View All Activities")}</p><p className="text-xs mt-0.5" style={{ color: isActive("/industries") ? "black" : "var(--text-tertiary)" }}>{T("s_all_desc", "Complete portfolio overview")}</p></div>
                                         </Link>
                                     </div>
                                     <div className="px-6 py-3.5 border-t flex items-center justify-between" style={{ borderColor: "var(--border-color)", background: "var(--bg-secondary)" }}>
@@ -167,17 +167,17 @@ export function Navbar() {
                 <div className="flex flex-col p-4 gap-0.5">
                     <Link href="/" className={`px-4 py-3 text-sm font-medium rounded-lg transition-all ${isActive("/") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`} style={{ color: isActive("/") ? "" : "var(--text-secondary)" }}>Home</Link>
                     <Link href="/about" className={`px-4 py-3 text-sm font-medium rounded-lg transition-all ${isActive("/about") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`} style={{ color: isActive("/about") ? "" : "var(--text-secondary)" }}>The Group</Link>
-                    
+
                     <div className="flex flex-col">
-                        <button 
+                        <button
                             onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
-                            className={`flex items-center justify-between px-4 py-3 text-sm font-medium rounded-lg transition-all ${pathname?.startsWith("/industries") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`} 
+                            className={`flex items-center justify-between px-4 py-3 text-sm font-medium rounded-lg transition-all ${pathname?.startsWith("/industries") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`}
                             style={{ color: pathname?.startsWith("/industries") ? "" : "var(--text-secondary)" }}
                         >
                             <span>Industries</span>
                             <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileIndustriesOpen ? "rotate-180" : ""}`} />
                         </button>
-                        
+
                         <div className={`overflow-hidden transition-all duration-300 ${mobileIndustriesOpen ? "max-h-96 opacity-100 py-1" : "max-h-0 opacity-0"}`}>
                             <div className="flex flex-col pl-4 gap-0.5 mt-1 border-l ml-6" style={{ borderColor: "var(--border-color)" }}>
                                 <Link href="/industries/mining" className="px-4 py-2 text-xs font-medium hover:text-gold-400 transition-colors flex items-center gap-2" style={{ color: "var(--text-secondary)" }}>
