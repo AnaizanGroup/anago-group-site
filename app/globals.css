@@ -43,7 +43,7 @@
   --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
   --shadow-xl: 0 25px 60px rgba(0,0,0,0.12);
   --nav-bg: rgba(255,255,255,0.02);
-  --nav-scrolled: rgba(255,255,255,0.98);
+  --nav-scrolled: rgba(255,255,255,0.8);
   --nav-text: #0A1628;
   --nav-text-hero: #ffffff; /* Default white for dark hero */
   --section-dark: #0A1628;
@@ -97,7 +97,7 @@
   --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
   --shadow-xl: 0 25px 60px rgba(0,0,0,0.6);
   --nav-bg: rgba(13,17,23,0.02);
-  --nav-scrolled: rgba(13,17,23,0.98);
+  --nav-scrolled: rgba(13,17,23,0.8);
   --nav-text: #f0f1f3;
   --nav-text-hero: #ffffff;
   --section-dark: #0d1117;
@@ -239,15 +239,23 @@
 
 /* Navigation */
 .nav-glass {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   background: var(--nav-bg);
-  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  border-bottom: 1px solid transparent;
 }
 .nav-glass.scrolled {
   background: var(--nav-scrolled);
-  box-shadow: 0 1px 30px rgba(0,0,0,0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dark .nav-glass.scrolled {
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  background: rgba(13, 17, 23, 0.85);
 }
 
 /* Card premium */
