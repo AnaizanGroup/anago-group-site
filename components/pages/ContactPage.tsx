@@ -91,11 +91,24 @@ export function ContactPage() {
         e.preventDefault();
         if (!validate()) return;
         setLoading(true);
-        // Simulate API call
-        setTimeout(() => {
-            setLoading(false);
-            setSuccess(true);
-        }, 2000);
+        console.log(formState);
+        // Simulate API call        
+        fetch("https://n8n.devsysteme.online/webhook-test/83feaae2-978a-4bce-94d5-2278f5a63279", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formState)
+        })
+            .then(response => response.json())
+            .then(data => {
+                setLoading(false);
+                setSuccess(true);
+            })
+            .catch(error => {
+                setLoading(false);
+                console.error("Error:", error);
+            });
     };
 
     const resetForm = () => {
@@ -146,25 +159,25 @@ export function ContactPage() {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-black/40 z-10" />
+                    <div className="absolute inset-0 bg-black/70 z-10" />
                 </div>
 
-                <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-20 w-full">
+                <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-20 w-full">
                     <div className="w-full flex flex-col items-center">
                         <RevealSection className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12 shadow-2xl">
                             <div className="w-2.5 h-2.5 rounded-full bg-gold-400 animate-pulse-gold" />
                             <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">{T("contact_hero_badge")}</span>
                         </RevealSection>
 
-                        <RevealSection className="stagger-2 flex justify-center ">
-                            <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl text-center font-semibold tracking-tight text-white leading-[0.95] mb-10">
-                                {T("contact_hero_title").split("Anago")[0]}<br />
-                                <span className="gold-gradient italic">Anago Group</span>
+                        <RevealSection className="stagger-2 flex justify-center px-7 ">
+                            <h1 className="font-serif text-5xl sm:text-7xl text-center font-semibold  text-white px-6 mb-10">
+                                {T("contact_hero_title")}
+                                <span className="gold-gradient ">nous  </span>
                             </h1>
                         </RevealSection>
 
                         <RevealSection className="stagger-4 flex justify-center w-full">
-                            <p className="text-xl lg:text-2xl text-white/80 text-center leading-relaxed max-w-3xl mb-16 font-light">
+                            <p className="text-xl lg:text-xl text-white/80 text-center leading-relaxed max-w-3xl mb-16 font-light">
                                 {T("contact_hero_desc")}
                             </p>
                         </RevealSection>
@@ -176,20 +189,7 @@ export function ContactPage() {
                             </a>
                         </RevealSection>
 
-                        <RevealSection className="flex flex-wrap justify-center w-full items-center gap-10 mt-20 stagger-6">
-                            <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-xl flex items-center justify-center border border-white/10 bg-white/5 backdrop-blur-md">
-                                    <Clock className="w-4 h-4 text-gold-400" />
-                                </div>
-                                <span className="text-xs font-bold text-white/60 tracking-widest uppercase">{T("contact_hero_stat_response")}</span>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-xl flex items-center justify-center border border-white/10 bg-white/5 backdrop-blur-md">
-                                    <Globe className="w-4 h-4 text-gold-400" />
-                                </div>
-                                <span className="text-xs font-bold text-white/60 tracking-widest uppercase">{T("contact_hero_stat_lang")}</span>
-                            </div>
-                        </RevealSection>
+
                     </div>
                 </div>
 
@@ -313,7 +313,7 @@ export function ContactPage() {
                                 <div className="space-y-12">
                                     {[
                                         { icon: MapPin, title: T("contact_info_hq_title"), content: T("contact_info_hq_content"), link: "https://maps.google.com" },
-                                        { icon: Phone, title: T("contact_info_phone_title"), content: "+223 00 00 00 00\n+223 00 00 00 00 00" },
+                                        { icon: Phone, title: T("contact_info_phone_title"), content: "+223 70 94 05 75\n+223 44 94 05 64" },
                                         { icon: Mail, title: T("contact_info_email_title"), content: "contact@anagogroup.com\nsales@anagogroup.com" },
                                         { icon: Clock, title: T("contact_info_hours_title"), content: T("contact_info_hours_content") },
                                     ].map((item, i) => (
@@ -335,51 +335,7 @@ export function ContactPage() {
                 </div>
             </section>
 
-            {/* PRESENCE SECTION - Panoramic Network */}
-            <section className="py-12 lg:py-24 relative overflow-hidden" style={{ backgroundColor: "var(--bg-secondary)" }}>
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/images/contact/network-map.jpg"
-                        alt="Pan-African Industrial Network"
-                        fill
-                        className="object-cover opacity-20 grayscale-[0.8] dark:opacity-30"
-                    />
-                </div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="text-center mb-24">
-                        <RevealSection>
-                            <div className="gold-line mx-auto mb-10" />
-                            <h2 className="font-serif text-4xl lg:text-6xl font-semibold tracking-tight mb-8" style={{ color: "var(--text-primary)" }}>{T("contact_presence_title")}</h2>
-                            <p className="text-xl max-w-3xl mx-auto opacity-70 font-light leading-relaxed" style={{ color: "var(--text-secondary)" }}>{T("contact_presence_desc")}</p>
-                        </RevealSection>
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                        {[
-                            { region: T("contact_region_west"), hubs: "Abidjan · Dakar · Bamako" },
-                            { region: T("contact_region_central"), hubs: "Douala · Libreville · Kinshasa" },
-                            { region: T("contact_region_north"), hubs: "Casablanca · Tunis" },
-                            { region: T("contact_region_east"), hubs: "Nairobi · Dar es Salaam" }
-                        ].map((item, i) => (
-                            <RevealSection key={i} className={`p-10 rounded-4xl border text-center transition-all duration-500 hover:-translate-y-4 shadow-xl stagger-child-${i + 1}`} style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
-                                <div className="w-16 h-16 rounded-2xl mx-auto mb-8 flex items-center justify-center shadow-lg" style={{ background: "var(--gold-bg)" }}>
-                                    <MapPin className="w-7 h-7 text-gold-500" />
-                                </div>
-                                <h3 className="text-xl font-bold mb-4 tracking-tight" style={{ color: "var(--text-primary)" }}>{item.region}</h3>
-                                <p className="text-sm font-medium opacity-60 leading-relaxed" style={{ color: "var(--text-secondary)" }}>{item.hubs}</p>
-                            </RevealSection>
-                        ))}
-                    </div>
-
-                    <RevealSection className="mt-20 text-center">
-                        <a href="https://maps.google.com" target="_blank" className="inline-flex items-center gap-4 text-sm font-bold tracking-widest uppercase py-4 px-8 rounded-2xl border transition-all hover:shadow-md hover:text-white" style={{ borderColor: "var(--gold-primary)", color: "var(--gold-primary)" }}>
-                            <span>{T("contact_map_google")}</span>
-                            <ExternalLink className="w-5 h-5" />
-                        </a>
-                    </RevealSection>
-                </div>
-            </section>
 
             {/* NEWSLETTER - Premium Hub */}
             {/* <section className="py-24 lg:py-48 relative overflow-hidden">

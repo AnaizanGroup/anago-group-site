@@ -3,7 +3,7 @@
 import {
     ArrowRight, ArrowDownRight, Gem, Award, Leaf,
     CheckCircle, Globe, Pickaxe, Users, Handshake, Shield, Target,
-    Sprout, Brain, Factory, Building2, Truck, TrendingUp, Zap, BarChart3
+    Sprout, Brain, Factory, Building2, Truck, TrendingUp, Zap, BarChart3, Briefcase
 } from "lucide-react"
 import { RevealSection, RevealSectionLeft, RevealSectionRight } from "@/components/shared/RevealSection"
 import { useAppContext } from "@/context/AppContext"
@@ -54,20 +54,21 @@ export function AboutPage() {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-black/40 z-10" />
+                    <div className="absolute inset-0 bg-black/80 z-10" />
                 </div>
 
-                <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-20 w-full text-center">
+                <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full text-center">
                     <div className="max-w-7xl mx-auto">
                         <RevealSection className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12 shadow-2xl">
                             <div className="w-2.5 h-2.5 rounded-full bg-gold-400 animate-pulse-gold" />
                             <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">{T("about_hero_badge")}</span>
                         </RevealSection>
 
-                        <RevealSection className="stagger-2">
-                            <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
-                                {T("about_hero_title1")} <span className="gold-gradient italic">{T("about_hero_title2")}</span><br />
-                                {T("about_hero_title3")}
+                        <RevealSection className="stagger-2 max-w-5xl mx-auto">
+                            <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
+                                {T("about_hero_title1")}<br />
+                                <p className="gold-gradient italic py-2">{T("about_hero_title3")}</p>
+
                             </h1>
                         </RevealSection>
 
@@ -90,10 +91,7 @@ export function AboutPage() {
                     </div>
                 </div>
 
-                <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 fade-in stagger-7">
-                    <span className="text-[10px] text-white/40 font-bold tracking-[0.3em] uppercase mb-4">{T("scroll_explore", "Découvrir Notre Histoire")}</span>
-                    <div className="w-0.5 h-16 bg-linear-to-b from-gold-500 to-transparent opacity-40" />
-                </div>
+
             </section>
 
             {/* Heritage Section (Asymmetric) */}
@@ -106,10 +104,10 @@ export function AboutPage() {
                                 <div className="inline-block px-3 py-1 rounded-md bg-gold-500/10 text-gold-500 text-xs font-bold uppercase tracking-widest mb-4">
                                     {T("about_intro_label")}
                                 </div>
-                                <h2 className="font-serif text-3xl lg:text-5xl font-semibold tracking-tight leading-tight mb-8" style={{ color: "var(--text-primary)" }}>
+                                <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight leading-tight mb-8" style={{ color: "var(--text-primary)" }}>
                                     {T("about_intro_title")}
                                 </h2>
-                                <div className="space-y-6 text-base lg:text-lg leading-relaxed mb-10" style={{ color: "var(--text-secondary)" }}>
+                                <div className="space-y-6 text-base lg:text-lg text-justify leading-relaxed mb-10" style={{ color: "var(--text-secondary)" }}>
                                     <p>{T("about_intro_p1")}</p>
                                     <p>{T("about_intro_p2")}</p>
                                 </div>
@@ -131,7 +129,7 @@ export function AboutPage() {
                         </div>
                         <div className="lg:col-span-6 order-1 lg:order-2">
                             <RevealSectionRight className="relative">
-                                <div className="relative aspect-4/5 sm:aspect-square lg:aspect-4/5 rounded-3xl overflow-hidden shadow-2xl border border-white/5">
+                                <div className="relative aspect-4/5 sm:aspect-square lg:aspect-3/3 rounded-3xl overflow-hidden shadow-2xl border border-white/5">
                                     <Image
                                         src="/images/about/mining-facility.jpg"
                                         alt="Industrial Operations"
@@ -166,7 +164,7 @@ export function AboutPage() {
             </section>
 
             {/* Strategic Pillars & Vision (Glassmorphism Bento) */}
-            <section id="strategic-vision" className="py-24 lg:py-40 relative min-h-screen flex items-center overflow-hidden bg-[#06101f]">
+            <section id="strategic-vision" className="py-8 lg:py-12 relative min-h-screen flex items-center overflow-hidden bg-[#06101f]">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src="/images/about/strategic-vision.jpg"
@@ -174,7 +172,7 @@ export function AboutPage() {
                         fill
                         className="object-cover opacity-40 grayscale-[0.5]"
                     />
-                    <div className="absolute inset-0 bg-linear-to-b from-navy-950/90 via-navy-950/70 to-navy-950/90" />
+                    <div className="absolute inset-0 bg-black/40 dark:bg-black/60" />
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -218,47 +216,53 @@ export function AboutPage() {
             </section>
 
             {/* Core Values & Innovation (Bento Layout) */}
-            <section className="py-24 lg:py-40 relative" style={{ background: "var(--bg-tertiary)" }}>
+            <section className=" py-6 lg:py-12 relative overflow-hidden" style={{ background: "var(--bg-tertiary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-12 gap-8">
-                        {/* Innovation Highlight Card */}
-                        <RevealSectionLeft className="lg:col-span-7 h-full">
-                            <div className="relative h-full min-h-100 lg:min-h-full rounded-3xl overflow-hidden border shadow-2xl group" style={{ borderColor: "var(--border-color)" }}>
+                    {/* Section Header */}
+                    <div className="text-center mb-16 lg:mb-20">
+                        <RevealSection>
+                            <h2 className="font-serif text-4xl lg:text-5xl font-semibold tracking-tight mb-8" style={{ color: "var(--text-primary)" }}>
+                                {T("about_values_subtitle")}
+                            </h2>
+                            <p className="max-w-2xl mx-auto text-lg opacity-80" style={{ color: "var(--text-secondary)" }}>
+                                {T("about_values_desc")}
+                            </p>
+                        </RevealSection>
+                    </div>
 
+                    <div className="grid lg:grid-cols-12 gap-8">
+                        {/* Innovation Highlight Card (Visual) */}
+                        <RevealSectionLeft className="lg:col-span-5 h-full min-h-100">
+                            <div className="relative h-full rounded-[2.5rem] overflow-hidden border shadow-2xl group" style={{ borderColor: "var(--border-color)" }}>
                                 <Image
                                     src="/images/about/industrial-innovation.jpg"
                                     alt="Industrial Innovation"
                                     fill
                                     className="object-cover grayscale-[0.1] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                                 />
-                                <div className="absolute inset-0 bg-linear-to-t from-navy-950 via-navy-950/20 to-transparent" />
-                                <div className="absolute bottom-0 left-0 p-10 w-full">
-                                    <div className="gold-line mb-6" />
-                                    <h2 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight text-white sm:text-white mb-4">
-                                        {T("about_values_title")}
-                                    </h2>
-                                    <p className="text-white max-w-xl font-medium leading-relaxed">
-                                        {T("about_values_desc")}
-                                    </p>
+                                <div className="absolute inset-0 bg-linear-to-t from-black/90 from-10% to-transparent" />
+                                <div className="absolute bottom-0 left-0 p-8 w-full">
+                                    <div className="text-xs font-bold uppercase tracking-[0.2em] text-gold-400 mb-2">Innovation</div>
+                                    <h3 className="text-xl font-bold text-white tracking-tight">Driving Excellence</h3>
                                 </div>
                             </div>
                         </RevealSectionLeft>
 
-                        {/* Value Cards Column */}
-                        <div className="lg:col-span-5 flex flex-col gap-6">
+                        {/* Value Cards Grid */}
+                        <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
                             {valueItems.map((value, i) => (
-                                <RevealSectionRight key={i} className={`stagger-child-${i + 1} h-full`}>
-                                    <div className="group p-8 rounded-3xl transition-all duration-500 border shadow-lg h-full flex flex-col" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
+                                <RevealSectionRight key={i} className={`stagger-child-${i + 1} ${i === 2 ? 'sm:col-span-2' : ''}`}>
+                                    <div className="group p-8 rounded-[2.5rem] transition-all duration-500 border shadow-lg h-full flex flex-col" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
                                         <div className="flex items-center gap-5 mb-6">
-                                            <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform" style={{ background: value.iconBg }}>
+                                            <div className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform shadow-lg" style={{ background: value.iconBg }}>
                                                 {value.icon}
                                             </div>
                                             <h3 className="text-xl font-bold tracking-tight" style={{ color: "var(--text-primary)" }}>{value.title}</h3>
                                         </div>
-                                        <p className="text-sm leading-relaxed mb-6 grow" style={{ color: "var(--text-secondary)" }}>{value.desc}</p>
-                                        <div className="flex flex-wrap gap-2">
+                                        <p className="text-sm leading-relaxed mb-8 grow opacity-80" style={{ color: "var(--text-secondary)" }}>{value.desc}</p>
+                                        <div className="flex flex-wrap gap-2 mt-auto">
                                             {value.tags.map((tag, j) => (
-                                                <span key={j} className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-lg border" style={{ color: "var(--text-tertiary)", background: "var(--bg-secondary)", borderColor: "var(--border-color)" }}>
+                                                <span key={j} className="px-4 py-1.5 text-[9px] font-bold uppercase tracking-widest rounded-xl border transition-colors group-hover:border-gold-500/30" style={{ color: "var(--text-tertiary)", background: "var(--bg-secondary)", borderColor: "var(--border-color)" }}>
                                                     {tag}
                                                 </span>
                                             ))}
@@ -271,8 +275,101 @@ export function AboutPage() {
                 </div>
             </section>
 
+            {/* Leadership Section - President's Profile */}
+            <section className="relative overflow-hidden bg-navy-950 border-y border-white/5">
+                <div className="max-w-8xl mx-auto">
+                    <div className="grid lg:grid-cols-2 items-stretch min-h-150 lg:min-h-160">
+                        {/* Image Side */}
+                        <RevealSectionLeft className="relative h-125 lg:h-auto overflow-hidden">
+                            <Image
+                                src="/images/about/founder.png"
+                                alt={T("about_leader_name")}
+                                fill
+                                className="object-cover object-center scale-105"
+                                priority
+                            />
+                            <div className="absolute inset-0 bg-linear-to-r from-navy-950/40 via-transparent to-transparent hidden lg:block" />
+                            <div className="absolute inset-0 bg-linear-to-t from-navy-950/80 via-transparent to-transparent lg:hidden" />
+                        </RevealSectionLeft>
+
+                        {/* Content Side */}
+                        <div className="relative z-10 flex flex-col justify-center p-8 lg:p-12 bg-navy-950">
+                            <RevealSectionRight>
+                                <div className="gold-line mb-8" />
+                                <div className="text-xs font-bold text-gold-500 uppercase tracking-[0.4em] mb-4">
+                                    {T("about_leader_role")}
+                                </div>
+                                <h2 className="text-4xl lg:text-6xl font-serif font-bold text-white mb-10 tracking-tight leading-tight">
+                                    {T("about_leader_name")}
+                                </h2>
+                                <div className="space-y-8">
+                                    <p className="text-lg lg:text-xl text-white/70 leading-relaxed max-w-xl font-light italic border-l-2 border-gold-500/30 pl-8">
+                                        {T("about_leader_bio")}
+                                    </p>
+
+                                    <div className="flex items-center gap-6 pt-4">
+                                        <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center">
+                                            <Shield className="w-5 h-5 text-gold-500/50" />
+                                        </div>
+                                        <div className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em]">
+                                            Direction Générale du Groupe Anago
+                                        </div>
+                                    </div>
+                                </div>
+                            </RevealSectionRight>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* Investor Positioning Section */}
+            <section className="py-8 lg:py-12 relative overflow-hidden" style={{ background: "var(--bg-primary)" }}>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                        <div className="lg:col-span-5">
+                            <RevealSectionLeft>
+                                <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-gold-500/10 text-gold-600 text-[10px] font-bold uppercase tracking-widest mb-8 border border-gold-500/20">
+                                    <Briefcase className="w-3.5 h-3.5" />
+                                    <span>{T("about_invest_label")}</span>
+                                </div>
+                                <h2 className="font-serif text-4xl lg:text-5xl font-semibold tracking-tight mb-8" style={{ color: "var(--text-primary)" }}>
+                                    {T("about_invest_title")}
+                                </h2>
+                                <p className="text-lg lg:text-xl leading-relaxed opacity-80 mb-10" style={{ color: "var(--text-secondary)" }}>
+                                    {T("about_invest_desc")}
+                                </p>
+                                <button onClick={() => router.push("/contact")} className="btn-gold px-10 py-4 text-xs rounded-xl inline-flex items-center gap-3 shadow-xl shadow-gold-500/20">
+                                    <span className="font-bold tracking-widest uppercase">{T("hero_cta2")}</span>
+                                    <ArrowRight className="w-4 h-4" />
+                                </button>
+                            </RevealSectionLeft>
+                        </div>
+                        <div className="lg:col-span-7">
+                            <div className="grid sm:grid-cols-2 gap-6">
+                                {[
+                                    { icon: <Target className="w-6 h-6" />, title: T("about_invest_point1"), color: "var(--gold-primary)" },
+
+                                    { icon: <Award className="w-6 h-6" />, title: T("about_invest_point3"), color: "#4ade80" },
+                                    { icon: <Handshake className="w-6 h-6" />, title: T("about_invest_point4"), color: "#f472b6" },
+                                    { icon: <TrendingUp className="w-6 h-6" />, title: T("about_invest_point5"), color: "#a78bfa" },
+                                ].map((item, i) => (
+                                    <RevealSection key={i} className={`p-8 rounded-3xl border backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 stagger-child-${i + 1}`} style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
+                                        <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-lg" style={{ background: "var(--bg-secondary)", color: item.color }}>
+                                            {item.icon}
+                                        </div>
+                                        <h3 className="text-lg font-bold tracking-tight" style={{ color: "var(--text-primary)" }}>{item.title}</h3>
+                                        <div className="mt-6 w-8 h-1 rounded-full" style={{ background: item.color, opacity: 0.3 }} />
+                                    </RevealSection>
+                                ))}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
             {/* Systemic Integration Model (Replaces simple Sectors Grid) */}
-            <section id="integration-model" className="py-24 lg:py-40 relative overflow-hidden" style={{ backgroundColor: "var(--bg-secondary)" }}>
+            <section id="integration-model" className="py-8 lg:py-12 relative overflow-hidden" style={{ backgroundColor: "var(--bg-secondary)" }}>
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, var(--gold-primary) 1px, transparent 0)", backgroundSize: "40px 40px" }} />
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

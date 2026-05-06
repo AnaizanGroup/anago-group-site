@@ -58,7 +58,7 @@ export function HomePage() {
             <section className="hero-bg relative min-h-screen flex items-center overflow-hidden">
                 {/* Video Background */}
                 <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-black/30 dark:bg-black/50 z-10" /> {/* Overlay for legibility */}
+                    <div className="absolute inset-0 bg-black/30 dark:bg-black/70 z-10" /> {/* Overlay for legibility */}
                     <div className="absolute inset-0 bg-linear-to-b from-navy-950/20 via-transparent to-navy-950/40 z-10" />
                     <video
                         autoPlay
@@ -88,8 +88,8 @@ export function HomePage() {
                             </RevealSection>
 
                             <RevealSection className="stagger-2">
-                                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-white leading-[1.05] mb-8">
-                                    <>{T("hero_title_1")}<span className="gold-gradient">{T("hero_title_2")}</span></>
+                                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-semibold tracking-tight text-white leading-[1.05] mb-8">
+                                    <>{T("hero_title_1")} <p className="gold-gradient">{T("hero_title_2")}</p></>
                                 </h1>
                             </RevealSection>
 
@@ -137,9 +137,9 @@ export function HomePage() {
                                         <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #C8962E, #e7b13f)" }}>
                                             <Award className="w-4 h-4 text-navy-800" strokeWidth={1.5} />
                                         </div>
-                                        <span className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>{T("home_who_years_badge", "Est. 2004")}</span>
+                                        <span className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>{T("home_who_years_badge", "Est. 2011")}</span>
                                     </div>
-                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{T("home_who_years_tagline", "20+ years building Africa's industrial future")}</p>
+                                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{T("home_who_years_tagline", "15+ years building Africa's industrial future")}</p>
                                 </div>
                             </div>
                         </RevealSection>
@@ -334,7 +334,6 @@ export function HomePage() {
                     <p className="text-base text-white/60 max-w-2xl mx-auto mb-10">{T("final_cta_desc", "Whether you are an investor, government partner, or industry leader, Anago Group is your trusted partner for sustainable industrial development in Africa.")}</p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <button onClick={() => router.push("/contact")} className="btn-gold px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2"><span>{T("final_cta1", "Get in Touch")}</span><ArrowRight className="w-4 h-4" strokeWidth={1.5} /></button>
-                        <button className="btn-outline-light px-8 py-3.5 text-sm rounded-lg inline-flex items-center gap-2 font-medium"><Download className="w-4 h-4" strokeWidth={1.5} /><span>{T("final_cta2", "Download Profile")}</span></button>
                     </div>
                 </RevealSection>
             </section>

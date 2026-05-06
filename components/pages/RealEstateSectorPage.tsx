@@ -191,13 +191,10 @@ const RealEstateSectorPage = () => {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-black/50 z-10" />
+                    <div className="absolute inset-0 bg-black/70 z-10" />
                 </div>
 
-                <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-                    <div className="absolute inset-0 architectural-grid opacity-20"></div>
-                    <div ref={heroParticlesRef} className="absolute inset-0"></div>
-                </div>
+
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-20 w-full text-center">
                     <div className="max-w-4xl mx-auto">
@@ -207,7 +204,7 @@ const RealEstateSectorPage = () => {
                         </RevealSection>
 
                         <RevealSection delay={200}>
-                            <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
+                            <h1 className="font-serif text-5xl sm:text-7xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
                                 {T("re_hero_title", "Real Estate & Construction — ")}<span className="gold-gradient italic">{T("re_hero_title_gold", "Building Sustainable Infrastructure")}</span>
                             </h1>
                         </RevealSection>

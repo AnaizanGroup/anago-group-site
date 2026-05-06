@@ -80,10 +80,10 @@ export default function IndustriesPage() {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-black/50 z-10" />
+                    <div className="absolute inset-0 bg-black/60 z-10" />
                 </div>
 
-                <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-54 relative z-20 w-full text-center">
+                <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-20 w-full text-center">
                     <div className="max-w-6xl mx-auto">
                         <RevealSection className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12 shadow-2xl">
                             <div className="w-2.5 h-2.5 rounded-full bg-gold-400 animate-pulse" />
@@ -91,7 +91,7 @@ export default function IndustriesPage() {
                         </RevealSection>
 
                         <RevealSection delay={200}>
-                            <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
+                            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
                                 {T("ind_portal_hero_title").split("Key")[0]} <span className="gold-gradient italic"></span>
                             </h1>
                         </RevealSection>

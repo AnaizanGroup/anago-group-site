@@ -107,23 +107,20 @@ export function AgricultureSectorPage() {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-black/50 z-10" />
+                    <div className="absolute inset-0 bg-black/60 z-10" />
                 </div>
 
-                <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-                    <div className="absolute inset-0 field-grid opacity-20"></div>
-                    <div ref={heroParticlesRef} className="absolute inset-0"></div>
-                </div>
+
 
                 <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-20 w-full text-center">
-                    <div className="max-w-6xl mx-auto">
+                    <div className="max-w-5xl mx-auto">
                         <RevealSection className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12 shadow-2xl">
                             <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse-green" />
                             <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">{T("agri_hero_badge")}</span>
                         </RevealSection>
 
                         <RevealSection delay={200}>
-                            <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
+                            <h1 className="font-serif text-5xl sm:text-7xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
                                 {T("agri_hero_title")}<span className="gold-gradient italic">{T("agri_hero_gold")}</span>
                             </h1>
                         </RevealSection>

@@ -65,29 +65,25 @@ export function IndustrialSectorPage() {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 z-10" style={{
-                        background: isLight
-                            ? "linear-gradient(to right, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0.1) 100%)"
-                            : "linear-gradient(to right, rgba(10,22,40,0.95) 20%, rgba(10,22,40,0.3) 100%)"
-                    }} />
+                    <div className="absolute inset-0 z-10 bg-black/60" />
                 </div>
 
                 <div className="max-w-8xl mx-auto px-4 sm:px-6 py-32 relative z-20 w-full flex flex-col items-center text-center">
-                    <div className="max-w-7xl mx-auto">
+                    <div className="max-w-5xl mx-auto">
                         <RevealSection className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 backdrop-blur-xl mb-10">
                             <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold" />
                             <span className="text-[10px] font-bold text-gold-500 tracking-[0.2em] uppercase">{T("ind_hero_badge")}</span>
                         </RevealSection>
 
                         <RevealSection delay={200}>
-                            <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight leading-[0.95] mb-10" style={{ color: "var(--text-primary)" }}>
+                            <h1 className="font-serif text-5xl sm:text-7xl font-semibold tracking-tight leading-[0.95] mb-10" style={{ color: "var(--text-primary)" }}>
                                 {T("ind_hero_title")}<br />
                                 <span className="gold-gradient italic">{T("ind_hero_title_gold")}</span>
                             </h1>
                         </RevealSection>
 
                         <RevealSection delay={400}>
-                            <p className="text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto mb-16 font-light " style={{ color: "var(--text-secondary)" }}>
+                            <p className="text-xl lg:text-xl leading-relaxed max-w-3xl mx-auto mb-16 font-light " style={{ color: "var(--text-secondary)" }}>
                                 {T("ind_hero_desc")}
                             </p>
                         </RevealSection>

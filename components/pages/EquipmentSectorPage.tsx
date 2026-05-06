@@ -146,14 +146,7 @@ export function EquipmentSectorPage() {
                     <div className="absolute inset-0 bg-black/60 z-10" />
                 </div>
 
-                <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-                    <div className="absolute inset-0 blueprint-grid opacity-20"></div>
-                    <div ref={heroParticlesRef} className="absolute inset-0"></div>
 
-                    {/* Abstract Gear Shapes */}
-                    <div className="absolute -top-20 -left-20 w-120 h-120 border border-white/5 rounded-full animate-gear-spin opacity-20"></div>
-                    <div className="absolute top-1/4 -right-40 w-100 h-100 border border-white/5 rounded-full animate-gear-spin-reverse opacity-20"></div>
-                </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-20 w-full text-center">
                     <div className="max-w-4xl mx-auto">
@@ -163,7 +156,7 @@ export function EquipmentSectorPage() {
                         </RevealSection>
 
                         <RevealSection delay={200}>
-                            <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
+                            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl  font-semibold tracking-tight text-white leading-[0.95] mb-10">
                                 {T("equip_hero_title")}<span className="gold-gradient italic">{T("equip_hero_title_gold")}</span>
                             </h1>
                         </RevealSection>

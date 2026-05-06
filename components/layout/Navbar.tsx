@@ -54,7 +54,7 @@ export function Navbar() {
                             {T("nav_home", "Home")}
                         </Link>
                         <Link href="/about" className={`nav-link relative px-4 py-2 text-[11px] font-bold uppercase tracking-wider rounded-lg transition-colors ${isActive("/about") ? "text-gold-400 nav-link-active" : "hover:text-gold-400"}`} style={{ color: isActive("/about") ? "" : textColor, opacity: isActive("/about") ? 1 : 0.7 }}>
-                            {T("nav_about", "The Group")}
+                            {T("nav_about", "About")}
                         </Link>
 
                         <div
@@ -98,17 +98,17 @@ export function Navbar() {
                                             <div><p className="text-sm font-semibold transition-colors" style={{ color: isActive("/industries") ? "black" : "var(--gold-primary)" }}>{T("s_all_title", "View All Activities")}</p><p className="text-[11px] mt-0.5 font-medium opacity-60" style={{ color: isActive("/industries") ? "black" : "var(--text-secondary)" }}>{T("s_all_desc", "Complete portfolio overview")}</p></div>
                                         </Link>
                                     </div>
-                                    <div className="px-6 py-3.5 border-t flex items-center justify-between" style={{ borderColor: "var(--border-color)", background: "var(--bg-secondary)" }}>
+                                    {/* <div className="px-6 py-3.5 border-t flex items-center justify-between" style={{ borderColor: "var(--border-color)", background: "var(--bg-secondary)" }}>
                                         <span className="text-[10px] font-bold uppercase tracking-widest opacity-50" style={{ color: "var(--text-primary)" }}>{T("mega_footer", "6 strategic sectors across 15+ countries")}</span>
                                         <Link href="/news#subscribe" className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-widest transition-colors" style={{ color: "var(--gold-primary)" }}><span>{T("nav_cta", "Subscribe")}</span><ArrowRight className="w-3.5 h-3.5" /></Link>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
 
-                        <Link href="/news" className={`nav-link relative px-4 py-2 text-[11px] font-bold uppercase tracking-wider rounded-lg transition-colors ${isActive("/news") ? "text-gold-400 nav-link-active" : "hover:text-gold-400"}`} style={{ color: isActive("/news") ? "" : textColor, opacity: isActive("/news") ? 1 : 0.7 }}>
+                        {/* <Link href="/news" className={`nav-link relative px-4 py-2 text-[11px] font-bold uppercase tracking-wider rounded-lg transition-colors ${isActive("/news") ? "text-gold-400 nav-link-active" : "hover:text-gold-400"}`} style={{ color: isActive("/news") ? "" : textColor, opacity: isActive("/news") ? 1 : 0.7 }}>
                             {T("nav_news", "Insights")}
-                        </Link>
+                        </Link> */}
                         <Link href="/contact" className={`nav-link relative px-4 py-2 text-[11px] font-bold uppercase tracking-wider rounded-lg transition-colors ${isActive("/contact") ? "text-gold-400 nav-link-active" : "hover:text-gold-400"}`} style={{ color: isActive("/contact") ? "" : textColor, opacity: isActive("/contact") ? 1 : 0.7 }}>
                             {T("nav_contact", "Contact")}
                         </Link>
@@ -146,10 +146,10 @@ export function Navbar() {
                             <span className="uppercase">{lang}</span>
                         </button>
 
-                        <Link href="/contact" className="hidden md:inline-flex btn-gold px-4 py-2 text-xs font-semibold rounded-lg items-center gap-1.5">
+                        {/* <Link href="/contact" className="hidden md:inline-flex btn-gold px-4 py-2 text-xs font-semibold rounded-lg items-center gap-1.5">
                             <span>{T("nav_cta", "Subscribe")}</span>
                             <ArrowRight className="w-3.5 h-3.5" />
-                        </Link>
+                        </Link> */}
 
                         <button onClick={() => setMobileMenuOpen(true)} className="lg:hidden p-2" style={{ color: textColor }}>
                             <Menu className="w-5 h-5" />
@@ -165,8 +165,8 @@ export function Navbar() {
                     <button onClick={() => setMobileMenuOpen(false)} className="p-2 transition-colors hover:opacity-100" style={{ color: "var(--text-primary)", opacity: 0.7 }}><X className="w-5 h-5" /></button>
                 </div>
                 <div className="flex flex-col p-4 gap-0.5">
-                    <Link href="/" className={`px-4 py-3 text-sm font-medium rounded-lg transition-all ${isActive("/") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`} style={{ color: isActive("/") ? "" : "var(--text-secondary)" }}>Home</Link>
-                    <Link href="/about" className={`px-4 py-3 text-sm font-medium rounded-lg transition-all ${isActive("/about") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`} style={{ color: isActive("/about") ? "" : "var(--text-secondary)" }}>The Group</Link>
+                    <Link href="/" className={`px-4 py-3 text-sm font-medium rounded-lg transition-all ${isActive("/") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`} style={{ color: isActive("/") ? "" : "var(--text-secondary)" }}>{T("nav_home", "Home")}</Link>
+                    <Link href="/about" className={`px-4 py-3 text-sm font-medium rounded-lg transition-all ${isActive("/about") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`} style={{ color: isActive("/about") ? "" : "var(--text-secondary)" }}>{T("nav_about", "About")}</Link>
 
                     <div className="flex flex-col">
                         <button
@@ -174,7 +174,7 @@ export function Navbar() {
                             className={`flex items-center justify-between px-4 py-3 text-sm font-medium rounded-lg transition-all ${pathname?.startsWith("/industries") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`}
                             style={{ color: pathname?.startsWith("/industries") ? "" : "var(--text-secondary)" }}
                         >
-                            <span>Industries</span>
+                            <span>{T("nav_industries", "Industries")}</span>
                             <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileIndustriesOpen ? "rotate-180" : ""}`} />
                         </button>
 
@@ -201,8 +201,10 @@ export function Navbar() {
                             </div>
                         </div>
                     </div>
-                    <Link href="/news" className={`px-4 py-3 text-sm font-medium rounded-lg transition-all ${isActive("/news") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`} style={{ color: isActive("/news") ? "" : "var(--text-secondary)" }}>Insights</Link>
-                    <Link href="/contact" className={`px-4 py-3 text-sm font-medium rounded-lg transition-all ${isActive("/contact") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`} style={{ color: isActive("/contact") ? "" : "var(--text-secondary)" }}>Contact</Link>
+                    {/* <Link href="/news" className={`px-4 py-3 text-sm font-medium rounded-lg transition-all ${isActive("/news") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`} style={{ color: isActive("/news") ? "" : "var(--text-secondary)" }}>Insights</Link> */}
+                    <Link href="/contact" className={`px-4 py-3 text-sm font-medium rounded-lg transition-all ${isActive("/contact") ? "text-gold-400 bg-gold-400/5" : "hover:text-gold-400 hover:bg-gold-400/5"}`} style={{ color: isActive("/contact") ? "" : "var(--text-secondary)" }}>
+                        {T("nav_contact", "Contact")}
+                    </Link>
 
                     <div className="mt-4 px-4 pt-4 border-t" style={{ borderColor: "var(--border-color)" }}>
                         <p className="text-xs font-medium mb-3" style={{ color: "var(--text-tertiary)" }}>Theme</p>
@@ -218,11 +220,11 @@ export function Navbar() {
                             </button>
                         </div>
                     </div>
-                    <div className="mt-4 px-4">
+                    {/* <div className="mt-4 px-4">
                         <Link href="/contact" className="btn-gold w-full py-3 text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
                             <span>Subscribe</span><ArrowRight className="w-4 h-4" />
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

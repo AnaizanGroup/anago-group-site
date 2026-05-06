@@ -101,21 +101,21 @@ export function MiningSectorPage() {
                 </div>
 
                 <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-20 w-full flex flex-col items-center text-center">
-                    <div className="max-w-67l mx-auto">
+                    <div className="max-w-5xl mx-auto">
                         <RevealSection className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-10 shadow-2xl">
                             <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-gold" />
                             <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">{T("min_hero_badge")}</span>
                         </RevealSection>
 
                         <RevealSection className="stagger-2">
-                            <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
+                            <h1 className="font-serif text-5xl sm:text-7xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
                                 {T("min_hero_title")}<br />
                                 <span className="gold-gradient italic">{T("min_hero_title_gold")}</span>
                             </h1>
                         </RevealSection>
 
                         <RevealSection className="stagger-4">
-                            <p className="text-xl lg:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto mb-16 font-light">
+                            <p className="text-xl lg:text-xl text-white/70 leading-relaxed max-w-3xl mx-auto mb-16 font-light">
                                 {T("min_hero_desc")}
                             </p>
                         </RevealSection>
@@ -140,7 +140,7 @@ export function MiningSectorPage() {
             </section>
 
             {/* ABOUT MINING - Editorial Layout */}
-            <section id="about-mining" className="py-24 lg:py-40 theme-transition" style={{ backgroundColor: "var(--bg-primary)" }}>
+            <section id="about-mining" className="py-12 lg:py-32 theme-transition" style={{ backgroundColor: "var(--bg-primary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 overflow-hidden">
                     <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
                         <div className="lg:col-span-7">
@@ -173,7 +173,7 @@ export function MiningSectorPage() {
                             <RevealSectionRight>
                                 <div className="relative aspect-4/5 lg:aspect-3/4 lg:h-190 rounded-4xl overflow-hidden shadow-2xl border" style={{ borderColor: "var(--border-color)" }}>
                                     <img src="/images/mining/operations.jpg" onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1578502315052-8758dff58ed5?auto=format&fit=crop&q=80" }} alt="Mining Operations" className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/90 from-15% to-white/30" />
                                     <div className="absolute bottom-8 left-8 right-8">
                                         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 mb-4">
                                             <ShieldCheck className="w-4 h-4 text-gold-400" />
@@ -189,7 +189,7 @@ export function MiningSectorPage() {
             </section>
 
             {/* ACTIVITIES - Professional Grid */}
-            <section id="activities" className="py-24 lg:py-40 theme-transition" style={{ backgroundColor: "var(--bg-secondary)" }}>
+            <section id="activities" className="py-6 lg:py-12 theme-transition" style={{ backgroundColor: "var(--bg-secondary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mb-24">
                         <RevealSection>
@@ -203,8 +203,8 @@ export function MiningSectorPage() {
                         {[
                             { num: "01", image: "/images/geolocalityt.jpg", title: T("min_act1_title"), desc: T("min_act1_desc"), tags: [T("min_act1_tag1"), T("min_act1_tag2")] },
                             { num: "02", image: "/images/mine-artisanal.jpg", title: T("min_act2_title"), desc: T("min_act2_desc"), tags: [T("min_act2_tag1"), T("min_act2_tag2")] },
-                            { num: "03", image: "/images/trading-mine.jpg", title: T("min_act3_title"), desc: T("min_act3_desc"), tags: [T("min_act3_tag1"), T("min_act3_tag2")] },
-                            { num: "04", image: "/images/hydrolique.jpg", title: T("min_act4_title"), desc: T("min_act4_desc"), tags: [T("min_act4_tag1"), T("min_act4_tag2")] }
+                            { num: "03", image: "/images/mining/Minining-Commerce.jpeg", title: T("min_act3_title"), desc: T("min_act3_desc"), tags: [T("min_act3_tag1"), T("min_act3_tag2")] },
+                            { num: "04", image: "/images/mining/Mining-Exploitation.jpeg", title: T("min_act4_title"), desc: T("min_act4_desc"), tags: [T("min_act4_tag1"), T("min_act4_tag2")] }
                         ].map((activity, i) => (
                             <RevealSection key={i} className="card-mining overflow-hidden flex flex-col sm:flex-row h-full group">
                                 <div className="sm:w-2/5 relative overflow-hidden">
@@ -232,32 +232,9 @@ export function MiningSectorPage() {
                 </div>
             </section>
 
-            {/* STATISTICS - Minimalist Approach */}
-            <section className="py-24 lg:py-40 theme-transition" style={{ backgroundColor: "var(--bg-primary)" }}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
-                        {[
-                            { icon: MapPin, count: "8", suffix: "+", label: T("min_stat1") },
-                            { icon: Mountain, count: "12", suffix: "+", label: T("min_stat2") },
-                            { icon: Users, count: "200", suffix: "+", label: T("min_stat3") },
-                            { icon: TrendingUp, count: "20", suffix: " yrs", label: T("min_stat4") }
-                        ].map((stat, i) => (
-                            <RevealSection key={i} className="text-center group">
-                                <div className="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110" style={{ background: "var(--gold-bg)" }}>
-                                    <stat.icon className="w-6 h-6" style={{ color: "var(--gold-primary)" }} strokeWidth={1.5} />
-                                </div>
-                                <div className="text-5xl font-bold tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>
-                                    {stat.count}{stat.suffix}
-                                </div>
-                                <div className="text-xs font-bold uppercase tracking-[0.2em] opacity-50" style={{ color: "var(--text-secondary)" }}>{stat.label}</div>
-                            </RevealSection>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* FINAL CTA - High Authority */}
-            <section id="contact-cta" className="py-32 lg:py-56 relative overflow-hidden">
+            <section id="contact-cta" className="py-8 lg:py-12 relative overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img src="/images/partner.jpg" onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1582218084478-f9b207204f6e?auto=format&fit=crop&q=80" }} alt="Partner With Anago" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/80 z-10" />
