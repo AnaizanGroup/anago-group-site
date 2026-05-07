@@ -220,7 +220,7 @@ export function EquipmentSectorPage() {
                         <div className="lg:col-span-7 order-1 lg:order-2">
                             <RevealSection>
                                 <div className="inline-flex items-center gap-3 mb-8">
-                                    <div className="w-12 h-[1px] bg-gold-500" />
+                                    <div className="w-12 h-px bg-gold-500" />
                                     <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold-500">{T("equip_about_tag")}</span>
                                 </div>
 
@@ -257,7 +257,7 @@ export function EquipmentSectorPage() {
             </section>
 
             {/* ========== ACTIVITIES GRID ========== */}
-            <section id="activities" className="py-24 lg:py-40 relative overflow-hidden theme-transition" style={{ backgroundColor: "var(--bg-secondary)" }}>
+            <section id="activities" className="py-8 lg:py-14 relative overflow-hidden theme-transition" style={{ backgroundColor: "var(--bg-secondary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-24">
                         <RevealSection>
@@ -283,7 +283,7 @@ export function EquipmentSectorPage() {
                             { num: "06", icon: <GraduationCap className="w-6 h-6" />, title: T("equip_act6_title"), desc: T("equip_act6_desc"), color: "navy" },
                         ].map((activity, idx) => (
                             <RevealSection key={idx} delay={idx * 100}>
-                                <div className="card-premium group relative p-10 rounded-3xl border h-full transition-all duration-500 hover:translate-y-[-10px] overflow-hidden" style={{ background: "var(--bg-primary)", borderColor: "var(--border-color)" }}>
+                                <div className="card-premium group relative p-10 rounded-3xl border h-full transition-all duration-500 hover:-translate-y-2.5 overflow-hidden" style={{ background: "var(--bg-primary)", borderColor: "var(--border-color)" }}>
                                     <div className="activity-card-number" style={{ color: "var(--text-primary)" }}>{activity.num}</div>
                                     <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110 text-black duration-500 ${activity.color === 'gold' ? 'bg-gold-500' : 'bg-navy-900 text-black dark:text-white shadow-xl'}`}>
                                         {activity.icon}
@@ -362,7 +362,7 @@ export function EquipmentSectorPage() {
                         ].map((cat, i) => (
                             <RevealSection key={i} delay={i * 50}>
                                 <div className="text-center p-8 rounded-3xl border group hover:scale-105 transition-all duration-500" style={{ background: "var(--bg-primary)", borderColor: "var(--border-color)" }}>
-                                    <div className="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-6 transition-all group-hover:rotate-[360deg] duration-1000" style={{ background: "var(--gold-bg)", color: "var(--gold-primary)" }}>
+                                    <div className="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-6 transition-all group-hover:rotate-360 duration-1000" style={{ background: "var(--gold-bg)", color: "var(--gold-primary)" }}>
                                         {cat.icon}
                                     </div>
                                     <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--text-primary)" }}>{cat.label}</span>

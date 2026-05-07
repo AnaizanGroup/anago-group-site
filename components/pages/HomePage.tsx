@@ -88,7 +88,7 @@ export function HomePage() {
                             </RevealSection>
 
                             <RevealSection className="stagger-2">
-                                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-semibold tracking-tight text-white leading-[1.05] mb-8">
+                                <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-semibold tracking-tight text-white leading-[1.05] mb-8">
                                     <>{T("hero_title_1")} <p className="gold-gradient">{T("hero_title_2")}</p></>
                                 </h1>
                             </RevealSection>

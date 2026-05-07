@@ -376,7 +376,7 @@ const RealEstateSectorPage = () => {
                                 <div key={idx} className="embla__slide">
                                     <div className="group relative p-12 lg:p-20 rounded-[3rem] border overflow-hidden shadow-2xl theme-transition flex flex-col lg:flex-row items-center gap-16" style={{ backgroundColor: "var(--card-bg)", borderColor: "var(--border-color)", minHeight: "600px" }}>
                                         {/* Background Image with stronger visibility since it's the main focus */}
-                                        <div className="absolute inset-0 z-0 opacity-10 group-hover:opacity-20 transition-opacity duration-1000">
+                                        <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-20 transition-opacity duration-1000">
                                             <Image src={activity.img} alt={activity.title} fill className="object-cover scale-105 group-hover:scale-100 transition-transform duration-2000" />
                                         </div>
 

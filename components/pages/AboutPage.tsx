@@ -282,7 +282,7 @@ export function AboutPage() {
                         {/* Image Side */}
                         <RevealSectionLeft className="relative h-125 lg:h-auto overflow-hidden">
                             <Image
-                                src="/images/about/founder.png"
+                                src="/images/about/founder.jpeg"
                                 alt={T("about_leader_name")}
                                 fill
                                 className="object-cover object-center scale-105"
@@ -299,19 +299,19 @@ export function AboutPage() {
                                 <div className="text-xs font-bold text-gold-500 uppercase tracking-[0.4em] mb-4">
                                     {T("about_leader_role")}
                                 </div>
-                                <h2 className="text-4xl lg:text-6xl font-serif font-bold text-white mb-10 tracking-tight leading-tight">
+                                <h2 className="text-4xl lg:text-6xl font-serif dark:text-white font-bold text-black mb-10 tracking-tight leading-tight">
                                     {T("about_leader_name")}
                                 </h2>
                                 <div className="space-y-8">
-                                    <p className="text-lg lg:text-xl text-white/70 leading-relaxed max-w-xl font-light italic border-l-2 border-gold-500/30 pl-8">
+                                    <p className="text-lg lg:text-xl dark:text-white/70 text-black/70 leading-relaxed max-w-xl font-light italic border-l-2 border-gold-500/30 pl-8">
                                         {T("about_leader_bio")}
                                     </p>
 
                                     <div className="flex items-center gap-6 pt-4">
-                                        <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center">
+                                        <div className="w-12 h-12 rounded-full border dark:border-white/10 border-black/10 flex items-center justify-center">
                                             <Shield className="w-5 h-5 text-gold-500/50" />
                                         </div>
-                                        <div className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em]">
+                                        <div className="text-[10px] font-bold dark:text-white/40 text-black/40 uppercase tracking-[0.3em]">
                                             Direction Générale du Groupe Anago
                                         </div>
                                     </div>
