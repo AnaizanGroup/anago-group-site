@@ -121,7 +121,8 @@ export function AgricultureSectorPage() {
 
                         <RevealSection delay={200}>
                             <h1 className="font-serif text-5xl sm:text-7xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
-                                {T("agri_hero_title")}<span className="gold-gradient italic">{T("agri_hero_gold")}</span>
+                                {T("agri_hero_title")} <br />
+                                <span className="gold-gradient ">{T("agri_hero_gold")}</span>
                             </h1>
                         </RevealSection>
 
@@ -219,32 +220,7 @@ export function AgricultureSectorPage() {
                 </div>
             </section>
 
-            {/* ========== GLOBAL IMPACT STATS ========== */}
-            <section className="py-20 relative overflow-hidden theme-transition" style={{ backgroundColor: isLight ? "var(--bg-secondary)" : "var(--section-dark)" }}>
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute inset-0" style={{ backgroundImage: `radial-gradient(circle at 2px 2px, ${isLight ? 'rgba(0,0,0,0.05)' : 'rgba(34,197,94,0.15)'} 1px, transparent 0)`, backgroundSize: "40px 40px" }} />
-                </div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 text-center">
-                        {[
-                            { label: T("agri_stat2_label"), value: "50K+", icon: <Wheat className="w-5 h-5" /> },
-                            { label: T("agri_stat1_label"), value: "10+", icon: <MapPin className="w-5 h-5" /> },
-                            { label: T("agri_stat3_label"), value: "200K+", icon: <Beef className="w-5 h-5" /> },
-                            { label: T("agri_stat4_label"), value: "15K+", icon: <Users className="w-5 h-5" /> }
-                        ].map((stat, i) => (
-                            <RevealSection key={i} delay={i * 100}>
-                                <div className="flex flex-col items-center">
-                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center text-gold-400 mb-4 border transition-all" style={{ backgroundColor: "var(--bg-primary)", borderColor: "var(--border-color)" }}>
-                                        {stat.icon}
-                                    </div>
-                                    <div className="text-3xl lg:text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>{stat.value}</div>
-                                    <div className="text-[10px] font-bold uppercase tracking-widest opacity-40" style={{ color: "var(--text-primary)" }}>{stat.label}</div>
-                                </div>
-                            </RevealSection>
-                        ))}
-                    </div>
-                </div>
-            </section>
+
 
             {/* ========== ACTIVITIES GRID ========== */}
             <section id="activities" className="py-24 lg:py-40 relative overflow-hidden theme-transition" style={{ backgroundColor: "var(--bg-primary)" }}>
@@ -346,7 +322,7 @@ export function AgricultureSectorPage() {
             </section>
 
             {/* ========== FINAL CTA ========== */}
-            <section className="py-24 lg:py-48 relative overflow-hidden">
+            <section className="py-8 lg:py-12 relative overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-navy-950 theme-transition" style={{ backgroundColor: isLight ? "var(--bg-secondary)" : "var(--section-dark)" }} />
                     <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 2px 2px, ${isLight ? 'black' : 'white'} 1px, transparent 0)`, backgroundSize: "32px 32px" }} />

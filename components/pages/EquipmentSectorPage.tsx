@@ -8,7 +8,8 @@ import {
     Truck, Activity, GraduationCap, ShieldCheck, Target,
     Lightbulb, Globe, Clock, Handshake, Shield, MapPin,
     Users, Download, ChevronRight, ArrowDownRight, Settings2,
-    BarChart3, Puzzle, Layers, Headphones, Car, Forklift, ZapOff, Mail
+    BarChart3, Puzzle, Layers, Headphones, Car, Forklift, ZapOff, Mail,
+    ToolCase
 } from "lucide-react"
 import { RevealSection } from "@/components/shared/RevealSection"
 import { useAppContext } from "@/context/AppContext"
@@ -276,8 +277,8 @@ export function EquipmentSectorPage() {
                         {[
                             { num: "01", icon: <ShoppingCart className="w-6 h-6" />, title: T("equip_act1_title"), desc: T("equip_act1_desc"), color: "gold" },
                             { num: "02", icon: <Clock className="w-6 h-6" />, title: T("equip_act2_title"), desc: T("equip_act2_desc"), color: "navy" },
-                            { num: "03", icon: <Wrench className="w-6 h-6" />, title: T("equip_act3_title"), desc: T("equip_act3_desc"), color: "gold" },
-                            { num: "04", icon: <Puzzle className="w-6 h-6" />, title: T("equip_act4_title"), desc: T("equip_act4_desc"), color: "navy" },
+                            { num: "03", icon: <Truck className="w-6 h-6" />, title: T("equip_act3_title"), desc: T("equip_act3_desc"), color: "gold" },
+                            { num: "04", icon: <Lightbulb className="w-6 h-6" />, title: T("equip_act4_title"), desc: T("equip_act4_desc"), color: "navy" },
                             { num: "05", icon: <Activity className="w-6 h-6" />, title: T("equip_act5_title"), desc: T("equip_act5_desc"), color: "gold" },
                             { num: "06", icon: <GraduationCap className="w-6 h-6" />, title: T("equip_act6_title"), desc: T("equip_act6_desc"), color: "navy" },
                         ].map((activity, idx) => (
@@ -354,7 +355,7 @@ export function EquipmentSectorPage() {
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
                         {[
                             { icon: <HardHat className="w-6 h-6" />, label: T("equip_cat1") },
-                            { icon: <ArrowUpFromLine className="w-6 h-6" />, label: T("equip_cat3") },
+                            { icon: <ToolCase className="w-6 h-6" />, label: T("equip_cat2") },
                             { icon: <Zap className="w-6 h-6" />, label: T("equip_cat4") },
                             { icon: <Forklift className="w-6 h-6" />, label: T("equip_cat5") },
                             { icon: <Car className="w-6 h-6" />, label: T("equip_cat6") },
@@ -373,7 +374,7 @@ export function EquipmentSectorPage() {
             </section>
 
             {/* ========== FINAL CTA ========== */}
-            <section className="py-24 lg:py-48 relative overflow-hidden">
+            <section className="py-8 lg:py-12 relative overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src="/images/equipment/parts-grid.jpg"
@@ -381,7 +382,7 @@ export function EquipmentSectorPage() {
                         fill
                         className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-navy-950/90 z-10" />
+                    <div className="absolute inset-0 bg-black/80 z-10" />
                 </div>
 
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20">

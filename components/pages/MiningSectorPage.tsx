@@ -110,7 +110,7 @@ export function MiningSectorPage() {
                         <RevealSection className="stagger-2">
                             <h1 className="font-serif text-5xl sm:text-7xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
                                 {T("min_hero_title")}<br />
-                                <span className="gold-gradient italic">{T("min_hero_title_gold")}</span>
+                                <span className="gold-gradient ">{T("min_hero_title_gold")}</span>
                             </h1>
                         </RevealSection>
 
@@ -149,7 +149,7 @@ export function MiningSectorPage() {
                                 <h2 className="font-serif text-4xl lg:text-5xl font-semibold tracking-tight leading-tight mb-10" style={{ color: "var(--text-primary)" }}>
                                     {T("min_about_title")}
                                 </h2>
-                                <div className="space-y-8 text-lg lg:text-lg leading-relaxed mb-12 font-light" style={{ color: "var(--text-secondary)" }}>
+                                <div className="space-y-8 text-lg lg:text-lg text-justify leading-relaxed mb-12 font-light" style={{ color: "var(--text-secondary)" }}>
                                     <p>{T("min_about_p1")}</p>
                                     <p>{T("min_about_p2")}</p>
                                 </div>
@@ -202,9 +202,9 @@ export function MiningSectorPage() {
                     <div className="grid lg:grid-cols-2 gap-12">
                         {[
                             { num: "01", image: "/images/geolocalityt.jpg", title: T("min_act1_title"), desc: T("min_act1_desc"), tags: [T("min_act1_tag1"), T("min_act1_tag2")] },
-                            { num: "02", image: "/images/mine-artisanal.jpg", title: T("min_act2_title"), desc: T("min_act2_desc"), tags: [T("min_act2_tag1"), T("min_act2_tag2")] },
+                            { num: "02", image: "/images/mining/Mining-Exploitation.jpeg", title: T("min_act2_title"), desc: T("min_act2_desc"), tags: [T("min_act2_tag1"), T("min_act2_tag2")] },
                             { num: "03", image: "/images/mining/Minining-Commerce.jpeg", title: T("min_act3_title"), desc: T("min_act3_desc"), tags: [T("min_act3_tag1"), T("min_act3_tag2")] },
-                            { num: "04", image: "/images/mining/Mining-Exploitation.jpeg", title: T("min_act4_title"), desc: T("min_act4_desc"), tags: [T("min_act4_tag1"), T("min_act4_tag2")] }
+                            { num: "04", image: "/images/mining/operations-services.jpg", title: T("min_act4_title"), desc: T("min_act4_desc"), tags: [T("min_act4_tag1"), T("min_act4_tag2")] }
                         ].map((activity, i) => (
                             <RevealSection key={i} className="card-mining overflow-hidden flex flex-col sm:flex-row h-full group">
                                 <div className="sm:w-2/5 relative overflow-hidden">

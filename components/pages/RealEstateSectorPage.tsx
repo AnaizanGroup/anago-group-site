@@ -32,11 +32,41 @@ import {
 import { useAppContext } from "@/context/AppContext";
 import { RevealSection, RevealSectionLeft, RevealSectionRight } from "@/components/shared/RevealSection";
 
+import useEmblaCarousel from 'embla-carousel-react'
+
 const RealEstateSectorPage = () => {
     const { T, theme } = useAppContext();
     const isLight = theme === "light";
     const router = useRouter();
     const heroParticlesRef = useRef<HTMLDivElement>(null);
+
+    // Carousel Hook
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        align: 'start',
+        containScroll: 'trimSnaps',
+        dragFree: true
+    })
+
+    const [selectedIndex, setSelectedIndex] = useState(0)
+    const [canScrollPrev, setCanScrollPrev] = useState(false)
+    const [canScrollNext, setCanScrollNext] = useState(true)
+
+    const scrollPrev = React.useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi])
+    const scrollNext = React.useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi])
+
+    const onSelect = React.useCallback(() => {
+        if (!emblaApi) return
+        setSelectedIndex(emblaApi.selectedScrollSnap())
+        setCanScrollPrev(emblaApi.canScrollPrev())
+        setCanScrollNext(emblaApi.canScrollNext())
+    }, [emblaApi])
+
+    useEffect(() => {
+        if (!emblaApi) return
+        onSelect()
+        emblaApi.on('select', onSelect)
+        emblaApi.on('reInit', onSelect)
+    }, [emblaApi, onSelect])
 
     useEffect(() => {
         if (heroParticlesRef.current) {
@@ -66,7 +96,8 @@ const RealEstateSectorPage = () => {
             desc: T("re_act1_desc", "Design and construction of industrial parks, processing plants, warehousing complexes, and specialized facilities."),
             tags: [T("re_act1_tag1", "Industrial Parks"), T("re_act1_tag2", "Processing Plants"), T("re_act1_tag3", "Warehousing")],
             icon: <Factory className="w-6 h-6" />,
-            color: "navy"
+            color: "navy",
+            img: "/images/industrial/consulting.png"
         },
         {
             id: "02",
@@ -74,7 +105,8 @@ const RealEstateSectorPage = () => {
             desc: T("re_act2_desc", "Development of quality housing projects from affordable social housing to premium residential estates."),
             tags: [T("re_act2_tag1", "Social Housing"), T("re_act2_tag2", "Premium Estates"), T("re_act2_tag3", "Mixed-Use")],
             icon: <Home className="w-6 h-6" />,
-            color: "gold"
+            color: "gold",
+            img: "/images/realestate/architectural-detail.jpg"
         },
         {
             id: "03",
@@ -82,7 +114,8 @@ const RealEstateSectorPage = () => {
             desc: T("re_act3_desc", "Construction of roads, bridges, utilities, and critical public infrastructure that connect communities."),
             tags: [T("re_act3_tag1", "Roads & Bridges"), T("re_act3_tag2", "Utilities"), T("re_act3_tag3", "Public Works")],
             icon: <Landmark className="w-6 h-6" />,
-            color: "navy"
+            color: "navy",
+            img: "/images/realestate/hero-cinematic.jpg"
         },
         {
             id: "04",
@@ -90,23 +123,8 @@ const RealEstateSectorPage = () => {
             desc: T("re_act4_desc", "Modern office towers, retail centers, and mixed-use commercial complexes that attract investment."),
             tags: [T("re_act4_tag1", "Office Towers"), T("re_act4_tag2", "Retail Centers"), T("re_act4_tag3", "Smart Buildings")],
             icon: <Store className="w-6 h-6" />,
-            color: "gold"
-        },
-        {
-            id: "05",
-            title: T("re_act5_title", "Sustainable Design & Green Building"),
-            desc: T("re_act5_desc", "Integration of sustainable architecture, renewable energy, and eco-friendly materials."),
-            tags: [T("re_act5_tag1", "Solar Integration"), T("re_act5_tag2", "Water Mgmt"), T("re_act5_tag3", "Eco Materials")],
-            icon: <Trees className="w-6 h-6" />,
-            color: "green"
-        },
-        {
-            id: "06",
-            title: T("re_act6_title", "Property & Asset Management"),
-            desc: T("re_act6_desc", "Full-lifecycle management including facility maintenance, tenant relations, and portfolio optimization."),
-            tags: [T("re_act6_tag1", "Facility Mgmt"), T("re_act6_tag2", "Asset Optimization"), T("re_act6_tag3", "Portfolio")],
-            icon: <KeyRound className="w-6 h-6" />,
-            color: "gold"
+            color: "gold",
+            img: "/images/industrial/hero-bg.png"
         }
     ];
 
@@ -179,6 +197,20 @@ const RealEstateSectorPage = () => {
                     transform: translateY(10px);
                 }
                 .gold-line { width: 60px; height: 3px; background: linear-gradient(90deg, #C8962E, #F5D17E); border-radius: 2px; }
+                
+                .embla {
+                    overflow: hidden;
+                    width: 100%;
+                }
+                .embla__container {
+                    display: flex;
+                    margin-left: -2rem;
+                }
+                .embla__slide {
+                    flex: 0 0 100%;
+                    min-width: 0;
+                    padding-left: 2rem;
+                }
             `}</style>
 
             {/* ========== HERO SECTION ========== */}
@@ -243,7 +275,7 @@ const RealEstateSectorPage = () => {
                         <div className="lg:col-span-7">
                             <RevealSection>
                                 <div className="inline-flex items-center gap-3 mb-8">
-                                    <div className="w-12 h-[1px] bg-gold-500" />
+                                    <div className="w-12 h-px bg-gold-500" />
                                     <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold-500">{T("re_about_h1", "Green Building")}</span>
                                 </div>
 
@@ -302,48 +334,94 @@ const RealEstateSectorPage = () => {
                 </div>
             </section>
 
-            {/* ========== ACTIVITIES GRID ========== */}
+            {/* ========== ACTIVITIES CAROUSEL ========== */}
             <section id="activities" className="py-24 lg:py-40 relative overflow-hidden theme-transition" style={{ backgroundColor: "var(--bg-secondary)" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="text-center mb-24">
-                        <RevealSection>
-                            <div className="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mx-auto mb-10">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
+                        <RevealSection className="max-w-2xl">
+                            <div className="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-10">
                                 <Building2 className="w-8 h-8 text-gold-500" />
                             </div>
                             <h2 className="font-serif text-4xl lg:text-6xl font-semibold tracking-tight mb-8" style={{ color: "var(--text-primary)" }}>
                                 {T("re_activity_title", "Development Activities")}
                             </h2>
-                            <p className="text-lg max-w-2xl mx-auto font-light opacity-60" style={{ color: "var(--text-secondary)" }}>
+                            <p className="text-lg font-light opacity-60" style={{ color: "var(--text-secondary)" }}>
                                 {T("re_activity_subtitle", "Integrated real estate and construction services spanning the full project lifecycle.")}
                             </p>
                         </RevealSection>
+
+                        <div className="flex items-center gap-4">
+                            <button
+                                onClick={scrollPrev}
+                                disabled={!canScrollPrev}
+                                className={`w-14 h-14 rounded-full border flex items-center justify-center transition-all ${!canScrollPrev ? 'opacity-20 cursor-not-allowed' : 'hover:bg-gold-500 hover:border-gold-500 group'}`}
+                                style={{ borderColor: "var(--border-color)" }}
+                            >
+                                <ChevronRight className="w-6 h-6 rotate-180 group-hover:text-navy-950" />
+                            </button>
+                            <button
+                                onClick={scrollNext}
+                                disabled={!canScrollNext}
+                                className={`w-14 h-14 rounded-full border flex items-center justify-center transition-all ${!canScrollNext ? 'opacity-20 cursor-not-allowed' : 'hover:bg-gold-500 hover:border-gold-500 group'}`}
+                                style={{ borderColor: "var(--border-color)" }}
+                            >
+                                <ChevronRight className="w-6 h-6 group-hover:text-navy-950" />
+                            </button>
+                        </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {activities.map((activity, idx) => (
-                            <RevealSection key={idx} delay={idx * 100}>
-                                <div className="card-premium group relative p-10 rounded-3xl border h-full transition-all duration-500 hover:translate-y-[-10px] overflow-hidden shadow-sm" style={{ backgroundColor: "var(--card-bg)", borderColor: "var(--border-color)" }}>
-                                    <div className="activity-card-number" style={{ color: "var(--text-primary)" }}>{activity.id}</div>
-                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110 duration-500 ${activity.color === 'green' ? 'bg-emerald-600 text-white' : activity.color === 'gold' ? 'bg-gold-500 text-navy-950' : 'bg-navy-900 text-white shadow-xl'}`}>
-                                        {activity.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{activity.title}</h3>
-                                    <p className="text-sm leading-relaxed mb-8 opacity-60" style={{ color: "var(--text-secondary)" }}>{activity.desc}</p>
+                    <div className="embla" ref={emblaRef}>
+                        <div className="embla__container">
+                            {activities.map((activity, idx) => (
+                                <div key={idx} className="embla__slide">
+                                    <div className="group relative p-12 lg:p-20 rounded-[3rem] border overflow-hidden shadow-2xl theme-transition flex flex-col lg:flex-row items-center gap-16" style={{ backgroundColor: "var(--card-bg)", borderColor: "var(--border-color)", minHeight: "600px" }}>
+                                        {/* Background Image with stronger visibility since it's the main focus */}
+                                        <div className="absolute inset-0 z-0 opacity-10 group-hover:opacity-20 transition-opacity duration-1000">
+                                            <Image src={activity.img} alt={activity.title} fill className="object-cover scale-105 group-hover:scale-100 transition-transform duration-2000" />
+                                        </div>
 
-                                    <div className="flex flex-wrap gap-2 mb-10">
-                                        {activity.tags.map((tag, i) => (
-                                            <span key={i} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg border" style={{ backgroundColor: "var(--bg-secondary)", borderColor: "var(--border-color)", color: "var(--text-tertiary)" }}>
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
+                                        <div className="lg:w-1/2 relative z-10">
+                                            <div className="activity-card-number static! opacity-10! mb-6" style={{ color: "var(--text-primary)" }}>{activity.id}</div>
+                                            <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mb-10 shadow-2xl transition-transform group-hover:rotate-12 duration-700 ${activity.color === 'green' ? 'bg-emerald-600 text-white' : activity.color === 'gold' ? 'bg-gold-500 text-navy-950' : 'bg-navy-900 text-white'}`}>
+                                                {React.cloneElement(activity.icon as React.ReactElement<{ className?: string }>, { className: "w-10 h-10" })}
+                                            </div>
 
-                                    <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-gold-500 group-hover:gap-5 transition-all">
-                                        <span>{T("learn_more", "Learn more")}</span>
-                                        <ArrowRight className="w-4 h-4" strokeWidth={3} />
+                                            <h3 className="text-4xl lg:text-5xl font-serif font-bold tracking-tight mb-8" style={{ color: "var(--text-primary)" }}>{activity.title}</h3>
+                                            <p className="text-xl font-light leading-relaxed mb-10 opacity-70" style={{ color: "var(--text-secondary)" }}>{activity.desc}</p>
+
+                                            <div className="flex flex-wrap gap-3 mb-12">
+                                                {activity.tags.map((tag, i) => (
+                                                    <span key={i} className="text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-xl border bg-white/5 backdrop-blur-md" style={{ borderColor: "var(--border-color)", color: "var(--text-tertiary)" }}>
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+
+                                            <button className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gold-500 group/btn">
+                                                <span className="border-b border-gold-500/0 group-hover/btn:border-gold-500 transition-all">{T("learn_more", "Learn more")}</span>
+                                                <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform" strokeWidth={3} />
+                                            </button>
+                                        </div>
+
+                                        <div className="lg:w-1/2 relative z-10 w-full h-full min-h-75 lg:min-h-auto">
+                                            <div className="relative w-full h-full rounded-4xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+                                                <Image src={activity.img} alt={activity.title} fill className="object-cover" />
+                                                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </RevealSection>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="mt-16 flex justify-center gap-2">
+                        {emblaApi?.scrollSnapList().map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => emblaApi.scrollTo(i)}
+                                className={`h-1 rounded-full transition-all duration-500 ${selectedIndex === i ? 'w-12 bg-gold-500' : 'w-4 bg-white/10 hover:bg-white/30'}`}
+                            />
                         ))}
                     </div>
                 </div>
@@ -376,10 +454,10 @@ const RealEstateSectorPage = () => {
                                     <div className="text-gold-400 group-hover:text-navy-800 transition-colors">{step.icon}</div>
                                 </div>
                                 {idx < 3 && (
-                                    <div className="hidden lg:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-64px)] h-[2px] opacity-10" style={{ backgroundColor: "var(--text-primary)" }} />
+                                    <div className="hidden lg:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-64px)] h-0.5 opacity-10" style={{ backgroundColor: "var(--text-primary)" }} />
                                 )}
                                 <h4 className="text-sm font-bold uppercase tracking-wider mb-3 mt-8" style={{ color: "var(--text-primary)" }}>{step.title}</h4>
-                                <p className="text-xs opacity-50 leading-relaxed max-w-[200px] mx-auto" style={{ color: "var(--text-secondary)" }}>{step.desc}</p>
+                                <p className="text-xs opacity-50 leading-relaxed max-w-50 mx-auto" style={{ color: "var(--text-secondary)" }}>{step.desc}</p>
                             </RevealSection>
                         ))}
                     </div>
@@ -387,7 +465,7 @@ const RealEstateSectorPage = () => {
             </section>
 
             {/* ========== FINAL CTA ========== */}
-            <section id="contact-cta" className="py-24 lg:py-48 relative overflow-hidden">
+            <section id="contact-cta" className="py-8 lg:py-12 relative bg-secondary overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src="/images/realestate/hero-cinematic.jpg"

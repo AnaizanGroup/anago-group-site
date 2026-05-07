@@ -77,8 +77,9 @@ export function IndustrialSectorPage() {
 
                         <RevealSection delay={200}>
                             <h1 className="font-serif text-5xl sm:text-7xl font-semibold tracking-tight leading-[0.95] mb-10" style={{ color: "var(--text-primary)" }}>
-                                {T("ind_hero_title")}<br />
-                                <span className="gold-gradient italic">{T("ind_hero_title_gold")}</span>
+
+                                <span className="font-semibold tracking-tight leading-[0.95] mb-10 text-white py-2">{T("ind_hero_title")}</span>
+                                <span className="gold-gradient">{T("ind_hero_title_gold")}</span>
                             </h1>
                         </RevealSection>
 
@@ -88,7 +89,7 @@ export function IndustrialSectorPage() {
                             </p>
                         </RevealSection>
 
-                        <RevealSection delay={600} className="flex flex-wrap justify-center gap-6">
+                        <RevealSection delay={600} className="flex flex-wrap justify-center gap-6 ">
                             <button onClick={() => document.getElementById('activities')?.scrollIntoView({ behavior: 'smooth' })} className="btn-gold px-12 py-5 text-xs rounded-2xl inline-flex items-center gap-4 shadow-2xl shadow-gold-500/20 transition-all hover:scale-105">
                                 <span className="font-bold tracking-widest uppercase">{T("ind_hero_cta1")}</span>
                                 <ArrowDownRight className="w-5 h-5" strokeWidth={2.5} />
@@ -146,7 +147,6 @@ export function IndustrialSectorPage() {
                                     <div className="absolute bottom-10 left-10 right-10 z-20">
                                         <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 mb-6">
                                             <Award className="w-5 h-5 text-gold-400" />
-                                            <span className="text-sm font-bold text-white uppercase tracking-[0.2em]">{T("ind_about_iso")}</span>
                                         </div>
                                         <p className="text-xl text-white/90 font-medium leading-relaxed max-w-md">{T("ind_about_iso_desc")}</p>
                                     </div>
@@ -168,36 +168,76 @@ export function IndustrialSectorPage() {
                         </RevealSection>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="flex flex-col lg:flex-row h-auto lg:h-[600px] border-y theme-transition overflow-hidden" style={{ borderColor: "var(--border-color)" }}>
                         {[
-                            { icon: Brain, title: T("ind_act1_title"), desc: T("ind_act1_desc"), tags: [T("ind_act1_tag1"), T("ind_act1_tag2"), T("ind_act1_tag3")] },
-                            { icon: GanttChart, title: T("ind_act2_title"), desc: T("ind_act2_desc"), tags: [T("ind_act2_tag1"), T("ind_act2_tag2"), T("ind_act2_tag3")] },
-                            { icon: Container, title: T("ind_act3_title"), desc: T("ind_act3_desc"), tags: [T("ind_act3_tag1"), T("ind_act3_tag2"), T("ind_act3_tag3")] },
-                            { icon: Wrench, title: T("ind_act4_title"), desc: T("ind_act4_desc"), tags: [T("ind_act4_tag1"), T("ind_act4_tag2"), T("ind_act4_tag3")] },
-                            { icon: GraduationCap, title: T("ind_act5_title"), desc: T("ind_act5_desc"), tags: [T("ind_act5_tag1"), T("ind_act5_tag2"), T("ind_act5_tag3")] },
-                            { icon: ShieldCheck, title: T("ind_act6_title"), desc: T("ind_act6_desc"), tags: [T("ind_act6_tag1"), T("ind_act6_tag2"), T("ind_act6_tag3")] },
+                            {
+                                num: "01",
+                                icon: Settings,
+                                title: T("ind_act1_title"),
+                                desc: T("ind_act1_desc"),
+                                tags: [T("ind_act1_tag1"), T("ind_act1_tag2"), T("ind_act1_tag3")],
+                                img: "/images/equipment/hero-precision.jpg"
+                            },
+                            {
+                                num: "02",
+                                icon: Wheat,
+                                title: T("ind_act2_title"),
+                                desc: T("ind_act2_desc"),
+                                tags: [T("ind_act2_tag1"), T("ind_act2_tag2"), T("ind_act2_tag3")],
+                                img: "/images/agriculture/hero-cinematic.jpg"
+                            },
+                            {
+                                num: "03",
+                                icon: MapPin,
+                                title: T("ind_act3_title"),
+                                desc: T("ind_act3_desc"),
+                                tags: [T("ind_act3_tag1"), T("ind_act3_tag2"), T("ind_act3_tag3")],
+                                img: "/images/realestate/hero-cinematic.jpg"
+                            },
                         ].map((act, i) => (
-                            <RevealSection key={i} delay={i * 100}>
-                                <article className="group p-10 rounded-4xl border theme-transition hover:-translate-y-2 transition-all duration-500 h-full flex flex-col" style={{ background: "var(--card-bg)", borderColor: "var(--border-color)" }}>
-                                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 theme-transition group-hover:scale-110 transition-transform duration-500" style={{ background: "var(--gold-bg)", color: "var(--gold-primary)" }}>
-                                        <act.icon className="w-6 h-6" strokeWidth={1.5} />
+                            <div key={i} className="group relative flex-1 hover:flex-[1.8] transition-all duration-700 ease-in-out border-b lg:border-b-0 lg:border-r last:border-0 overflow-hidden" style={{ borderColor: "var(--border-color)" }}>
+                                {/* Background Image Reveal */}
+                                <div className="absolute inset-0 z-0 transition-all duration-1000 lg:group-hover:scale-110">
+                                    <Image
+                                        src={act.img}
+                                        alt={act.title}
+                                        fill
+                                        className="object-cover opacity-30 lg:opacity-0 lg:group-hover:opacity-40 transition-opacity duration-700 grayscale-0 lg:grayscale lg:group-hover:grayscale-0"
+                                    />
+                                    <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/60 opacity-60 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700" />
+                                </div>
+
+                                {/* Content Layer */}
+                                <div className="relative z-10 h-full p-10 lg:p-16 flex flex-col theme-transition">
+                                    <span className="absolute top-10 right-10 text-8xl lg:text-9xl font-bold opacity-10 lg:opacity-5 transition-all duration-700 lg:group-hover:opacity-10 lg:group-hover:-translate-y-4" style={{ color: "var(--text-primary)" }}>{act.num}</span>
+
+                                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-12 theme-transition lg:group-hover:scale-110 lg:group-hover:bg-gold-500/20 transition-all duration-500" style={{ background: "var(--gold-bg)", color: "var(--gold-primary)" }}>
+                                        <act.icon className="w-8 h-8" strokeWidth={1.5} />
                                     </div>
-                                    <h3 className="text-2xl font-semibold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>{act.title}</h3>
-                                    <p className="text-base leading-relaxed mb-8 grow font-light opacity-80" style={{ color: "var(--text-secondary)" }}>{act.desc}</p>
-                                    <div className="flex flex-wrap gap-2 pt-6 border-t" style={{ borderColor: "var(--border-color)" }}>
-                                        {act.tags.map((tag, j) => (
-                                            <span key={j} className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded-lg border" style={{ borderColor: "var(--border-color)", color: "var(--text-tertiary)" }}>{tag}</span>
-                                        ))}
+
+                                    <div className="mt-auto">
+                                        <h3 className="font-serif text-3xl lg:text-4xl font-semibold tracking-tight mb-6 transition-all duration-500 lg:group-hover:text-gold-400" style={{ color: "var(--text-primary)" }}>{act.title}</h3>
+
+                                        <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-all duration-700">
+                                            <div className="overflow-hidden">
+                                                <p className="text-lg leading-relaxed mb-8 font-light opacity-80 lg:opacity-0 lg:group-hover:opacity-80 transition-opacity duration-700 lg:delay-200" style={{ color: "var(--text-secondary)" }}>{act.desc}</p>
+                                                <div className="flex flex-wrap gap-2 pt-6 border-t opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 lg:delay-300" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
+                                                    {act.tags.map((tag, j) => (
+                                                        <span key={j} className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded-lg border border-white/10 text-white/60">{tag}</span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </article>
-                            </RevealSection>
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* ========== VALUE PROPOSITION - Minimalist & Bold ========== */}
-            <section className="py-24 lg:py-40 theme-transition relative" style={{ backgroundColor: "var(--bg-primary)" }}>
+            <section className="py-8 lg:py-24 theme-transition relative" style={{ backgroundColor: "var(--bg-primary)" }}>
                 <div className="absolute inset-0 blueprint-subtle" />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-24">
@@ -211,10 +251,9 @@ export function IndustrialSectorPage() {
                         {[
                             { icon: Target, title: T("ind_vp1_title"), desc: T("ind_vp1_desc") },
                             { icon: Lightbulb, title: T("ind_vp2_title"), desc: T("ind_vp2_desc") },
-                            { icon: Globe, title: T("ind_vp3_title"), desc: T("ind_vp3_desc") },
-                            { icon: Clock, title: T("ind_vp4_title"), desc: T("ind_vp4_desc") },
                             { icon: Handshake, title: T("ind_vp5_title"), desc: T("ind_vp5_desc") },
-                            { icon: Shield, title: T("ind_vp6_title"), desc: T("ind_vp6_desc") },
+
+
                         ].map((val, i) => (
                             <RevealSection key={i} delay={i * 50}>
                                 <div className="group">
@@ -230,29 +269,9 @@ export function IndustrialSectorPage() {
                 </div>
             </section>
 
-            {/* ========== STATISTICS - Corporate Impact ========== */}
-            <section className="py-24 theme-transition" style={{ backgroundColor: "var(--bg-secondary)" }}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
-                        {[
-                            { val: "15+", label: T("ind_stat1") },
-                            { val: "150+", label: T("ind_stat2") },
-                            { val: "500+", label: T("ind_stat3") },
-                            { val: "350+", label: T("ind_stat4") },
-                        ].map((stat, i) => (
-                            <RevealSection key={i} delay={i * 100}>
-                                <div className="text-center">
-                                    <div className="text-5xl lg:text-7xl font-bold tracking-tighter mb-4 gold-gradient">{stat.val}</div>
-                                    <div className="text-xs font-bold tracking-[0.3em] uppercase opacity-40" style={{ color: "var(--text-primary)" }}>{stat.label}</div>
-                                </div>
-                            </RevealSection>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* ========== FINAL CTA - Strategic Vision ========== */}
-            <section id="contact-cta" className="py-32 lg:py-48 relative overflow-hidden">
+            <section id="contact-cta" className="py-8 lg:py-12 relative overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src="/images/industrial/hero-bg.png"
