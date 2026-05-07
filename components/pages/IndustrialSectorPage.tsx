@@ -168,7 +168,7 @@ export function IndustrialSectorPage() {
                         </RevealSection>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row h-auto lg:h-[600px] border-y theme-transition overflow-hidden" style={{ borderColor: "var(--border-color)" }}>
+                    <div className="flex flex-col lg:flex-row h-auto lg:h-150 border-y theme-transition overflow-hidden" style={{ borderColor: "var(--border-color)" }}>
                         {[
                             {
                                 num: "01",
@@ -279,7 +279,7 @@ export function IndustrialSectorPage() {
                         fill
                         className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/80 z-10" />
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/80 transition-colors duration-700 z-10" />
                 </div>
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20">
                     <RevealSection>

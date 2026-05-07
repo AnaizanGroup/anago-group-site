@@ -54,7 +54,7 @@ export function AboutPage() {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-black/80 z-10" />
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/80 transition-colors duration-700 z-10" />
                 </div>
 
                 <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full text-center">

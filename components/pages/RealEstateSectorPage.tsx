@@ -204,12 +204,17 @@ const RealEstateSectorPage = () => {
                 }
                 .embla__container {
                     display: flex;
-                    margin-left: -2rem;
+                    margin-left: -20px;
                 }
                 .embla__slide {
                     flex: 0 0 100%;
                     min-width: 0;
-                    padding-left: 2rem;
+                    padding-left: 20px;
+                }
+                @media (min-width: 768px) {
+                    .embla__slide { flex: 0 0 50%; }
+                    .embla__container { margin-left: -40px; }
+                    .embla__slide { padding-left: 40px; }
                 }
             `}</style>
 
@@ -223,7 +228,7 @@ const RealEstateSectorPage = () => {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-black/70 z-10" />
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/80 transition-colors duration-700 z-10" />
                 </div>
 
 
@@ -237,7 +242,7 @@ const RealEstateSectorPage = () => {
 
                         <RevealSection delay={200}>
                             <h1 className="font-serif text-5xl sm:text-7xl font-semibold tracking-tight text-white leading-[0.95] mb-10">
-                                {T("re_hero_title", "Real Estate & Construction — ")}<span className="gold-gradient italic">{T("re_hero_title_gold", "Building Sustainable Infrastructure")}</span>
+                                {T("re_hero_title", "Real Estate & Construction — ")}<span className="gold-gradient">{T("re_hero_title_gold", "Building Sustainable Infrastructure")}</span>
                             </h1>
                         </RevealSection>
 
@@ -349,69 +354,89 @@ const RealEstateSectorPage = () => {
                                 {T("re_activity_subtitle", "Integrated real estate and construction services spanning the full project lifecycle.")}
                             </p>
                         </RevealSection>
+                    </div>
 
-                        <div className="flex items-center gap-4">
+                    <div className="relative group/carousel lg:px-16">
+                        {/* Desktop Navigation Buttons - Sides */}
+                        <div className="hidden lg:block">
                             <button
                                 onClick={scrollPrev}
                                 disabled={!canScrollPrev}
-                                className={`w-14 h-14 rounded-full border flex items-center justify-center transition-all ${!canScrollPrev ? 'opacity-20 cursor-not-allowed' : 'hover:bg-gold-500 hover:border-gold-500 group'}`}
+                                className={`absolute -left-10 top-1/2 -translate-y-1/2 z-30 w-16 h-16 rounded-full border flex items-center justify-center bg-card-bg/90 backdrop-blur-md transition-all shadow-xl ${!canScrollPrev ? 'opacity-0 scale-90 pointer-events-none' : 'hover:bg-gold-500 hover:border-gold-500 group opacity-100 translate-x-0'}`}
                                 style={{ borderColor: "var(--border-color)" }}
                             >
-                                <ChevronRight className="w-6 h-6 rotate-180 group-hover:text-navy-950" />
+                                <ChevronRight className="w-6 h-6 rotate-180 group-hover:text-navy-950 transition-colors" />
                             </button>
                             <button
                                 onClick={scrollNext}
                                 disabled={!canScrollNext}
-                                className={`w-14 h-14 rounded-full border flex items-center justify-center transition-all ${!canScrollNext ? 'opacity-20 cursor-not-allowed' : 'hover:bg-gold-500 hover:border-gold-500 group'}`}
+                                className={`absolute -right-10 top-1/2 -translate-y-1/2 z-30 w-16 h-16 rounded-full border flex items-center justify-center bg-card-bg/90 backdrop-blur-md transition-all shadow-xl ${!canScrollNext ? 'opacity-0 scale-90 pointer-events-none' : 'hover:bg-gold-500 hover:border-gold-500 group opacity-100 translate-x-0'}`}
                                 style={{ borderColor: "var(--border-color)" }}
                             >
-                                <ChevronRight className="w-6 h-6 group-hover:text-navy-950" />
+                                <ChevronRight className="w-6 h-6 group-hover:text-navy-950 transition-colors" />
                             </button>
                         </div>
-                    </div>
 
-                    <div className="embla" ref={emblaRef}>
-                        <div className="embla__container">
-                            {activities.map((activity, idx) => (
-                                <div key={idx} className="embla__slide">
-                                    <div className="group relative p-12 lg:p-20 rounded-[3rem] border overflow-hidden shadow-2xl theme-transition flex flex-col lg:flex-row items-center gap-16" style={{ backgroundColor: "var(--card-bg)", borderColor: "var(--border-color)", minHeight: "600px" }}>
-                                        {/* Background Image with stronger visibility since it's the main focus */}
-                                        <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-20 transition-opacity duration-1000">
-                                            <Image src={activity.img} alt={activity.title} fill className="object-cover scale-105 group-hover:scale-100 transition-transform duration-2000" />
-                                        </div>
+                        {/* Mobile Navigation Buttons */}
+                        <div className="flex lg:hidden items-center justify-center gap-4 mb-10">
+                            <button
+                                onClick={scrollPrev}
+                                disabled={!canScrollPrev}
+                                className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all ${!canScrollPrev ? 'opacity-20' : 'active:scale-95'}`}
+                                style={{ borderColor: "var(--border-color)" }}
+                            >
+                                <ChevronRight className="w-5 h-5 rotate-180" />
+                            </button>
+                            <button
+                                onClick={scrollNext}
+                                disabled={!canScrollNext}
+                                className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all ${!canScrollNext ? 'opacity-20' : 'active:scale-95'}`}
+                                style={{ borderColor: "var(--border-color)" }}
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        </div>
 
-                                        <div className="lg:w-1/2 relative z-10">
-                                            <div className="activity-card-number static! opacity-10! mb-6" style={{ color: "var(--text-primary)" }}>{activity.id}</div>
-                                            <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mb-10 shadow-2xl transition-transform group-hover:rotate-12 duration-700 ${activity.color === 'green' ? 'bg-emerald-600 text-white' : activity.color === 'gold' ? 'bg-gold-500 text-navy-950' : 'bg-navy-900 text-white'}`}>
-                                                {React.cloneElement(activity.icon as React.ReactElement<{ className?: string }>, { className: "w-10 h-10" })}
+                        <div className="embla overflow-hidden" ref={emblaRef}>
+                            <div className="embla__container flex -ml-5 md:-ml-10">
+                                {activities.map((activity, idx) => (
+                                    <div key={idx} className="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] min-w-0 pl-[20px] md:pl-[40px]">
+                                        <div className="group relative p-10 lg:p-14 rounded-[2.5rem] border overflow-hidden shadow-2xl theme-transition h-full flex flex-col" style={{ backgroundColor: "var(--card-bg)", borderColor: "var(--border-color)", minHeight: "550px" }}>
+                                            {/* Background Image with stronger visibility since it's the main focus */}
+                                            <div className="absolute inset-0 z-0  opacity-15 group-hover:opacity-10 transition-opacity duration-1000">
+                                                <Image src={activity.img} alt={activity.title} fill className="object-cover scale-105 group-hover:scale-100 transition-transform duration-2000" />
                                             </div>
 
-                                            <h3 className="text-4xl lg:text-5xl font-serif font-bold tracking-tight mb-8" style={{ color: "var(--text-primary)" }}>{activity.title}</h3>
-                                            <p className="text-xl font-light leading-relaxed mb-10 opacity-70" style={{ color: "var(--text-secondary)" }}>{activity.desc}</p>
+                                            <div className="relative z-10 flex flex-col h-full">
+                                                <div className="flex items-center justify-between mb-8">
+                                                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl transition-transform group-hover:rotate-12 duration-700 ${activity.color === 'green' ? 'bg-emerald-600 text-white' : activity.color === 'gold' ? 'bg-gold-500 text-navy-950' : 'bg-navy-900 text-white'}`}>
+                                                        {React.cloneElement(activity.icon as React.ReactElement<{ className?: string }>, { className: "w-8 h-8" })}
+                                                    </div>
+                                                    <div className="text-4xl font-serif font-black opacity-10" style={{ color: "var(--text-primary)" }}>{activity.id}</div>
+                                                </div>
 
-                                            <div className="flex flex-wrap gap-3 mb-12">
-                                                {activity.tags.map((tag, i) => (
-                                                    <span key={i} className="text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-xl border bg-white/5 backdrop-blur-md" style={{ borderColor: "var(--border-color)", color: "var(--text-tertiary)" }}>
-                                                        {tag}
-                                                    </span>
-                                                ))}
-                                            </div>
+                                                <h3 className="text-3xl lg:text-4xl font-serif font-bold tracking-tight mb-6" style={{ color: "var(--text-primary)" }}>{activity.title}</h3>
+                                                <p className="text-lg font-light leading-relaxed mb-8 opacity-70 line-clamp-3" style={{ color: "var(--text-secondary)" }}>{activity.desc}</p>
 
-                                            <button className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gold-500 group/btn">
-                                                <span className="border-b border-gold-500/0 group-hover/btn:border-gold-500 transition-all">{T("learn_more", "Learn more")}</span>
-                                                <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform" strokeWidth={3} />
-                                            </button>
-                                        </div>
+                                                <div className="flex flex-wrap gap-2 mb-10">
+                                                    {activity.tags.map((tag, i) => (
+                                                        <span key={i} className="text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-lg border bg-white/5 backdrop-blur-md" style={{ borderColor: "var(--border-color)", color: "var(--text-tertiary)" }}>
+                                                            {tag}
+                                                        </span>
+                                                    ))}
+                                                </div>
 
-                                        <div className="lg:w-1/2 relative z-10 w-full h-full min-h-75 lg:min-h-auto">
-                                            <div className="relative w-full h-full rounded-4xl overflow-hidden shadow-2xl ring-1 ring-white/10">
-                                                <Image src={activity.img} alt={activity.title} fill className="object-cover" />
-                                                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+                                                <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
+                                                    <button className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-gold-500 group/btn">
+                                                        <span>{T("learn_more", "Learn more")}</span>
+                                                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform" strokeWidth={3} />
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
 
@@ -420,7 +445,7 @@ const RealEstateSectorPage = () => {
                             <button
                                 key={i}
                                 onClick={() => emblaApi.scrollTo(i)}
-                                className={`h-1 rounded-full transition-all duration-500 ${selectedIndex === i ? 'w-12 bg-gold-500' : 'w-4 bg-white/10 hover:bg-white/30'}`}
+                                className={`h-1 rounded-full transition-all duration-500 ${selectedIndex === i ? 'w-12 h-2 bg-gold-500' : 'w-4 h-2 dark:bg-white/30 bg-black/30 hover:scale-160'}`}
                             />
                         ))}
                     </div>

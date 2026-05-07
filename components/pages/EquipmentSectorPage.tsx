@@ -144,7 +144,7 @@ export function EquipmentSectorPage() {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-black/60 z-10" />
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/80 transition-colors duration-700 z-10" />
                 </div>
 
 

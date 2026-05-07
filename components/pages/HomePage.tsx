@@ -58,7 +58,7 @@ export function HomePage() {
             <section className="hero-bg relative min-h-screen flex items-center overflow-hidden">
                 {/* Video Background */}
                 <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-black/30 dark:bg-black/70 z-10" /> {/* Overlay for legibility */}
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/80 transition-colors duration-700 z-10" />{/* Overlay for legibility */}
                     <div className="absolute inset-0 bg-linear-to-b from-navy-950/20 via-transparent to-navy-950/40 z-10" />
                     <video
                         autoPlay

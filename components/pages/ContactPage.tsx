@@ -93,7 +93,7 @@ export function ContactPage() {
         setLoading(true);
         console.log(formState);
         // Simulate API call        
-        fetch("https://n8n.devsysteme.online/webhook-test/83feaae2-978a-4bce-94d5-2278f5a63279", {
+        fetch("https://n8n.devsysteme.online/webhook/83feaae2-978a-4bce-94d5-2278f5a63279", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -131,13 +131,13 @@ export function ContactPage() {
     };
 
     const sectors = [
-        { label: T("contact_sector_general"), value: "general", icon: HelpCircle, color: "var(--gold-primary)", bg: "var(--gold-bg)" },
-        { label: T("contact_sector_mining"), value: "mining", icon: Gem, color: "var(--navy-800)", bg: "linear-gradient(135deg,#C8962E,#e7b13f)" },
-        { label: T("contact_sector_industrial"), value: "industrial", icon: Settings, color: "#ffffff", bg: "var(--navy-600)" },
-        { label: T("contact_sector_realestate"), value: "real-estate", icon: Building2, color: "#ffffff", bg: "#1a2744" },
-        { label: T("contact_sector_agriculture"), value: "agriculture", icon: Sprout, color: "#ffffff", bg: "#15803d" },
-        { label: T("contact_sector_equipment"), value: "equipment", icon: Truck, color: "#ffffff", bg: "var(--steel-700)" },
-        { label: T("contact_sector_investment"), value: "investment", icon: Handshake, color: "var(--text-secondary)", bg: "var(--bg-tertiary)" }
+        { label: T("contact_sector_general"), value: "Général", icon: HelpCircle, color: "var(--gold-primary)", bg: "var(--gold-bg)" },
+        { label: T("contact_sector_mining"), value: "Mines", icon: Gem, color: "var(--navy-800)", bg: "linear-gradient(135deg,#C8962E,#e7b13f)" },
+        { label: T("contact_sector_industrial"), value: "Industriel", icon: Settings, color: "#ffffff", bg: "var(--navy-600)" },
+        { label: T("contact_sector_realestate"), value: "Immobilier", icon: Building2, color: "#ffffff", bg: "#1a2744" },
+        { label: T("contact_sector_agriculture"), value: "Agriculture", icon: Sprout, color: "#ffffff", bg: "#15803d" },
+        { label: T("contact_sector_equipment"), value: "Équipement", icon: Truck, color: "#ffffff", bg: "var(--steel-700)" },
+        { label: T("contact_sector_investment"), value: "Investissement", icon: Handshake, color: "var(--text-secondary)", bg: "var(--bg-tertiary)" }
     ];
     const socialChannels = [
         { icon: Linkedin, label: "LinkedIn", href: "#" },
@@ -159,7 +159,7 @@ export function ContactPage() {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-black/70 z-10" />
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/80 transition-colors duration-700 z-10" />
                 </div>
 
                 <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-20 w-full">
@@ -183,7 +183,7 @@ export function ContactPage() {
                         </RevealSection>
 
                         <RevealSection className="flex flex-wrap justify-center w-full gap-6 stagger-5">
-                            <a href="#contact-form" className="btn-gold px-12 py-5 text-xs rounded-2xl inline-flex items-center gap-4 shadow-2xl shadow-gold-500/30">
+                            <a href="#contact-form" className="btn-gold px-12 py-3 text-xs rounded-2xl inline-flex items-center gap-4 shadow-2xl shadow-gold-500/30">
                                 <span className="font-bold tracking-widest uppercase">{T("contact_hero_cta_send")}</span>
                                 <ArrowDownRight className="w-5 h-5" strokeWidth={2.5} />
                             </a>
@@ -228,7 +228,7 @@ export function ContactPage() {
                                                         value={formState.name}
                                                         onChange={handleInputChange}
                                                         placeholder={T("contact_placeholder_name")}
-                                                        className={`w-full px-6 py-5 rounded-2xl border transition-all bg-transparent focus:ring-4 focus:ring-gold-500/10 focus:border-gold-500 outline-hidden ${errors.name ? "border-red-500" : "border-(--border-color)"}`}
+                                                        className={`w-full px-6 py-3 rounded-xl border transition-all bg-transparent focus:ring-4 focus:ring-gold-500/10 focus:border-gold-500 outline-hidden ${errors.name ? "border-red-500" : "border-(--border-color)"}`}
                                                         style={{ color: "var(--text-primary)" }}
                                                     />
                                                 </div>
@@ -241,7 +241,7 @@ export function ContactPage() {
                                                         value={formState.email}
                                                         onChange={handleInputChange}
                                                         placeholder={T("contact_placeholder_email")}
-                                                        className={`w-full px-6 py-5 rounded-2xl border transition-all bg-transparent focus:ring-4 focus:ring-gold-500/10 focus:border-gold-500 outline-hidden ${errors.email ? "border-red-500" : "border-(--border-color)"}`}
+                                                        className={`w-full px-6 py-3 rounded-xl border transition-all bg-transparent focus:ring-4 focus:ring-gold-500/10 focus:border-gold-500 outline-hidden ${errors.email ? "border-red-500" : "border-(--border-color)"}`}
                                                         style={{ color: "var(--text-primary)" }}
                                                     />
                                                 </div>
@@ -256,9 +256,60 @@ export function ContactPage() {
                                                     value={formState.subject}
                                                     onChange={handleInputChange}
                                                     placeholder={T("contact_placeholder_subject")}
-                                                    className={`w-full px-6 py-5 rounded-2xl border transition-all bg-transparent focus:ring-4 focus:ring-gold-500/10 focus:border-gold-500 outline-hidden ${errors.subject ? "border-red-500" : "border-(--border-color)"}`}
+                                                    className={`w-full px-6 py-3 rounded-xl border transition-all bg-transparent focus:ring-4 focus:ring-gold-500/10 focus:border-gold-500 outline-hidden ${errors.subject ? "border-red-500" : "border-(--border-color)"}`}
                                                     style={{ color: "var(--text-primary)" }}
                                                 />
+                                            </div>
+
+                                            {/* Activity / Sector Select */}
+                                            <div className="space-y-3 relative" ref={selectRef}>
+                                                <label className="text-xs font-bold uppercase tracking-widest opacity-60" style={{ color: "var(--text-primary)" }}>{T("contact_label_sector", "Activity / Sector")}</label>
+                                                <div
+                                                    onClick={() => setIsSelectOpen(!isSelectOpen)}
+                                                    className={`w-full px-6 py-3 rounded-xl border transition-all bg-transparent cursor-pointer flex items-center justify-between group ${isSelectOpen ? "border-gold-500 ring-4 ring-gold-500/10" : "border-(--border-color)"}`}
+                                                >
+                                                    <div className="flex items-center gap-3">
+                                                        {selectedSector ? (
+                                                            <>
+                                                                <div className="w-6 h-6 rounded-md flex items-center justify-center shrink-0" style={{ background: sectors.find(s => s.value === selectedSector.value)?.bg, color: sectors.find(s => s.value === selectedSector.value)?.color }}>
+                                                                    {(() => {
+                                                                        const s = sectors.find(s => s.value === selectedSector.value);
+                                                                        if (!s) return null;
+                                                                        return <s.icon className="w-3.5 h-3.5" />;
+                                                                    })()}
+                                                                </div>
+                                                                <span style={{ color: "var(--text-primary)" }}>{selectedSector.label}</span>
+                                                            </>
+                                                        ) : (
+                                                            <span className="opacity-40" style={{ color: "var(--text-primary)" }}>{T("contact_placeholder_sector", "Select an activity")}</span>
+                                                        )}
+                                                    </div>
+                                                    <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${isSelectOpen ? "-rotate-90" : "rotate-90"}`} style={{ color: "var(--text-primary)" }} />
+                                                </div>
+
+                                                {/* Dropdown Menu */}
+                                                <div className={`absolute left-0 right-0 top-full mt-3 z-50 rounded-3xl border shadow-2xl transition-all duration-300 origin-top ${isSelectOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-95 invisible"}`} style={{ borderColor: "var(--border-color)", backgroundColor: "var(--card-bg)", backdropFilter: "blur(20px)" }}>
+                                                    <div className="p-3 max-h-80 overflow-y-auto scrollbar-thin">
+                                                        {sectors.map((sector) => (
+                                                            <div
+                                                                key={sector.value}
+                                                                onClick={() => {
+                                                                    setSelectedSector({ label: sector.label, value: sector.value });
+                                                                    setFormState(prev => ({ ...prev, sector: sector.value }));
+                                                                    setIsSelectOpen(false);
+                                                                }}
+                                                                className="flex items-center gap-4 p-4 rounded-xl hover:bg-gold-500/10 transition-colors cursor-pointer group/item"
+                                                            >
+                                                                <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-lg" style={{ background: sector.bg, color: sector.color }}>
+                                                                    <sector.icon className="w-5 h-5" />
+                                                                </div>
+                                                                <div className="flex-1 text-left">
+                                                                    <p className="text-sm font-semibold group-hover/item:text-gold-500 transition-colors" style={{ color: "var(--text-primary)" }}>{sector.label}</p>
+                                                                </div>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div className="space-y-3">
@@ -269,7 +320,7 @@ export function ContactPage() {
                                                     value={formState.message}
                                                     onChange={handleInputChange}
                                                     placeholder={T("contact_placeholder_message")}
-                                                    className={`w-full px-6 py-5 rounded-2xl border transition-all bg-transparent focus:ring-4 focus:ring-gold-500/10 focus:border-gold-500 outline-hidden min-h-48 resize-none ${errors.message ? "border-red-500" : "border-(--border-color)"}`}
+                                                    className={`w-full px-6 py-3 rounded-xl border transition-all bg-transparent focus:ring-4 focus:ring-gold-500/10 focus:border-gold-500 outline-hidden min-h-48 resize-none ${errors.message ? "border-red-500" : "border-(--border-color)"}`}
                                                     style={{ color: "var(--text-primary)" }}
                                                 />
                                             </div>
@@ -277,7 +328,7 @@ export function ContactPage() {
                                             <button
                                                 type="submit"
                                                 disabled={loading}
-                                                className="btn-gold w-full py-6 rounded-2xl flex items-center justify-center gap-4 group disabled:opacity-70"
+                                                className="btn-gold w-full py-3 rounded-xl flex items-center justify-center gap-4 group disabled:opacity-70"
                                             >
                                                 {loading ? (
                                                     <div className="w-6 h-6 border-3 border-navy-950/20 border-t-navy-950 rounded-full animate-spin"></div>
@@ -291,9 +342,9 @@ export function ContactPage() {
                                         </form>
 
                                         {/* Success State */}
-                                        <div className={`absolute inset-0 flex flex-col items-center justify-center text-center p-10 bg-white dark:bg-navy-950 z-20 transition-all duration-500 ${success ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-10"}`}>
+                                        <div className={`absolute inset-0 flex flex-col items-center justify-center text-center p-10 z-20 transition-all duration-500 ${success ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-10"}`} style={{ background: "var(--card-bg)" }}>
                                             <div className="w-24 h-24 rounded-full bg-gold-500/10 flex items-center justify-center mb-8">
-                                                <CheckCircle className="w-12 h-12 text-gold-500" />
+                                                <CheckCircle className="w-12 h-12" style={{ color: "var(--gold-primary)" }} />
                                             </div>
                                             <h3 className="text-3xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>{T("contact_success_title")}</h3>
                                             <p className="text-lg opacity-60 mb-10 max-w-sm" style={{ color: "var(--text-secondary)" }}>{T("contact_success_desc")}</p>
@@ -323,7 +374,7 @@ export function ContactPage() {
                                             </div>
                                             <div>
                                                 <h3 className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "var(--gold-primary)" }}>{item.title}</h3>
-                                                <p className="text-xl leading-relaxed whitespace-pre-line" style={{ color: "var(--text-primary)" }}>{item.content}</p>
+                                                <p className="text-md leading-relaxed whitespace-pre-line" style={{ color: "var(--text-primary)" }}>{item.content}</p>
 
                                             </div>
                                         </div>
@@ -357,13 +408,13 @@ export function ContactPage() {
                                 onChange={(e) => setNewsletterEmail(e.target.value)}
                                 placeholder={T("contact_newsletter_placeholder")}
                                 required
-                                className="flex-1 bg-transparent px-8 py-5 outline-hidden placeholder:opacity-30"
+                                className="flex-1 bg-transparent px-8 py-3 outline-hidden placeholder:opacity-30"
                                 style={{ color: "var(--text-primary)" }}
                             />
                             <button
                                 type="submit"
                                 disabled={newsletterLoading}
-                                className="btn-gold px-10 py-5 rounded-2xl font-bold tracking-widest uppercase transition-all shadow-2xl shadow-gold-500/40"
+                                className="btn-gold px-10 py-3 rounded-2xl font-bold tracking-widest uppercase transition-all shadow-2xl shadow-gold-500/40"
                             >
                                 {newsletterLoading ? <div className="w-6 h-6 border-3 border-navy-950/20 border-t-navy-950 rounded-full animate-spin" /> : T("contact_newsletter_btn")}
                             </button>

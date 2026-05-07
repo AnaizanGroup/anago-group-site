@@ -93,9 +93,9 @@ export function Navbar() {
                                             <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-steel-700"><Truck className="w-5 h-5 text-white" /></div>
                                             <div><p className={`text-sm font-semibold group-hover/item:text-gold-500 transition-colors ${isActive("/industries/equipment") || isActive("/industries/equipment-supply") ? "text-gold-500" : ""}`} style={{ color: isActive("/industries/equipment") || isActive("/industries/equipment-supply") ? "" : "var(--text-primary)" }}>{T("s_equip_title", "Equipment Supply")}</p><p className="text-[11px] mt-0.5 font-medium opacity-60" style={{ color: "var(--text-secondary)" }}>{T("s_equip_desc", "Supply, maintenance & rental")}</p></div>
                                         </Link>
-                                        <Link href="/industries" className={`mega-menu-item flex items-start gap-3.5 p-3.5 rounded-xl group/item ${isActive("/industries") ? "shadow-inner" : ""}`} style={{ background: isActive("/industries") ? "rgba(200, 150, 46, 0.15)" : "var(--gold-bg)" }}>
+                                        <Link href="#" className={`mega-menu-item flex items-start gap-3.5 p-3.5 rounded-xl opacity-80 hover:opacity-100 transition-opacity`} >
                                             <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "linear-gradient(135deg,#0A1628,#C8962E)" }}><LayoutGrid className="w-5 h-5 text-white" /></div>
-                                            <div><p className="text-sm font-semibold transition-colors" style={{ color: isActive("/industries") ? "black" : "var(--gold-primary)" }}>{T("s_all_title", "View All Activities")}</p><p className="text-[11px] mt-0.5 font-medium opacity-60" style={{ color: isActive("/industries") ? "black" : "var(--text-secondary)" }}>{T("s_all_desc", "Complete portfolio overview")}</p></div>
+                                            <div><p className="text-sm font-semibold transition-colors" style={{ color: theme === 'light' ? 'black' : 'white' }}>{T("s_all_title", "View All Activities")}</p><p className="text-[11px] mt-0.5 font-medium opacity-60" style={{ color: theme === 'light' ? '#4A5568' : 'var(--text-secondary)' }}>{T("s_all_desc", "Complete portfolio overview")}</p></div>
                                         </Link>
                                     </div>
                                     {/* <div className="px-6 py-3.5 border-t flex items-center justify-between" style={{ borderColor: "var(--border-color)", background: "var(--bg-secondary)" }}>
@@ -195,7 +195,7 @@ export function Navbar() {
                                 <Link href="/industries/equipment" className="px-4 py-2 text-xs font-medium hover:text-gold-400 transition-colors flex items-center gap-2" style={{ color: "var(--text-secondary)" }}>
                                     <Truck className="w-3.5 h-3.5" /> <span>{T("s_equip_title")}</span>
                                 </Link>
-                                <Link href="/industries" className="px-4 py-2 text-xs font-bold text-gold-400 flex items-center gap-2">
+                                <Link href="#" className={`px-4 py-2 text-xs font-bold flex items-center gap-2 rounded-lg ${theme === 'light' ? 'text-secondary' : 'text-gray-400'}`}>
                                     <LayoutGrid className="w-3.5 h-3.5" /> <span>{T("s_all_title")}</span>
                                 </Link>
                             </div>
